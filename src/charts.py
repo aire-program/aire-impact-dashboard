@@ -3,15 +3,15 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 PALETTE = {
-    "primary": "#0F5B4C",
-    "primary_dark": "#0B3E34",
-    "accent": "#2E8F75",
-    "muted": "#5F6C72",
-    "soft": "#E6F0EC",
+    "primary": "#09728B",
+    "primary_dark": "#066F91",
+    "accent": "#0BA6C5",
+    "muted": "#5A6A73",
+    "soft": "#E6F3F7",
     "warning": "#B47515",
 }
 
-COLORWAY = [PALETTE["primary"], PALETTE["accent"], "#3E6A9C", "#7C3F87", "#4A4A4A"]
+COLORWAY = [PALETTE["primary"], PALETTE["accent"], "#0A4D64", "#7C3F87", "#4A4A4A"]
 
 
 def _apply_layout_defaults(fig: go.Figure, title: str) -> go.Figure:
@@ -21,6 +21,11 @@ def _apply_layout_defaults(fig: go.Figure, title: str) -> go.Figure:
         colorway=COLORWAY,
         margin=dict(l=20, r=20, t=60, b=20),
         hoverlabel=dict(bgcolor="white"),
+        plot_bgcolor="#f9fbfd",
+        paper_bgcolor="#f9fbfd",
+        xaxis=dict(showgrid=False, zeroline=False, linecolor="#d8e3ea", title_font=dict(size=12)),
+        yaxis=dict(showgrid=True, gridcolor="#dfe9ef", zeroline=False, title_font=dict(size=12)),
+        font=dict(color=PALETTE["primary_dark"]),
     )
     return fig
 
@@ -52,7 +57,7 @@ def make_confidence_change_chart(impact_df: pd.DataFrame):
     melted = impact_df.melt(id_vars=["metric"], value_vars=["pre_mean", "post_mean"], var_name="stage", value_name="score")
     fig = px.bar(melted, x="metric", y="score", color="stage", barmode="group", color_discrete_sequence=[PALETTE["primary"], PALETTE["accent"]])
     fig.update_layout(yaxis_title="Average Score (1-5)")
-    fig.update_traces(hovertemplate="%{x} | %{legendgroup}: %{y:.2f}")
+    fig.update_traces(hovertemplate="%{x} | %{legendgroup}: %{y:.2f}", marker_line_color="#ffffff", marker_line_width=0.5)
     return _apply_layout_defaults(fig, "Confidence Change (Pre vs Post)")
 
 
@@ -74,7 +79,7 @@ def make_reflection_sentiment_bar(sentiment_df: pd.DataFrame):
         return _apply_layout_defaults(fig, "Reflection Sentiment")
     fig = px.bar(sentiment_df, x="sentiment", y="count", color="sentiment", color_discrete_map={"positive": PALETTE["primary"], "neutral": PALETTE["muted"], "negative": PALETTE["warning"]})
     fig.update_layout(xaxis_title="Sentiment", yaxis_title="Count")
-    fig.update_traces(hovertemplate="%{x}: %{y}")
+    fig.update_traces(hovertemplate="%{x}: %{y}", marker_line_color="#ffffff", marker_line_width=0.5)
     return _apply_layout_defaults(fig, "Reflection Sentiment")
 
 
@@ -85,7 +90,7 @@ def make_theme_distribution_bar(theme_df: pd.DataFrame):
         return _apply_layout_defaults(fig, "Reflection Themes")
     fig = px.bar(theme_df, x="theme", y="count", color_discrete_sequence=[PALETTE["primary"]])
     fig.update_layout(xaxis_title="Theme", yaxis_title="Count")
-    fig.update_traces(hovertemplate="%{x}: %{y}")
+    fig.update_traces(hovertemplate="%{x}: %{y}", marker_line_color="#ffffff", marker_line_width=0.5)
     return _apply_layout_defaults(fig, "Reflection Themes")
 
 
@@ -106,4 +111,6 @@ def make_department_readiness_scatter(readiness_df: pd.DataFrame):
     )
     fig.update_traces(textposition="top center", hovertemplate="%{text}<br>Coverage: %{x:.0%}<br>Readiness: %{y:.0%}<br>Participants: %{marker.size}")
     fig.update_layout(xaxis_tickformat=".0%", yaxis_tickformat=".0%")
+    fig.add_hline(y=0.7, line_dash="dot", line_color=PALETTE["muted"], annotation_text="Readiness target 70%", annotation_position="top left")
+    fig.add_vline(x=0.7, line_dash="dot", line_color=PALETTE["muted"], annotation_text="Coverage target 70%", annotation_position="bottom right")
     return _apply_layout_defaults(fig, "Department Readiness vs Coverage")

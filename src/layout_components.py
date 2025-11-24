@@ -53,17 +53,50 @@ def inject_styles():
         }}
         /* Top banner */
         .aire-banner {{
-            background: #0b3e34;
-            color: #f4fbf8;
+            background: var(--primary-dark);
+            color: #f2fbff;
             padding: 14px 18px;
             border-radius: 12px;
             margin-bottom: 12px;
         }}
-        .aire-banner strong {{ color: #f4fbf8; }}
+        .aire-banner strong {{ color: #f2fbff; }}
         .metric-card-title {{
             display: flex; gap: 6px; align-items: center;
             font-weight: 600;
             color: var(--primary-dark);
+        }}
+        .stTabs [role="tablist"] button {{
+            background: transparent;
+            border: none;
+            color: var(--primary-dark);
+            padding: 8px 12px;
+            border-radius: 0;
+            margin-right: 6px;
+            box-shadow: none;
+        }}
+        .stTabs [role="tablist"] button[aria-selected="true"] {{
+            background: transparent;
+            border: none;
+            color: var(--primary);
+            box-shadow: inset 0 -2px 0 0 var(--primary);
+        }}
+        .stTabs [role="tablist"] button:hover {{
+            background: transparent;
+            border: none;
+            color: var(--primary);
+            box-shadow: inset 0 -2px 0 0 #b7dbe8;
+        }}
+        .stMetric > div {{
+            background: #ffffff;
+            border: 1px solid #e2ebf0;
+            border-radius: 12px;
+            padding: 8px 10px;
+        }}
+        .executive-card {{
+            background:#f7fbfd;
+            border:1px solid #dbe9f1;
+            border-radius:12px;
+            padding:14px 16px;
         }}
         .lucide {{ display:inline-flex; vertical-align:middle; }}
         </style>
@@ -225,7 +258,7 @@ def render_department_focus(dept_name: str, adoption_df, readiness_df, timeserie
 def render_executive_notes(notes: List[str]):
     st.markdown(
         f"""
-        <div style="background:#f6faf7;border:1px solid #dce9e3;border-radius:12px;padding:14px 16px;">
+        <div class="executive-card">
             <div class="metric-card-title"><span class="lucide">{LUCIDE_ICONS["notes"]}</span>Executive Notes</div>
         </div>
         """,

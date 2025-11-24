@@ -114,6 +114,7 @@ def main():
 
     avg_completion = completion_df["value"].iloc[0] if not completion_df.empty else 0
     total_attendance = int(timeseries_df["attendances"].sum()) if not timeseries_df.empty else 0
+    last_refreshed = workshops["date"].max()
 
     tabs = st.tabs(
         [
@@ -127,6 +128,7 @@ def main():
     )
 
     with tabs[0]:
+        st.caption(f"Last refreshed: {last_refreshed.strftime('%Y-%m-%d')}")
         render_overview_section(adoption_overall, coverage_rate, avg_completion, total_attendance)
         top_ready = (
             readiness_df.sort_values("current_readiness_score", ascending=False).head(1)["department_name"].iloc[0]
@@ -140,6 +142,12 @@ def main():
             f"Attendance total: {total_attendance:,}; align facilitator capacity to peak months and high-demand formats.",
         ]
         render_executive_notes(exec_notes)
+        st.download_button(
+            "Download overview metrics (CSV)",
+            data=readiness_df.to_csv(index=False),
+            file_name="overview_readiness.csv",
+            mime="text/csv",
+        )
     with tabs[1]:
         render_adoption_section(adoption_df)
         st.dataframe(
@@ -150,12 +158,36 @@ def main():
             hide_index=True,
         )
         render_department_readiness_section(readiness_df)
+        st.download_button(
+            "Download adoption & readiness data (CSV)",
+            data=adoption_df.merge(readiness_df, on=["department_id", "department_name"], how="left").to_csv(index=False),
+            file_name="adoption_readiness.csv",
+            mime="text/csv",
+        )
     with tabs[2]:
         render_learning_impact_section(impact_summary_df)
+        st.download_button(
+            "Download learning impact (CSV)",
+            data=impact_summary_df.to_csv(index=False),
+            file_name="learning_impact.csv",
+            mime="text/csv",
+        )
     with tabs[3]:
         render_participation_section(timeseries_df, by_format_df, by_audience_df, completion_df)
+        st.download_button(
+            "Download engagement data (CSV)",
+            data=timeseries_df.to_csv(index=False),
+            file_name="engagement_timeseries.csv",
+            mime="text/csv",
+        )
     with tabs[4]:
         render_reflection_section(sentiment_df, theme_df)
+        st.download_button(
+            "Download reflections summary (CSV)",
+            data=theme_df.to_csv(index=False),
+            file_name="reflections_themes.csv",
+            mime="text/csv",
+        )
     with tabs[5]:
         focus_options = selected_depts if selected_depts else list(departments["department_id"])
         focus_dept = st.selectbox(
@@ -183,6 +215,12 @@ def main():
         )
         dept_themes = dept_reflection["themes"]
         render_department_focus(focus_name, dept_adopt, dept_ready, dept_timeseries, dept_themes)
+        st.download_button(
+            "Download department snapshot (CSV)",
+            data=dept_ready.to_csv(index=False),
+            file_name=f"{focus_dept}_snapshot.csv",
+            mime="text/csv",
+        )
 
 
 if __name__ == "__main__":

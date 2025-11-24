@@ -172,8 +172,11 @@ def main():
             audience_filter,
         )
         dept_timeseries = dept_engagement["timeseries"]
+        reflections_with_dept = reflections.merge(
+            participants[["participant_id", "department_id", "role"]], on="participant_id", how="left"
+        )
         dept_reflection = compute_reflection_sentiment(
-            filter_by_departments(reflections, "department_id", [focus_dept]),
+            filter_by_departments(reflections_with_dept, "department_id", [focus_dept]),
             participants,
             filtered_department_ids=[focus_dept],
             filtered_roles=role_filter,

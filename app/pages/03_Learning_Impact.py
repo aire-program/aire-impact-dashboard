@@ -4,7 +4,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '.
 
 import streamlit as st
 import plotly.graph_objects as go
-from app.layout import render_header, render_footer
+from app.layout import render_header, render_footer, render_sidebar_filters, apply_filters
 from app.data_loader import load_all_data
 from app.kpi_calculations import calculate_confidence_deltas
 
@@ -12,11 +12,22 @@ render_header()
 
 st.title("Learning Impact")
 
+# Load all data
 data = load_all_data()
+
+# Render sidebar filters and get selections
+filters = render_sidebar_filters(data["departments"])
+
+# Apply filters to data
+filtered_data = apply_filters(data, filters)
+
+# Display filter info
+if len(filters["departments"]) < len(data["departments"]["department_name"].unique()):
+    st.info(f"📊 Showing data for {len(filters['departments'])} department(s)")
 
 st.subheader("Confidence Shifts (Pre vs Post)")
 
-deltas = calculate_confidence_deltas(data["assessments_pre"], data["assessments_post"])
+deltas = calculate_confidence_deltas(filtered_data["assessments_pre"], filtered_data["assessments_post"])
 
 # Radar Chart for Deltas
 categories = [

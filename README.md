@@ -1,27 +1,33 @@
-# AIRE Impact Dashboard (Synthetic Data)
+# AIRE Impact Dashboard (Synthetic Data Mirror)
+Applied AI Innovation & Research Enablement (AIRE) | College of Social Science | Michigan State University
 
-Applied AI Innovation & Research Enablement (AIRE) | College of Social Science, Michigan State University
+## Purpose Within the AIRE Constellation
+- **WHAT:** Decision-support pillar alongside the AIRE Literacy Hub (responsible AI training) and the AIRE Researcher Sandbox (research experimentation).
+- **WHY:** Leadership, program directors, and analysts need a clear view of institutional impact, departmental readiness, confidence growth, and adoption trends to steer responsible AI uptake.
+- **HOW:** Integrates adoption, readiness, confidence, engagement, and qualitative signals so resources can be targeted to departments and audiences that need support.
 
-## Institutional Context
-This dashboard mirrors an internally deployed AIRE Impact Dashboard originally hosted on MSU systems to help leadership, program managers, and analysts understand the impact of an AI literacy initiative. The GitHub version ships **only synthetic dummy data** that mimics realistic patterns; no institutional data is present. The synthetic data ensures the dashboard is fully populated on first run for transparency, learning, and collaboration.
+## Institutional Positioning
+- **WHAT:** A professional program-evaluation instrument for monitoring reach, training effectiveness, adoption trajectories, and departmental needs.
+- **WHY:** Supports evidence-based planning, accreditation, and continuous improvement across teaching, research, and administrative workflows.
+- **HOW:** Provides transparent metrics for leadership to identify where responsible AI training is succeeding and where additional support structures are required.
 
-## What You Can Explore
-- Aggregate analytics across all departments.
-- Any combination of departments through the department multiselect.
-- Single-department deep dives.
-- Filters by user group (faculty, staff, graduate students, and mixed audiences) that update every chart.
-- Date-range filtering across workshops and reflections.
+## Rationale for an Institutional Analytics Layer
+- **WHAT:** A centralized view of uptake, competencies, and equity of access as AI adoption accelerates across the college.
+- **WHY:** Ensures readiness, transparency, and stewardship; anchors reporting to Deans and program directors; supports governance and equitable access.
+- **HOW:** Combines readiness, training coverage, participant adoption levels, and confidence growth to inform strategic investments and faculty development.
 
-## Key KPIs and Sections
-- **Overview:** Adoption index, coverage, completion, and total attendances for the selected filters.
-- **AI Adoption & Readiness:** Composite adoption index (readiness, coverage, participant adoption levels).
-- **Learning Outcomes & Confidence:** Pre/post confidence and responsible AI understanding with effect deltas.
-- **Participation & Engagement:** Attendance over time plus breakdown by format and audience.
-- **Reflections & Sentiment:** Qualitative themes and sentiment distribution from participant reflections.
-- **Department Readiness Matrix:** Readiness vs. coverage with participant volume context.
+## Synthetic Data Notice
+- **WHAT:** This public GitHub version ships with realistic but entirely synthetic data.
+- **WHY:** The internal dashboard uses secure institutional data; the public mirror exists for transparency, reproducibility, and collaborative review of the approach.
+- **HOW:** Synthetic datasets populate every chart on first load, demonstrating the infrastructure without exposing institutional records.
 
-## Synthetic Data
-Located in `data/synthetic/`. Files include workshops, participants, confidence surveys (pre/post), reflections, and departments. Data spans over a year, covers 12 departments, multiple user groups, and is structured so charts are populated by default while remaining realistic.
+## Dashboard Sections (WHAT / WHY / HOW)
+- **Overview & Governance Signals:** WHAT: adoption index, coverage, completion, attendance footprint. WHY: situational awareness for Deans/program directors. HOW: prioritize support for emerging demand or celebrate units exceeding targets.
+- **AI Adoption & Departmental Readiness:** WHAT: composite adoption index plus readiness vs. coverage with targets. WHY: spot prepared vs. at-risk departments. HOW: direct resources to units below coverage/readiness targets; replicate practices from high performers.
+- **Learning Outcomes & Confidence:** WHAT: pre/post confidence and responsible AI understanding deltas. WHY: validate training effectiveness. HOW: adjust modality and follow-on supports based on audience gains.
+- **Participation & Engagement:** WHAT: attendance over time, format/audience breakdowns, completion. WHY: optimize scheduling and staffing. HOW: align facilitators to peak months and effective formats.
+- **Reflections & Sentiment:** WHAT: themed qualitative feedback with sentiment mix. WHY: surface early signals on adoption, risks, and support needs. HOW: address recurring themes (ethical concerns, assessment) with targeted guidance.
+- **Department Focus:** WHAT: targeted snapshot for a selected department. WHY: brief chairs/associate deans with tailored insight. HOW: calibrate supports and track progress against readiness and coverage targets.
 
 ## Filters and How They Work
 - **Date range:** Limits workshops, surveys, and reflections to the selected window.
@@ -33,19 +39,11 @@ Located in `data/synthetic/`. Files include workshops, participants, confidence 
 pip install -r requirements.txt
 streamlit run app.py
 ```
-Streamlit opens at the provided local URL with all charts populated from the synthetic dataset.
+All charts are populated from synthetic data on first load.
 
 ## Testing and CI
 - Run tests locally with `pytest`.
 - GitHub Actions (`.github/workflows/ci.yml`) installs dependencies and runs the test suite on push/pull_request to `main`.
-
-## Interpretation Guide
-- **Overview cards:** Rapid sense of reach and completion; adoption index is scaled 0–100.
-- **Adoption radar:** Compare readiness and adoption momentum across selected departments.
-- **Confidence change:** Bars show pre vs. post averages; positive deltas indicate learning gains.
-- **Engagement:** Time series highlights demand cycles; format/audience bars show where participation concentrates.
-- **Reflections:** Sentiment mix plus top themes surface qualitative signals and risks.
-- **Readiness matrix:** Bubbles show how coverage correlates with readiness; use filters to isolate divisions.
 
 ## License
 MIT License. See `LICENSE` for details.

@@ -129,6 +129,10 @@ def main():
 
     with tabs[0]:
         st.caption(f"Last refreshed: {last_refreshed.strftime('%Y-%m-%d')}")
+        st.markdown("**Purpose within AIRE:** Decision-support pillar alongside the Literacy Hub and Researcher Sandbox.")
+        st.markdown(
+            "Use this tab for governance signals: readiness, coverage, completion, and attendance to steer resources and celebrate momentum."
+        )
         render_overview_section(adoption_overall, coverage_rate, avg_completion, total_attendance)
         top_ready = (
             readiness_df.sort_values("current_readiness_score", ascending=False).head(1)["department_name"].iloc[0]
@@ -149,6 +153,9 @@ def main():
             mime="text/csv",
         )
     with tabs[1]:
+        st.markdown(
+            "**WHAT:** Adoption index and readiness signals by department. **WHY:** Identify prepared vs. at-risk units. **HOW:** Direct support to departments below coverage/readiness targets; replicate practices from high performers."
+        )
         render_adoption_section(adoption_df)
         st.dataframe(
             adoption_df.sort_values("adoption_index", ascending=False).rename(
@@ -165,6 +172,9 @@ def main():
             mime="text/csv",
         )
     with tabs[2]:
+        st.markdown(
+            "**WHAT:** Pre/post confidence and responsible AI understanding. **WHY:** Validate training effectiveness. **HOW:** Adjust modality and follow-on supports based on audience gains."
+        )
         render_learning_impact_section(impact_summary_df)
         st.download_button(
             "Download learning impact (CSV)",
@@ -173,6 +183,9 @@ def main():
             mime="text/csv",
         )
     with tabs[3]:
+        st.markdown(
+            "**WHAT:** Attendance over time, by format, and by audience. **WHY:** Optimize scheduling and staffing. **HOW:** Align facilitators to peak months and formats that sustain completion."
+        )
         render_participation_section(timeseries_df, by_format_df, by_audience_df, completion_df)
         st.download_button(
             "Download engagement data (CSV)",
@@ -181,6 +194,9 @@ def main():
             mime="text/csv",
         )
     with tabs[4]:
+        st.markdown(
+            "**WHAT:** Themed qualitative reflections with sentiment. **WHY:** Surface early signals on adoption, risks, and support needs. **HOW:** Address recurring themes (ethical concerns, assessment) with targeted guidance."
+        )
         render_reflection_section(sentiment_df, theme_df)
         st.download_button(
             "Download reflections summary (CSV)",
@@ -189,6 +205,9 @@ def main():
             mime="text/csv",
         )
     with tabs[5]:
+        st.markdown(
+            "**WHAT:** Targeted snapshot for a selected department. **WHY:** Brief chairs/associate deans with tailored insight. **HOW:** Calibrate supports and track progress against readiness and coverage targets."
+        )
         focus_options = selected_depts if selected_depts else list(departments["department_id"])
         focus_dept = st.selectbox(
             "Department to focus",

@@ -188,9 +188,13 @@ def compute_reflection_sentiment(
     filtered_department_ids: Optional[Iterable[str]] = None,
     filtered_roles: Optional[Iterable[str]] = None,
 ) -> Dict[str, pd.DataFrame]:
-    merged = reflections_df.merge(
-        participants_df[["participant_id", "department_id", "role"]], on="participant_id", how="left"
-    )
+    if "department_id" not in reflections_df.columns or "role" not in reflections_df.columns:
+        merged = reflections_df.merge(
+            participants_df[["participant_id", "department_id", "role"]], on="participant_id", how="left"
+        )
+    else:
+        merged = reflections_df.copy()
+
     merged = _maybe_filter(merged, "department_id", filtered_department_ids)
     merged = filter_by_roles(merged, "role", filtered_roles)
 

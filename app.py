@@ -12,7 +12,9 @@ from src.kpi_calculations import (
 )
 from src.layout_components import (
     render_adoption_section,
+    render_department_focus,
     render_department_readiness_section,
+    render_executive_notes,
     render_header,
     render_learning_impact_section,
     render_overview_section,
@@ -20,6 +22,7 @@ from src.layout_components import (
     render_reflection_section,
     render_sidebar_filters,
 )
+from src.charts import PALETTE
 
 
 @st.cache_data
@@ -112,12 +115,56 @@ def main():
     avg_completion = completion_df["value"].iloc[0] if not completion_df.empty else 0
     total_attendance = int(timeseries_df["attendances"].sum()) if not timeseries_df.empty else 0
 
-    render_overview_section(adoption_overall, coverage_rate, avg_completion, total_attendance)
-    render_adoption_section(adoption_df)
-    render_learning_impact_section(impact_summary_df)
-    render_participation_section(timeseries_df, by_format_df, by_audience_df, completion_df)
-    render_reflection_section(sentiment_df, theme_df)
-    render_department_readiness_section(readiness_df)
+    tabs = st.tabs(
+        [
+            "Overview",
+            "Adoption & Readiness",
+            "Learning Impact",
+            "Engagement",
+            "Reflections",
+            "Department Focus",
+        ]
+    )
+
+    with tabs[0]:
+        render_overview_section(adoption_overall, coverage_rate, avg_completion, total_attendance)
+        top_ready = (
+            readiness_df.sort_values("current_readiness_score", ascending=False).head(1)["department_name"].iloc[0]
+            if not readiness_df.empty
+            else "N/A"
+        )
+        conf_delta = impact_summary_df["delta"].mean() if not impact_summary_df.empty else 0
+        exec_notes = [
+            f"Top readiness: {top_ready}; keep coverage momentum and share playbooks with peers.",
+            f"Confidence delta: {conf_delta:.2f} across metrics; reinforce hands-on practice and responsible use norms.",
+            f"Attendance total: {total_attendance:,}; align facilitator capacity to peak months and high-demand formats.",
+        ]
+        render_executive_notes(exec_notes)
+    with tabs[1]:
+        render_adoption_section(adoption_df)
+        st.dataframe(
+            adoption_df.sort_values("adoption_index", ascending=False).rename(
+                columns={"department_name": "Department", "adoption_index": "Adoption Index"}
+            ),
+            use_container_width=True,
+            hide_index=True,
+        )
+        render_department_readiness_section(readiness_df)
+    with tabs[2]:
+        render_learning_impact_section(impact_summary_df)
+    with tabs[3]:
+        render_participation_section(timeseries_df, by_format_df, by_audience_df, completion_df)
+    with tabs[4]:
+        render_reflection_section(sentiment_df, theme_df)
+    with tabs[5]:
+        if len(selected_depts) == 1:
+            dept_name = departments.set_index("department_id").loc[selected_depts[0], "department_name"]
+            dept_adopt = adoption_df[adoption_df["department_id"] == selected_depts[0]]
+            dept_ready = readiness_df[readiness_df["department_id"] == selected_depts[0]]
+            dept_timeseries = timeseries_df  # already filtered
+            render_department_focus(dept_name, dept_adopt, dept_ready, dept_timeseries, theme_df)
+        else:
+            st.info("Select exactly one department to view the focus panel.")
 
 
 if __name__ == "__main__":

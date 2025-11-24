@@ -1,7 +1,9 @@
-import plotly.express as px
 import streamlit as st
+import plotly.express as px
+from typing import List
 
 from .charts import (
+    PALETTE,
     make_adoption_radar_chart,
     make_confidence_change_chart,
     make_department_readiness_scatter,
@@ -11,11 +13,80 @@ from .charts import (
     make_workshop_engagement_timeseries,
 )
 
+FONT_FAMILY = "'IBM Plex Sans', 'Inter', system-ui, -apple-system, sans-serif"
+
+LUCIDE_ICONS = {
+    "target": "<svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><circle cx='12' cy='12' r='6'/><circle cx='12' cy='12' r='2'/></svg>",
+    "spark": "<svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M5 3v4'/><path d='M19 17v4'/><path d='M3 5h4'/><path d='M17 19h4'/><path d='m6.5 6.5 3 3'/><path d='m14.5 14.5 3 3'/><path d='M10 2h4'/><path d='M10 22h4'/><path d='m7 7 2-2'/><path d='m15 15 2-2'/></svg>",
+    "notes": "<svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M19 21H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l6 6v10a2 2 0 0 1-2 2Z'/><path d='M14 3v4a2 2 0 0 0 2 2h4'/><path d='M9 15h6'/><path d='M9 19h6'/></svg>",
+    "chart": "<svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 3v18h18'/><path d='M7 13l3-3 4 4 5-5'/></svg>",
+    "building": "<svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 21h18'/><path d='M6 21V7l6-4 6 4v14'/><path d='M9 21v-6h6v6'/></svg>",
+}
+
+
+def inject_styles():
+    st.markdown(
+        f"""
+        <style>
+        :root {{
+            --primary: {PALETTE["primary"]};
+            --primary-dark: {PALETTE["primary_dark"]};
+            --accent: {PALETTE["accent"]};
+            --soft: {PALETTE["soft"]};
+            --muted: {PALETTE["muted"]};
+        }}
+        html, body, [class*="css"]  {{
+            font-family: {FONT_FAMILY};
+        }}
+        h1, h2, h3, h4, h5, h6 {{
+            font-weight: 700;
+            color: var(--primary-dark);
+        }}
+        /* Tag chips */
+        div[data-baseweb="tag"] {{
+            background-color: var(--soft);
+            color: var(--primary-dark);
+            border: 1px solid #b7d1c7;
+        }}
+        /* Top banner */
+        .aire-banner {{
+            background: #0b3e34;
+            color: #f4fbf8;
+            padding: 14px 18px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }}
+        .aire-banner strong {{ color: #f4fbf8; }}
+        .metric-card-title {{
+            display: flex; gap: 6px; align-items: center;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }}
+        .lucide {{ display:inline-flex; vertical-align:middle; }}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
 
 def render_header():
-    st.title("AIRE Impact Dashboard (Synthetic Data)")
-    st.caption(
-        "Applied AI Innovation & Research Enablement | Michigan State University | Synthetic, non-production mirror"
+    inject_styles()
+    st.markdown(
+        f"""
+        <div class="aire-banner">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;">
+                <div style="display:flex;gap:10px;align-items:center;">
+                    <span class="lucide">{LUCIDE_ICONS["building"]}</span>
+                    <div>
+                        <div style="font-size:18px;font-weight:700;letter-spacing:0.2px;">AIRE Impact Dashboard</div>
+                        <div style="font-size:13px;opacity:0.9;">Applied AI Innovation & Research Enablement | Michigan State University</div>
+                    </div>
+                </div>
+                <div style="font-size:12px;opacity:0.9;">Synthetic data mirror for demo & collaboration</div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
 
 
@@ -88,14 +159,14 @@ def render_participation_section(timeseries_df, by_format_df, by_audience_df, co
         col3.info("No data for this selection")
     else:
         col3.plotly_chart(
-            px.bar(by_format_df, x="format", y="attendances", title="Engagement by Format"),
+            px.bar(by_format_df, x="format", y="attendances", title="Engagement by Format", color_discrete_sequence=[PALETTE["primary"]]),
             use_container_width=True,
         )
     if by_audience_df.empty:
         col4.info("No data for this selection")
     else:
         col4.plotly_chart(
-            px.bar(by_audience_df, x="audience", y="attendances", title="Engagement by Audience"),
+            px.bar(by_audience_df, x="audience", y="attendances", title="Engagement by Audience", color_discrete_sequence=[PALETTE["accent"]]),
             use_container_width=True,
         )
 
@@ -121,3 +192,41 @@ def render_department_readiness_section(readiness_df):
     )
     fig = make_department_readiness_scatter(readiness_df)
     st.plotly_chart(fig, use_container_width=True)
+
+
+def render_department_focus(dept_name: str, adoption_df, readiness_df, timeseries_df, themes_df):
+    st.markdown(f"### {dept_name} Focus")
+    st.write(
+        "Targeted snapshot for the selected department with adoption, readiness, and engagement highlights."
+    )
+    col1, col2 = st.columns(2)
+    if not adoption_df.empty:
+        col1.dataframe(adoption_df[["department_name", "adoption_index"]].rename(columns={"department_name": "Department", "adoption_index": "Adoption Index"}), use_container_width=True, hide_index=True)
+    if not readiness_df.empty:
+        col2.dataframe(
+            readiness_df[["department_name", "training_coverage_rate", "current_readiness_score", "participant_count"]].rename(
+                columns={
+                    "department_name": "Department",
+                    "training_coverage_rate": "Coverage",
+                    "current_readiness_score": "Readiness",
+                    "participant_count": "Participants",
+                }
+            ),
+            use_container_width=True,
+            hide_index=True,
+        )
+    st.plotly_chart(make_workshop_engagement_timeseries(timeseries_df), use_container_width=True)
+    st.plotly_chart(make_theme_distribution_bar(themes_df), use_container_width=True)
+
+
+def render_executive_notes(notes: List[str]):
+    st.markdown(
+        f"""
+        <div style="background:#f6faf7;border:1px solid #dce9e3;border-radius:12px;padding:14px 16px;">
+            <div class="metric-card-title"><span class="lucide">{LUCIDE_ICONS["notes"]}</span>Executive Notes</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    for note in notes:
+        st.markdown(f"- {note}")

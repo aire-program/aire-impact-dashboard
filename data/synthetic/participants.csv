@@ -1,0 +1,321 @@
+participant_id,role,department_id,workshops_attended,last_attended_date,adoption_level,ai_confidence_self_rating
+P001,staff,D004,4,2023-11-03,developing,3
+P002,faculty,D001,1,2024-04-16,developing,3
+P003,staff,D005,1,2024-01-17,developing,3
+P004,faculty,D006,5,2024-01-01,developing,2
+P005,graduate student,D009,3,2024-04-16,early,2
+P006,faculty,D006,2,2023-08-13,early,2
+P007,graduate student,D008,5,2024-09-09,developing,4
+P008,staff,D004,5,2024-08-27,early,2
+P009,faculty,D003,4,2023-07-05,established,5
+P010,graduate student,D003,2,2023-12-30,developing,3
+P011,graduate student,D003,5,2024-07-28,developing,2
+P012,staff,D010,4,2024-04-11,early,3
+P013,faculty,D008,9,2024-01-10,developing,4
+P014,graduate student,D004,1,2023-10-17,early,2
+P015,faculty,D007,5,2023-12-24,developing,3
+P016,graduate student,D008,1,2023-11-26,early,2
+P017,faculty,D010,1,2023-11-20,early,2
+P018,faculty,D009,6,2023-07-05,early,4
+P019,graduate student,D001,4,2023-12-30,developing,3
+P020,graduate student,D010,3,2023-08-12,established,4
+P021,staff,D011,4,2023-08-12,early,4
+P022,faculty,D006,4,2023-07-30,early,1
+P023,staff,D012,4,2024-01-03,developing,4
+P024,graduate student,D008,4,2024-08-13,established,3
+P025,faculty,D007,6,2023-10-17,early,3
+P026,graduate student,D008,4,2023-11-20,established,5
+P027,staff,D006,2,2024-09-07,established,4
+P028,graduate student,D007,1,2024-03-18,developing,4
+P029,faculty,D001,2,2024-09-07,established,5
+P030,faculty,D004,3,2023-10-22,established,4
+P031,faculty,D005,5,2023-07-05,developing,3
+P032,graduate student,D008,1,2023-11-20,developing,5
+P033,graduate student,D011,5,2023-07-05,developing,4
+P034,graduate student,D006,1,2024-04-07,developing,4
+P035,faculty,D008,1,2023-08-25,established,4
+P036,faculty,D006,1,2024-05-08,early,3
+P037,graduate student,D008,2,2023-12-05,established,4
+P038,faculty,D004,1,2023-10-13,developing,3
+P039,staff,D005,2,2024-03-18,early,3
+P040,staff,D004,2,2023-12-06,early,2
+P041,staff,D001,1,2023-11-03,developing,3
+P042,staff,D004,3,2024-03-27,developing,3
+P043,faculty,D004,1,2023-08-24,established,5
+P044,graduate student,D010,5,2024-01-03,early,1
+P045,graduate student,D005,1,2024-02-11,established,4
+P046,staff,D010,5,2023-10-17,early,3
+P047,graduate student,D010,1,2024-01-01,established,4
+P048,faculty,D009,3,2024-09-07,developing,3
+P049,graduate student,D009,2,2024-07-05,established,4
+P050,faculty,D010,2,2023-10-17,established,4
+P051,faculty,D008,7,2024-01-10,early,2
+P052,staff,D003,2,2023-10-17,developing,3
+P053,faculty,D004,5,2023-07-05,early,3
+P054,faculty,D006,7,2024-03-13,developing,3
+P055,faculty,D011,5,2023-08-25,developing,3
+P056,faculty,D006,2,2024-05-08,developing,3
+P057,graduate student,D012,5,2023-12-30,developing,4
+P058,staff,D006,4,2024-09-03,established,5
+P059,staff,D006,5,2024-05-08,early,2
+P060,faculty,D007,2,2024-06-05,developing,2
+P061,staff,D011,1,2024-01-03,developing,3
+P062,graduate student,D012,3,2024-07-13,developing,3
+P063,staff,D006,2,2023-12-24,developing,3
+P064,staff,D011,3,2023-12-30,established,4
+P065,graduate student,D011,4,2024-09-03,established,4
+P066,staff,D010,2,2024-02-07,early,2
+P067,staff,D012,3,2023-07-24,developing,3
+P068,graduate student,D007,5,2024-07-20,established,4
+P069,faculty,D001,2,2023-10-22,established,4
+P070,graduate student,D012,5,2024-09-03,developing,3
+P071,graduate student,D008,6,2024-09-09,early,2
+P072,staff,D011,1,2024-09-14,developing,4
+P073,staff,D007,6,2024-09-09,established,5
+P074,faculty,D011,4,2023-08-12,early,1
+P075,graduate student,D011,5,2024-01-03,early,2
+P076,graduate student,D001,4,2023-11-03,early,3
+P077,staff,D004,2,2023-11-03,established,5
+P078,staff,D011,2,2024-09-07,early,3
+P079,graduate student,D011,1,2024-02-23,early,4
+P080,graduate student,D009,5,2024-04-11,developing,3
+P081,faculty,D003,4,2024-01-01,early,2
+P082,staff,D004,1,2023-08-25,early,3
+P083,faculty,D004,1,2023-10-22,early,3
+P084,graduate student,D002,2,2024-06-06,established,5
+P085,faculty,D007,3,2024-02-07,developing,3
+P086,faculty,D002,7,2024-08-27,early,1
+P087,graduate student,D008,3,2024-03-18,developing,3
+P088,faculty,D007,5,2024-02-23,early,2
+P089,faculty,D004,1,2023-08-24,established,5
+P090,faculty,D003,1,2024-08-13,developing,4
+P091,faculty,D010,3,2024-01-10,developing,2
+P092,faculty,D012,6,2024-04-16,early,2
+P093,graduate student,D009,3,2024-09-02,early,3
+P094,graduate student,D004,4,2024-02-11,established,4
+P095,faculty,D010,2,2023-11-26,developing,2
+P096,graduate student,D009,2,2024-01-17,early,1
+P097,graduate student,D002,4,2023-11-25,developing,4
+P098,graduate student,D011,4,2023-11-03,established,4
+P099,faculty,D006,3,2023-11-26,early,1
+P100,faculty,D004,5,2024-09-03,established,4
+P101,faculty,D009,2,2024-09-02,early,3
+P102,faculty,D004,2,2024-01-15,developing,3
+P103,faculty,D010,2,2023-11-25,developing,4
+P104,graduate student,D002,4,2024-04-16,developing,4
+P105,faculty,D002,1,2024-09-09,established,3
+P106,staff,D004,3,2024-05-08,established,4
+P107,staff,D001,3,2023-08-24,developing,3
+P108,faculty,D002,2,2023-08-21,developing,3
+P109,faculty,D009,3,2024-04-16,early,2
+P110,staff,D002,1,2024-08-13,established,5
+P111,graduate student,D005,3,2024-04-16,developing,2
+P112,faculty,D012,4,2024-03-27,established,5
+P113,staff,D009,3,2023-12-05,early,2
+P114,staff,D002,1,2024-04-12,developing,2
+P115,faculty,D006,5,2023-07-30,established,3
+P116,staff,D003,4,2024-04-11,early,2
+P117,faculty,D002,2,2023-10-17,early,2
+P118,staff,D010,3,2023-11-26,established,5
+P119,staff,D006,4,2024-04-16,developing,3
+P120,staff,D002,3,2024-07-13,developing,3
+P121,graduate student,D012,1,2023-11-24,developing,3
+P122,faculty,D004,1,2024-02-07,developing,3
+P123,graduate student,D008,3,2023-12-05,established,5
+P124,graduate student,D001,1,2023-07-07,developing,3
+P125,staff,D011,4,2024-03-27,early,3
+P126,staff,D009,5,2023-08-21,established,4
+P127,faculty,D006,1,2024-09-02,developing,3
+P128,graduate student,D007,5,2024-04-07,early,2
+P129,graduate student,D008,4,2024-01-03,developing,3
+P130,graduate student,D010,5,2024-09-03,developing,3
+P131,graduate student,D008,2,2024-03-24,early,2
+P132,faculty,D003,1,2023-08-24,developing,3
+P133,faculty,D004,3,2023-08-24,developing,4
+P134,faculty,D004,8,2024-02-07,early,2
+P135,faculty,D009,4,2024-09-14,developing,4
+P136,faculty,D004,5,2024-01-15,early,2
+P137,graduate student,D012,2,2023-12-24,established,5
+P138,faculty,D004,1,2024-08-27,early,1
+P139,faculty,D001,2,2023-07-24,early,3
+P140,faculty,D007,1,2024-01-03,early,1
+P141,graduate student,D001,3,2024-03-27,developing,4
+P142,graduate student,D006,2,2023-11-03,early,1
+P143,faculty,D008,5,2023-08-24,early,3
+P144,faculty,D012,3,2024-09-03,early,2
+P145,staff,D006,4,2024-07-28,early,2
+P146,staff,D012,3,2023-08-12,developing,4
+P147,faculty,D005,4,2024-06-06,early,2
+P148,staff,D004,2,2023-07-24,developing,4
+P149,staff,D009,5,2024-03-24,developing,3
+P150,faculty,D003,4,2023-10-17,early,4
+P151,staff,D010,3,2024-09-14,early,2
+P152,graduate student,D007,1,2023-07-30,developing,4
+P153,graduate student,D008,1,2024-03-18,developing,4
+P154,staff,D006,2,2024-02-07,early,2
+P155,faculty,D005,3,2024-09-09,developing,3
+P156,faculty,D009,1,2023-12-24,established,4
+P157,faculty,D009,3,2024-01-17,developing,4
+P158,staff,D006,4,2024-09-21,early,2
+P159,graduate student,D008,3,2023-09-25,developing,5
+P160,graduate student,D012,3,2023-12-06,developing,3
+P161,staff,D011,7,2024-07-28,developing,3
+P162,faculty,D003,2,2024-07-13,developing,3
+P163,faculty,D010,2,2024-04-12,early,2
+P164,faculty,D004,5,2024-09-02,early,2
+P165,graduate student,D006,1,2024-01-15,established,4
+P166,faculty,D011,1,2024-01-01,early,3
+P167,graduate student,D012,5,2024-02-23,established,4
+P168,staff,D011,3,2024-09-02,developing,4
+P169,graduate student,D005,5,2024-09-03,early,1
+P170,staff,D007,4,2023-11-20,established,4
+P171,staff,D011,1,2024-07-20,established,4
+P172,faculty,D009,3,2024-03-13,developing,3
+P173,faculty,D002,1,2024-04-07,established,3
+P174,staff,D004,5,2023-08-21,established,3
+P175,graduate student,D006,3,2023-07-17,developing,2
+P176,faculty,D004,2,2024-05-08,early,2
+P177,staff,D004,1,2023-07-24,established,4
+P178,staff,D003,3,2023-11-22,established,4
+P179,faculty,D007,3,2024-04-16,developing,3
+P180,faculty,D008,4,2023-11-03,developing,3
+P181,faculty,D012,1,2024-03-13,developing,4
+P182,staff,D010,1,2024-01-03,early,2
+P183,faculty,D009,3,2023-09-25,developing,3
+P184,faculty,D008,1,2024-07-05,early,2
+P185,faculty,D008,8,2024-06-06,developing,5
+P186,faculty,D006,6,2024-03-27,developing,3
+P187,faculty,D009,5,2023-10-22,developing,4
+P188,faculty,D009,5,2024-04-16,early,2
+P189,staff,D001,1,2024-01-01,early,3
+P190,faculty,D002,2,2024-09-03,established,3
+P191,faculty,D012,4,2024-04-12,early,2
+P192,staff,D003,3,2023-10-17,developing,2
+P193,faculty,D006,1,2024-05-08,developing,2
+P194,faculty,D006,5,2023-08-25,developing,4
+P195,graduate student,D004,2,2023-08-21,early,2
+P196,graduate student,D002,7,2023-10-17,established,4
+P197,graduate student,D005,6,2024-03-13,developing,4
+P198,graduate student,D004,4,2024-01-03,established,3
+P199,staff,D009,3,2023-11-20,early,3
+P200,faculty,D007,2,2024-04-07,developing,3
+P201,faculty,D007,7,2024-01-15,developing,3
+P202,graduate student,D002,2,2024-02-11,developing,4
+P203,faculty,D012,5,2023-08-21,developing,5
+P204,graduate student,D005,2,2024-09-14,developing,3
+P205,staff,D009,2,2024-02-07,developing,2
+P206,faculty,D006,1,2024-01-10,established,3
+P207,staff,D008,1,2024-04-11,early,2
+P208,faculty,D003,4,2023-10-22,early,3
+P209,faculty,D011,7,2024-01-17,developing,3
+P210,faculty,D011,5,2023-12-05,developing,2
+P211,graduate student,D006,4,2024-03-24,early,2
+P212,faculty,D012,4,2023-09-25,early,3
+P213,graduate student,D005,7,2024-04-16,developing,2
+P214,graduate student,D001,1,2024-03-24,early,2
+P215,graduate student,D007,5,2023-11-22,established,3
+P216,faculty,D011,2,2024-07-05,early,2
+P217,staff,D005,2,2024-09-21,established,4
+P218,graduate student,D003,3,2023-07-30,developing,3
+P219,faculty,D004,3,2023-12-24,early,3
+P220,faculty,D008,3,2023-12-18,established,5
+P221,staff,D001,1,2024-04-11,developing,4
+P222,graduate student,D011,1,2024-02-23,developing,4
+P223,faculty,D005,1,2024-04-12,developing,3
+P224,staff,D010,9,2024-09-09,developing,4
+P225,staff,D010,5,2024-02-23,early,1
+P226,graduate student,D002,2,2024-02-07,established,4
+P227,faculty,D007,2,2024-03-27,established,5
+P228,graduate student,D001,4,2024-09-09,early,1
+P229,faculty,D011,3,2024-06-06,developing,3
+P230,staff,D004,4,2023-10-22,developing,3
+P231,staff,D007,1,2023-08-13,early,2
+P232,faculty,D011,1,2024-01-15,developing,3
+P233,graduate student,D010,2,2023-12-05,established,4
+P234,faculty,D001,6,2024-02-11,established,4
+P235,faculty,D012,1,2023-08-13,early,4
+P236,graduate student,D002,1,2023-07-07,established,5
+P237,staff,D001,3,2024-09-14,developing,2
+P238,graduate student,D010,5,2024-09-03,developing,3
+P239,graduate student,D011,2,2024-02-23,developing,4
+P240,faculty,D008,3,2024-06-06,developing,4
+P241,staff,D004,1,2023-11-24,established,5
+P242,graduate student,D003,2,2024-04-16,early,2
+P243,staff,D005,2,2023-07-24,early,2
+P244,faculty,D011,2,2024-09-03,established,5
+P245,staff,D010,2,2023-07-24,early,2
+P246,graduate student,D008,3,2023-07-05,early,3
+P247,graduate student,D011,3,2024-05-08,established,3
+P248,faculty,D008,1,2024-07-28,early,2
+P249,graduate student,D009,2,2024-01-03,developing,2
+P250,staff,D001,1,2024-01-15,developing,2
+P251,faculty,D005,5,2024-04-16,early,2
+P252,graduate student,D008,2,2024-09-07,developing,4
+P253,staff,D011,3,2023-11-24,developing,4
+P254,staff,D001,4,2023-08-13,early,3
+P255,graduate student,D002,2,2024-04-07,developing,3
+P256,faculty,D003,4,2023-11-26,early,3
+P257,graduate student,D001,1,2024-01-01,developing,3
+P258,graduate student,D011,2,2024-09-21,developing,4
+P259,staff,D005,3,2024-01-10,early,3
+P260,staff,D007,5,2024-09-03,early,2
+P261,faculty,D012,1,2023-09-03,established,3
+P262,staff,D012,3,2023-11-25,established,3
+P263,faculty,D007,5,2024-09-03,developing,5
+P264,graduate student,D011,3,2024-03-27,early,1
+P265,graduate student,D011,2,2024-01-15,developing,3
+P266,graduate student,D011,2,2023-12-30,established,4
+P267,faculty,D009,3,2023-12-30,developing,3
+P268,graduate student,D008,6,2023-10-17,developing,3
+P269,graduate student,D009,3,2024-09-07,early,3
+P270,staff,D011,6,2023-10-17,developing,5
+P271,graduate student,D008,5,2024-07-05,developing,4
+P272,faculty,D008,1,2023-10-22,established,4
+P273,graduate student,D012,3,2024-09-09,established,4
+P274,staff,D012,6,2024-04-12,developing,4
+P275,staff,D008,1,2024-03-24,established,5
+P276,graduate student,D006,4,2023-10-13,established,5
+P277,staff,D005,1,2024-09-02,established,4
+P278,graduate student,D001,10,2024-01-15,developing,4
+P279,staff,D008,2,2024-06-06,established,5
+P280,staff,D010,2,2023-11-24,early,3
+P281,graduate student,D006,1,2023-11-26,early,2
+P282,staff,D009,4,2023-07-30,developing,2
+P283,graduate student,D009,6,2023-08-12,developing,4
+P284,graduate student,D002,5,2024-01-01,developing,3
+P285,faculty,D010,3,2024-06-06,early,1
+P286,graduate student,D008,2,2024-04-12,established,4
+P287,faculty,D001,3,2024-04-12,early,2
+P288,staff,D009,5,2023-09-03,early,2
+P289,graduate student,D005,2,2024-09-09,developing,3
+P290,graduate student,D004,1,2023-08-13,early,1
+P291,staff,D009,1,2023-08-21,developing,2
+P292,faculty,D010,4,2023-12-24,established,5
+P293,graduate student,D005,3,2024-08-13,early,2
+P294,faculty,D007,2,2024-09-03,developing,4
+P295,faculty,D004,5,2024-02-11,early,1
+P296,graduate student,D005,5,2024-09-07,developing,3
+P297,faculty,D003,3,2023-10-22,developing,3
+P298,graduate student,D002,4,2024-09-09,developing,3
+P299,staff,D011,5,2024-01-17,established,4
+P300,faculty,D008,3,2024-09-21,developing,3
+P301,graduate student,D009,1,2023-07-17,developing,2
+P302,faculty,D012,3,2024-02-11,developing,2
+P303,faculty,D011,6,2024-03-24,established,4
+P304,graduate student,D006,4,2024-04-16,early,3
+P305,graduate student,D004,1,2023-10-17,early,2
+P306,staff,D007,7,2024-01-17,developing,4
+P307,faculty,D005,1,2024-01-10,early,2
+P308,staff,D005,12,2024-01-17,early,2
+P309,graduate student,D011,1,2023-07-07,developing,3
+P310,faculty,D006,1,2023-09-03,developing,1
+P311,faculty,D006,2,2024-04-16,developing,3
+P312,faculty,D008,2,2024-08-27,developing,4
+P313,faculty,D002,1,2023-11-26,developing,2
+P314,faculty,D008,1,2024-01-01,developing,3
+P315,faculty,D012,4,2023-08-12,early,1
+P316,graduate student,D002,2,2024-01-15,early,2
+P317,staff,D006,1,2023-12-24,early,3
+P318,staff,D006,3,2024-05-08,developing,3
+P319,staff,D010,4,2023-08-12,established,3
+P320,staff,D009,2,2024-07-28,early,2

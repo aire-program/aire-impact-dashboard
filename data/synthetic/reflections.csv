@@ -1,0 +1,361 @@
+reflection_id,participant_id,workshop_id,date,reflection_text,sentiment,theme
+R0001,P133,W045,2024-01-05,Great balance between demos and discussion.,positive,administrative processes
+R0002,P180,W051,2024-03-26,Resources were actionable for my courses.,positive,ethical concerns
+R0003,P111,W041,2024-03-29,Resources were actionable for my courses.,positive,classroom use
+R0004,P079,W025,2024-09-23,Facilitators linked responsible AI to our policies effectively.,positive,research workflows
+R0005,P190,W002,2024-02-25,Great balance between demos and discussion.,positive,ethical concerns
+R0006,P182,W058,2023-10-19,Great balance between demos and discussion.,positive,assessment
+R0007,P231,W040,2024-01-19,"Good overview, I need to explore tools further.",neutral,classroom use
+R0008,P088,W006,2023-07-09,Practical examples made AI integration feel doable.,positive,research workflows
+R0009,P146,W001,2023-08-27,Would like more tailored examples for our discipline.,neutral,classroom use
+R0010,P259,W045,2024-01-05,Facilitators linked responsible AI to our policies effectively.,positive,classroom use
+R0011,P176,W056,2024-01-12,Practical examples made AI integration feel doable.,positive,ethical concerns
+R0012,P221,W036,2024-04-09,Workshop felt too introductory for our team.,negative,research workflows
+R0013,P017,W011,2024-04-18,Would like more tailored examples for our discipline.,neutral,research workflows
+R0014,P117,W056,2024-01-12,Would like more tailored examples for our discipline.,neutral,ethical concerns
+R0015,P065,W010,2024-02-13,I left with clearer guardrails for student use of AI.,positive,assessment
+R0016,P291,W050,2024-05-10,Facilitators linked responsible AI to our policies effectively.,positive,assessment
+R0017,P310,W020,2023-10-19,Practical examples made AI integration feel doable.,positive,ethical concerns
+R0018,P318,W041,2024-03-29,Some tools did not align with our campus licenses.,negative,ethical concerns
+R0019,P259,W012,2023-10-15,"Good overview, I need to explore tools further.",neutral,assessment
+R0020,P240,W026,2023-09-27,Great balance between demos and discussion.,positive,administrative processes
+R0021,P176,W024,2023-08-23,Great balance between demos and discussion.,positive,classroom use
+R0022,P181,W047,2023-10-24,Great balance between demos and discussion.,positive,ethical concerns
+R0023,P023,W060,2024-09-09,I left with clearer guardrails for student use of AI.,positive,administrative processes
+R0024,P111,W032,2024-01-17,Workshop felt too introductory for our team.,negative,research workflows
+R0025,P061,W040,2024-01-19,Practical examples made AI integration feel doable.,positive,research workflows
+R0026,P181,W003,2024-09-04,Great balance between demos and discussion.,positive,classroom use
+R0027,P178,W047,2023-10-24,Slides were dense but the Q&A clarified things.,neutral,classroom use
+R0028,P266,W009,2024-03-15,Facilitators linked responsible AI to our policies effectively.,positive,assessment
+R0029,P013,W024,2023-08-23,Workshop felt too introductory for our team.,negative,administrative processes
+R0030,P111,W025,2024-09-23,"Good overview, I need to explore tools further.",neutral,classroom use
+R0031,P317,W001,2023-08-27,Facilitators linked responsible AI to our policies effectively.,positive,ethical concerns
+R0032,P132,W033,2024-03-20,Great balance between demos and discussion.,positive,ethical concerns
+R0033,P259,W003,2024-09-04,Great balance between demos and discussion.,positive,classroom use
+R0034,P235,W024,2023-08-23,Practical examples made AI integration feel doable.,positive,administrative processes
+R0035,P104,W006,2023-07-09,Resources were actionable for my courses.,positive,research workflows
+R0036,P048,W036,2024-04-09,Slides were dense but the Q&A clarified things.,neutral,administrative processes
+R0037,P203,W018,2023-07-19,Would like more tailored examples for our discipline.,neutral,classroom use
+R0038,P182,W007,2024-08-29,Would like more tailored examples for our discipline.,neutral,ethical concerns
+R0039,P157,W015,2024-07-30,Resources were actionable for my courses.,positive,classroom use
+R0040,P275,W039,2024-04-14,"Good overview, I need to explore tools further.",neutral,assessment
+R0041,P315,W056,2024-01-12,Facilitators linked responsible AI to our policies effectively.,positive,assessment
+R0042,P140,W053,2023-11-05,Practical examples made AI integration feel doable.,positive,classroom use
+R0043,P223,W005,2023-09-05,Practical examples made AI integration feel doable.,positive,research workflows
+R0044,P187,W001,2023-08-27,Workshop felt too introductory for our team.,negative,ethical concerns
+R0045,P114,W022,2023-11-28,Great balance between demos and discussion.,positive,administrative processes
+R0046,P148,W031,2023-08-14,Content was helpful but a bit fast.,neutral,classroom use
+R0047,P017,W016,2024-09-05,I left with clearer guardrails for student use of AI.,positive,administrative processes
+R0048,P110,W060,2024-09-09,Practical examples made AI integration feel doable.,positive,research workflows
+R0049,P050,W047,2023-10-24,Facilitators linked responsible AI to our policies effectively.,positive,research workflows
+R0050,P114,W034,2024-09-16,Facilitators linked responsible AI to our policies effectively.,positive,administrative processes
+R0051,P210,W018,2023-07-19,Facilitators linked responsible AI to our policies effectively.,positive,ethical concerns
+R0052,P207,W036,2024-04-09,I left with clearer guardrails for student use of AI.,positive,classroom use
+R0053,P095,W040,2024-01-19,Slides were dense but the Q&A clarified things.,neutral,classroom use
+R0054,P106,W026,2023-09-27,"Good overview, I need to explore tools further.",neutral,classroom use
+R0055,P131,W037,2023-11-27,Resources were actionable for my courses.,positive,ethical concerns
+R0056,P008,W039,2024-04-14,Great balance between demos and discussion.,positive,classroom use
+R0057,P093,W010,2024-02-13,Resources were actionable for my courses.,positive,classroom use
+R0058,P159,W001,2023-08-27,Practical examples made AI integration feel doable.,positive,assessment
+R0059,P015,W037,2023-11-27,Resources were actionable for my courses.,positive,assessment
+R0060,P260,W023,2023-08-15,Some tools did not align with our campus licenses.,negative,ethical concerns
+R0061,P190,W059,2023-11-26,Great balance between demos and discussion.,positive,ethical concerns
+R0062,P132,W047,2023-10-24,Needed more time on data privacy specifics.,negative,classroom use
+R0063,P145,W021,2024-01-01,Facilitators linked responsible AI to our policies effectively.,positive,research workflows
+R0064,P170,W051,2024-03-26,Facilitators linked responsible AI to our policies effectively.,positive,research workflows
+R0065,P237,W054,2023-12-26,Workshop felt too introductory for our team.,negative,research workflows
+R0066,P248,W056,2024-01-12,Would like more tailored examples for our discipline.,neutral,administrative processes
+R0067,P227,W051,2024-03-26,Content was helpful but a bit fast.,neutral,administrative processes
+R0068,P166,W010,2024-02-13,Resources were actionable for my courses.,positive,ethical concerns
+R0069,P194,W020,2023-10-19,Resources were actionable for my courses.,positive,ethical concerns
+R0070,P174,W001,2023-08-27,Practical examples made AI integration feel doable.,positive,classroom use
+R0071,P031,W051,2024-03-26,I left with clearer guardrails for student use of AI.,positive,research workflows
+R0072,P156,W011,2024-04-18,Workshop felt too introductory for our team.,negative,research workflows
+R0073,P246,W024,2023-08-23,Content was helpful but a bit fast.,neutral,classroom use
+R0074,P150,W044,2024-06-07,Resources were actionable for my courses.,positive,ethical concerns
+R0075,P199,W043,2023-07-26,Content was helpful but a bit fast.,neutral,classroom use
+R0076,P085,W008,2023-11-22,Resources were actionable for my courses.,positive,administrative processes
+R0077,P129,W003,2024-09-04,Resources were actionable for my courses.,positive,research workflows
+R0078,P169,W008,2023-11-22,Practical examples made AI integration feel doable.,positive,classroom use
+R0079,P275,W003,2024-09-04,Some tools did not align with our campus licenses.,negative,research workflows
+R0080,P305,W007,2024-08-29,"Good overview, I need to explore tools further.",neutral,classroom use
+R0081,P300,W005,2023-09-05,I left with clearer guardrails for student use of AI.,positive,administrative processes
+R0082,P242,W041,2024-03-29,"Good overview, I need to explore tools further.",neutral,classroom use
+R0083,P291,W014,2024-08-15,"Good overview, I need to explore tools further.",neutral,classroom use
+R0084,P191,W019,2023-12-07,Resources were actionable for my courses.,positive,ethical concerns
+R0085,P171,W004,2024-07-22,I left with clearer guardrails for student use of AI.,positive,ethical concerns
+R0086,P030,W026,2023-09-27,Slides were dense but the Q&A clarified things.,neutral,classroom use
+R0087,P203,W037,2023-11-27,Practical examples made AI integration feel doable.,positive,classroom use
+R0088,P107,W007,2024-08-29,Practical examples made AI integration feel doable.,positive,ethical concerns
+R0089,P122,W037,2023-11-27,I left with clearer guardrails for student use of AI.,positive,classroom use
+R0090,P256,W038,2024-07-07,Practical examples made AI integration feel doable.,positive,research workflows
+R0091,P152,W045,2024-01-05,Facilitators linked responsible AI to our policies effectively.,positive,ethical concerns
+R0092,P132,W009,2024-03-15,Resources were actionable for my courses.,positive,classroom use
+R0093,P113,W055,2023-08-26,Resources were actionable for my courses.,positive,classroom use
+R0094,P120,W018,2023-07-19,Practical examples made AI integration feel doable.,positive,assessment
+R0095,P268,W022,2023-11-28,Would like more tailored examples for our discipline.,neutral,classroom use
+R0096,P214,W032,2024-01-17,"Good overview, I need to explore tools further.",neutral,ethical concerns
+R0097,P314,W011,2024-04-18,Content was helpful but a bit fast.,neutral,research workflows
+R0098,P293,W024,2023-08-23,Workshop felt too introductory for our team.,negative,classroom use
+R0099,P025,W030,2024-06-08,"Good overview, I need to explore tools further.",neutral,research workflows
+R0100,P257,W021,2024-01-01,Would like more tailored examples for our discipline.,neutral,ethical concerns
+R0101,P054,W014,2024-08-15,Great balance between demos and discussion.,positive,assessment
+R0102,P159,W055,2023-08-26,Facilitators linked responsible AI to our policies effectively.,positive,ethical concerns
+R0103,P025,W002,2024-02-25,Content was helpful but a bit fast.,neutral,research workflows
+R0104,P297,W031,2023-08-14,Practical examples made AI integration feel doable.,positive,administrative processes
+R0105,P028,W011,2024-04-18,I left with clearer guardrails for student use of AI.,positive,ethical concerns
+R0106,P197,W003,2024-09-04,Facilitators linked responsible AI to our policies effectively.,positive,research workflows
+R0107,P018,W057,2023-12-20,Would like more tailored examples for our discipline.,neutral,assessment
+R0108,P234,W028,2023-07-07,Some tools did not align with our campus licenses.,negative,research workflows
+R0109,P190,W025,2024-09-23,I left with clearer guardrails for student use of AI.,positive,assessment
+R0110,P208,W014,2024-08-15,"Good overview, I need to explore tools further.",neutral,assessment
+R0111,P054,W005,2023-09-05,Facilitators linked responsible AI to our policies effectively.,positive,classroom use
+R0112,P041,W048,2023-12-08,I left with clearer guardrails for student use of AI.,positive,classroom use
+R0113,P268,W039,2024-04-14,Workshop felt too introductory for our team.,negative,ethical concerns
+R0114,P228,W027,2024-01-03,Would like more tailored examples for our discipline.,neutral,research workflows
+R0115,P129,W055,2023-08-26,Slides were dense but the Q&A clarified things.,neutral,classroom use
+R0116,P131,W052,2024-09-05,I left with clearer guardrails for student use of AI.,positive,classroom use
+R0117,P193,W011,2024-04-18,Slides were dense but the Q&A clarified things.,neutral,classroom use
+R0118,P047,W044,2024-06-07,Needed more time on data privacy specifics.,negative,administrative processes
+R0119,P227,W046,2024-09-11,Would like more tailored examples for our discipline.,neutral,assessment
+R0120,P172,W022,2023-11-28,Slides were dense but the Q&A clarified things.,neutral,administrative processes
+R0121,P293,W043,2023-07-26,Facilitators linked responsible AI to our policies effectively.,positive,research workflows
+R0122,P150,W055,2023-08-26,Would like more tailored examples for our discipline.,neutral,administrative processes
+R0123,P120,W004,2024-07-22,Great balance between demos and discussion.,positive,assessment
+R0124,P101,W009,2024-03-15,Resources were actionable for my courses.,positive,classroom use
+R0125,P253,W012,2023-10-15,Facilitators linked responsible AI to our policies effectively.,positive,research workflows
+R0126,P204,W001,2023-08-27,Slides were dense but the Q&A clarified things.,neutral,assessment
+R0127,P282,W015,2024-07-30,Resources were actionable for my courses.,positive,ethical concerns
+R0128,P253,W020,2023-10-19,Great balance between demos and discussion.,positive,ethical concerns
+R0129,P096,W019,2023-12-07,Needed more time on data privacy specifics.,negative,research workflows
+R0130,P236,W014,2024-08-15,Facilitators linked responsible AI to our policies effectively.,positive,classroom use
+R0131,P140,W023,2023-08-15,Slides were dense but the Q&A clarified things.,neutral,ethical concerns
+R0132,P237,W019,2023-12-07,Practical examples made AI integration feel doable.,positive,classroom use
+R0133,P096,W027,2024-01-03,I left with clearer guardrails for student use of AI.,positive,classroom use
+R0134,P067,W044,2024-06-07,Resources were actionable for my courses.,positive,administrative processes
+R0135,P063,W057,2023-12-20,Practical examples made AI integration feel doable.,positive,ethical concerns
+R0136,P038,W014,2024-08-15,Content was helpful but a bit fast.,neutral,ethical concerns
+R0137,P083,W043,2023-07-26,I left with clearer guardrails for student use of AI.,positive,classroom use
+R0138,P110,W027,2024-01-03,"Good overview, I need to explore tools further.",neutral,ethical concerns
+R0139,P037,W008,2023-11-22,Resources were actionable for my courses.,positive,assessment
+R0140,P275,W060,2024-09-09,"Good overview, I need to explore tools further.",neutral,classroom use
+R0141,P205,W057,2023-12-20,Resources were actionable for my courses.,positive,ethical concerns
+R0142,P237,W038,2024-07-07,I left with clearer guardrails for student use of AI.,positive,research workflows
+R0143,P060,W057,2023-12-20,Resources were actionable for my courses.,positive,classroom use
+R0144,P229,W016,2024-09-05,Workshop felt too introductory for our team.,negative,ethical concerns
+R0145,P010,W050,2024-05-10,Would like more tailored examples for our discipline.,neutral,administrative processes
+R0146,P205,W008,2023-11-22,Needed more time on data privacy specifics.,negative,classroom use
+R0147,P296,W045,2024-01-05,Practical examples made AI integration feel doable.,positive,administrative processes
+R0148,P230,W055,2023-08-26,Would like more tailored examples for our discipline.,neutral,administrative processes
+R0149,P250,W002,2024-02-25,Resources were actionable for my courses.,positive,research workflows
+R0150,P134,W034,2024-09-16,Needed more time on data privacy specifics.,negative,administrative processes
+R0151,P028,W025,2024-09-23,Resources were actionable for my courses.,positive,research workflows
+R0152,P280,W048,2023-12-08,Resources were actionable for my courses.,positive,research workflows
+R0153,P208,W012,2023-10-15,"Good overview, I need to explore tools further.",neutral,research workflows
+R0154,P157,W017,2023-08-01,Would like more tailored examples for our discipline.,neutral,research workflows
+R0155,P160,W024,2023-08-23,Slides were dense but the Q&A clarified things.,neutral,assessment
+R0156,P086,W031,2023-08-14,Great balance between demos and discussion.,positive,classroom use
+R0157,P203,W060,2024-09-09,Facilitators linked responsible AI to our policies effectively.,positive,research workflows
+R0158,P294,W047,2023-10-24,I left with clearer guardrails for student use of AI.,positive,assessment
+R0159,P180,W024,2023-08-23,Some tools did not align with our campus licenses.,negative,assessment
+R0160,P100,W005,2023-09-05,Workshop felt too introductory for our team.,negative,assessment
+R0161,P311,W042,2024-07-15,Practical examples made AI integration feel doable.,positive,ethical concerns
+R0162,P229,W043,2023-07-26,Great balance between demos and discussion.,positive,assessment
+R0163,P210,W006,2023-07-09,Content was helpful but a bit fast.,neutral,assessment
+R0164,P099,W044,2024-06-07,Facilitators linked responsible AI to our policies effectively.,positive,classroom use
+R0165,P112,W014,2024-08-15,Practical examples made AI integration feel doable.,positive,classroom use
+R0166,P080,W032,2024-01-17,Workshop felt too introductory for our team.,negative,ethical concerns
+R0167,P317,W049,2024-04-18,Resources were actionable for my courses.,positive,administrative processes
+R0168,P038,W053,2023-11-05,Resources were actionable for my courses.,positive,research workflows
+R0169,P242,W047,2023-10-24,Would like more tailored examples for our discipline.,neutral,research workflows
+R0170,P181,W044,2024-06-07,Practical examples made AI integration feel doable.,positive,classroom use
+R0171,P071,W016,2024-09-05,Slides were dense but the Q&A clarified things.,neutral,classroom use
+R0172,P140,W016,2024-09-05,Content was helpful but a bit fast.,neutral,ethical concerns
+R0173,P259,W022,2023-11-28,Resources were actionable for my courses.,positive,research workflows
+R0174,P168,W017,2023-08-01,Practical examples made AI integration feel doable.,positive,classroom use
+R0175,P121,W019,2023-12-07,Great balance between demos and discussion.,positive,research workflows
+R0176,P240,W018,2023-07-19,Resources were actionable for my courses.,positive,administrative processes
+R0177,P155,W036,2024-04-09,Practical examples made AI integration feel doable.,positive,classroom use
+R0178,P270,W015,2024-07-30,Practical examples made AI integration feel doable.,positive,ethical concerns
+R0179,P251,W054,2023-12-26,Would like more tailored examples for our discipline.,neutral,classroom use
+R0180,P181,W013,2024-04-13,Practical examples made AI integration feel doable.,positive,ethical concerns
+R0181,P149,W037,2023-11-27,Facilitators linked responsible AI to our policies effectively.,positive,administrative processes
+R0182,P152,W004,2024-07-22,I left with clearer guardrails for student use of AI.,positive,classroom use
+R0183,P150,W030,2024-06-08,Facilitators linked responsible AI to our policies effectively.,positive,administrative processes
+R0184,P163,W030,2024-06-08,I left with clearer guardrails for student use of AI.,positive,assessment
+R0185,P247,W025,2024-09-23,I left with clearer guardrails for student use of AI.,positive,classroom use
+R0186,P103,W021,2024-01-01,Practical examples made AI integration feel doable.,positive,administrative processes
+R0187,P034,W014,2024-08-15,Resources were actionable for my courses.,positive,research workflows
+R0188,P245,W041,2024-03-29,Resources were actionable for my courses.,positive,classroom use
+R0189,P189,W018,2023-07-19,Slides were dense but the Q&A clarified things.,neutral,research workflows
+R0190,P004,W020,2023-10-19,I left with clearer guardrails for student use of AI.,positive,research workflows
+R0191,P286,W057,2023-12-20,Some tools did not align with our campus licenses.,negative,classroom use
+R0192,P020,W005,2023-09-05,Facilitators linked responsible AI to our policies effectively.,positive,research workflows
+R0193,P105,W055,2023-08-26,Great balance between demos and discussion.,positive,assessment
+R0194,P110,W016,2024-09-05,Would like more tailored examples for our discipline.,neutral,administrative processes
+R0195,P128,W060,2024-09-09,Practical examples made AI integration feel doable.,positive,assessment
+R0196,P211,W026,2023-09-27,I left with clearer guardrails for student use of AI.,positive,classroom use
+R0197,P197,W035,2023-11-24,I left with clearer guardrails for student use of AI.,positive,classroom use
+R0198,P285,W031,2023-08-14,Resources were actionable for my courses.,positive,administrative processes
+R0199,P086,W046,2024-09-11,Practical examples made AI integration feel doable.,positive,ethical concerns
+R0200,P280,W060,2024-09-09,Great balance between demos and discussion.,positive,classroom use
+R0201,P197,W035,2023-11-24,Would like more tailored examples for our discipline.,neutral,classroom use
+R0202,P128,W040,2024-01-19,"Good overview, I need to explore tools further.",neutral,classroom use
+R0203,P181,W040,2024-01-19,"Good overview, I need to explore tools further.",neutral,administrative processes
+R0204,P019,W031,2023-08-14,I left with clearer guardrails for student use of AI.,positive,research workflows
+R0205,P260,W060,2024-09-09,Practical examples made AI integration feel doable.,positive,classroom use
+R0206,P277,W025,2024-09-23,"Good overview, I need to explore tools further.",neutral,assessment
+R0207,P263,W032,2024-01-17,Slides were dense but the Q&A clarified things.,neutral,research workflows
+R0208,P320,W011,2024-04-18,Facilitators linked responsible AI to our policies effectively.,positive,administrative processes
+R0209,P209,W017,2023-08-01,Some tools did not align with our campus licenses.,negative,classroom use
+R0210,P188,W059,2023-11-26,Practical examples made AI integration feel doable.,positive,classroom use
+R0211,P179,W006,2023-07-09,I left with clearer guardrails for student use of AI.,positive,administrative processes
+R0212,P314,W048,2023-12-08,Some tools did not align with our campus licenses.,negative,assessment
+R0213,P098,W042,2024-07-15,Resources were actionable for my courses.,positive,classroom use
+R0214,P266,W024,2023-08-23,Content was helpful but a bit fast.,neutral,classroom use
+R0215,P311,W048,2023-12-08,I left with clearer guardrails for student use of AI.,positive,administrative processes
+R0216,P013,W038,2024-07-07,"Good overview, I need to explore tools further.",neutral,administrative processes
+R0217,P036,W008,2023-11-22,Some tools did not align with our campus licenses.,negative,classroom use
+R0218,P149,W057,2023-12-20,Facilitators linked responsible AI to our policies effectively.,positive,research workflows
+R0219,P170,W035,2023-11-24,Some tools did not align with our campus licenses.,negative,research workflows
+R0220,P161,W044,2024-06-07,Facilitators linked responsible AI to our policies effectively.,positive,research workflows
+R0221,P102,W050,2024-05-10,Great balance between demos and discussion.,positive,administrative processes
+R0222,P171,W052,2024-09-05,Resources were actionable for my courses.,positive,ethical concerns
+R0223,P064,W044,2024-06-07,Slides were dense but the Q&A clarified things.,neutral,administrative processes
+R0224,P215,W043,2023-07-26,Needed more time on data privacy specifics.,negative,ethical concerns
+R0225,P188,W005,2023-09-05,I left with clearer guardrails for student use of AI.,positive,research workflows
+R0226,P188,W038,2024-07-07,Great balance between demos and discussion.,positive,classroom use
+R0227,P135,W003,2024-09-04,Facilitators linked responsible AI to our policies effectively.,positive,classroom use
+R0228,P101,W002,2024-02-25,Great balance between demos and discussion.,positive,classroom use
+R0229,P143,W003,2024-09-04,Content was helpful but a bit fast.,neutral,ethical concerns
+R0230,P239,W040,2024-01-19,Practical examples made AI integration feel doable.,positive,assessment
+R0231,P131,W004,2024-07-22,Would like more tailored examples for our discipline.,neutral,research workflows
+R0232,P121,W007,2024-08-29,Practical examples made AI integration feel doable.,positive,classroom use
+R0233,P145,W034,2024-09-16,Slides were dense but the Q&A clarified things.,neutral,classroom use
+R0234,P150,W004,2024-07-22,Great balance between demos and discussion.,positive,research workflows
+R0235,P316,W031,2023-08-14,Practical examples made AI integration feel doable.,positive,classroom use
+R0236,P210,W045,2024-01-05,"Good overview, I need to explore tools further.",neutral,research workflows
+R0237,P138,W054,2023-12-26,Practical examples made AI integration feel doable.,positive,research workflows
+R0238,P314,W041,2024-03-29,"Good overview, I need to explore tools further.",neutral,classroom use
+R0239,P013,W034,2024-09-16,Practical examples made AI integration feel doable.,positive,research workflows
+R0240,P031,W027,2024-01-03,Practical examples made AI integration feel doable.,positive,classroom use
+R0241,P226,W018,2023-07-19,Slides were dense but the Q&A clarified things.,neutral,ethical concerns
+R0242,P295,W059,2023-11-26,Slides were dense but the Q&A clarified things.,neutral,assessment
+R0243,P237,W010,2024-02-13,Needed more time on data privacy specifics.,negative,classroom use
+R0244,P175,W059,2023-11-26,I left with clearer guardrails for student use of AI.,positive,assessment
+R0245,P005,W045,2024-01-05,"Good overview, I need to explore tools further.",neutral,ethical concerns
+R0246,P047,W040,2024-01-19,Great balance between demos and discussion.,positive,ethical concerns
+R0247,P218,W052,2024-09-05,I left with clearer guardrails for student use of AI.,positive,assessment
+R0248,P005,W045,2024-01-05,Facilitators linked responsible AI to our policies effectively.,positive,research workflows
+R0249,P119,W001,2023-08-27,I left with clearer guardrails for student use of AI.,positive,ethical concerns
+R0250,P017,W042,2024-07-15,Great balance between demos and discussion.,positive,research workflows
+R0251,P092,W060,2024-09-09,Practical examples made AI integration feel doable.,positive,research workflows
+R0252,P191,W017,2023-08-01,Needed more time on data privacy specifics.,negative,classroom use
+R0253,P217,W038,2024-07-07,Facilitators linked responsible AI to our policies effectively.,positive,research workflows
+R0254,P009,W004,2024-07-22,Facilitators linked responsible AI to our policies effectively.,positive,classroom use
+R0255,P150,W039,2024-04-14,Practical examples made AI integration feel doable.,positive,research workflows
+R0256,P008,W055,2023-08-26,Great balance between demos and discussion.,positive,ethical concerns
+R0257,P048,W029,2024-02-09,Resources were actionable for my courses.,positive,administrative processes
+R0258,P001,W036,2024-04-09,Great balance between demos and discussion.,positive,research workflows
+R0259,P135,W055,2023-08-26,Resources were actionable for my courses.,positive,research workflows
+R0260,P082,W006,2023-07-09,Some tools did not align with our campus licenses.,negative,assessment
+R0261,P213,W037,2023-11-27,I left with clearer guardrails for student use of AI.,positive,administrative processes
+R0262,P055,W010,2024-02-13,Resources were actionable for my courses.,positive,assessment
+R0263,P188,W036,2024-04-09,Slides were dense but the Q&A clarified things.,neutral,research workflows
+R0264,P051,W048,2023-12-08,Practical examples made AI integration feel doable.,positive,research workflows
+R0265,P123,W004,2024-07-22,I left with clearer guardrails for student use of AI.,positive,assessment
+R0266,P087,W033,2024-03-20,Workshop felt too introductory for our team.,negative,administrative processes
+R0267,P283,W046,2024-09-11,Practical examples made AI integration feel doable.,positive,ethical concerns
+R0268,P228,W023,2023-08-15,Great balance between demos and discussion.,positive,classroom use
+R0269,P273,W027,2024-01-03,Facilitators linked responsible AI to our policies effectively.,positive,classroom use
+R0270,P184,W054,2023-12-26,Workshop felt too introductory for our team.,negative,administrative processes
+R0271,P249,W041,2024-03-29,Facilitators linked responsible AI to our policies effectively.,positive,classroom use
+R0272,P209,W046,2024-09-11,Some tools did not align with our campus licenses.,negative,administrative processes
+R0273,P185,W046,2024-09-11,"Good overview, I need to explore tools further.",neutral,assessment
+R0274,P240,W035,2023-11-24,Needed more time on data privacy specifics.,negative,ethical concerns
+R0275,P175,W030,2024-06-08,I left with clearer guardrails for student use of AI.,positive,assessment
+R0276,P191,W032,2024-01-17,Practical examples made AI integration feel doable.,positive,classroom use
+R0277,P296,W055,2023-08-26,Content was helpful but a bit fast.,neutral,assessment
+R0278,P184,W011,2024-04-18,Would like more tailored examples for our discipline.,neutral,assessment
+R0279,P107,W009,2024-03-15,Resources were actionable for my courses.,positive,assessment
+R0280,P035,W003,2024-09-04,Practical examples made AI integration feel doable.,positive,research workflows
+R0281,P018,W057,2023-12-20,Slides were dense but the Q&A clarified things.,neutral,research workflows
+R0282,P072,W050,2024-05-10,"Good overview, I need to explore tools further.",neutral,research workflows
+R0283,P183,W023,2023-08-15,"Good overview, I need to explore tools further.",neutral,assessment
+R0284,P069,W019,2023-12-07,Resources were actionable for my courses.,positive,classroom use
+R0285,P222,W022,2023-11-28,Needed more time on data privacy specifics.,negative,assessment
+R0286,P045,W037,2023-11-27,Would like more tailored examples for our discipline.,neutral,research workflows
+R0287,P220,W014,2024-08-15,I left with clearer guardrails for student use of AI.,positive,ethical concerns
+R0288,P126,W018,2023-07-19,Needed more time on data privacy specifics.,negative,classroom use
+R0289,P272,W001,2023-08-27,I left with clearer guardrails for student use of AI.,positive,classroom use
+R0290,P256,W014,2024-08-15,Practical examples made AI integration feel doable.,positive,research workflows
+R0291,P056,W016,2024-09-05,Practical examples made AI integration feel doable.,positive,assessment
+R0292,P183,W042,2024-07-15,Great balance between demos and discussion.,positive,classroom use
+R0293,P284,W009,2024-03-15,Practical examples made AI integration feel doable.,positive,ethical concerns
+R0294,P188,W025,2024-09-23,I left with clearer guardrails for student use of AI.,positive,administrative processes
+R0295,P277,W015,2024-07-30,I left with clearer guardrails for student use of AI.,positive,research workflows
+R0296,P054,W023,2023-08-15,Facilitators linked responsible AI to our policies effectively.,positive,administrative processes
+R0297,P129,W058,2023-10-19,Facilitators linked responsible AI to our policies effectively.,positive,research workflows
+R0298,P149,W005,2023-09-05,I left with clearer guardrails for student use of AI.,positive,assessment
+R0299,P291,W031,2023-08-14,Would like more tailored examples for our discipline.,neutral,assessment
+R0300,P173,W057,2023-12-20,Resources were actionable for my courses.,positive,research workflows
+R0301,P209,W023,2023-08-15,Workshop felt too introductory for our team.,negative,classroom use
+R0302,P084,W032,2024-01-17,Content was helpful but a bit fast.,neutral,research workflows
+R0303,P228,W047,2023-10-24,Practical examples made AI integration feel doable.,positive,research workflows
+R0304,P214,W022,2023-11-28,Facilitators linked responsible AI to our policies effectively.,positive,assessment
+R0305,P088,W037,2023-11-27,Facilitators linked responsible AI to our policies effectively.,positive,classroom use
+R0306,P077,W058,2023-10-19,"Good overview, I need to explore tools further.",neutral,research workflows
+R0307,P191,W005,2023-09-05,Workshop felt too introductory for our team.,negative,administrative processes
+R0308,P034,W009,2024-03-15,I left with clearer guardrails for student use of AI.,positive,research workflows
+R0309,P222,W041,2024-03-29,Facilitators linked responsible AI to our policies effectively.,positive,research workflows
+R0310,P035,W059,2023-11-26,Resources were actionable for my courses.,positive,research workflows
+R0311,P214,W038,2024-07-07,Content was helpful but a bit fast.,neutral,administrative processes
+R0312,P279,W002,2024-02-25,Great balance between demos and discussion.,positive,ethical concerns
+R0313,P209,W018,2023-07-19,"Good overview, I need to explore tools further.",neutral,administrative processes
+R0314,P131,W057,2023-12-20,Resources were actionable for my courses.,positive,ethical concerns
+R0315,P025,W027,2024-01-03,Practical examples made AI integration feel doable.,positive,classroom use
+R0316,P187,W013,2024-04-13,Resources were actionable for my courses.,positive,administrative processes
+R0317,P023,W022,2023-11-28,Practical examples made AI integration feel doable.,positive,classroom use
+R0318,P007,W014,2024-08-15,Workshop felt too introductory for our team.,negative,ethical concerns
+R0319,P121,W036,2024-04-09,Great balance between demos and discussion.,positive,ethical concerns
+R0320,P142,W018,2023-07-19,Practical examples made AI integration feel doable.,positive,ethical concerns
+R0321,P286,W055,2023-08-26,Would like more tailored examples for our discipline.,neutral,research workflows
+R0322,P123,W033,2024-03-20,Practical examples made AI integration feel doable.,positive,research workflows
+R0323,P271,W038,2024-07-07,Slides were dense but the Q&A clarified things.,neutral,ethical concerns
+R0324,P306,W052,2024-09-05,I left with clearer guardrails for student use of AI.,positive,classroom use
+R0325,P163,W041,2024-03-29,Workshop felt too introductory for our team.,negative,classroom use
+R0326,P264,W010,2024-02-13,Resources were actionable for my courses.,positive,assessment
+R0327,P280,W055,2023-08-26,Resources were actionable for my courses.,positive,classroom use
+R0328,P292,W046,2024-09-11,"Good overview, I need to explore tools further.",neutral,research workflows
+R0329,P277,W018,2023-07-19,Content was helpful but a bit fast.,neutral,research workflows
+R0330,P086,W054,2023-12-26,"Good overview, I need to explore tools further.",neutral,ethical concerns
+R0331,P047,W003,2024-09-04,Resources were actionable for my courses.,positive,classroom use
+R0332,P267,W028,2023-07-07,"Good overview, I need to explore tools further.",neutral,assessment
+R0333,P062,W019,2023-12-07,Slides were dense but the Q&A clarified things.,neutral,ethical concerns
+R0334,P309,W060,2024-09-09,Workshop felt too introductory for our team.,negative,administrative processes
+R0335,P207,W048,2023-12-08,Would like more tailored examples for our discipline.,neutral,research workflows
+R0336,P167,W048,2023-12-08,Great balance between demos and discussion.,positive,classroom use
+R0337,P151,W024,2023-08-23,Practical examples made AI integration feel doable.,positive,assessment
+R0338,P207,W015,2024-07-30,Great balance between demos and discussion.,positive,classroom use
+R0339,P227,W038,2024-07-07,I left with clearer guardrails for student use of AI.,positive,research workflows
+R0340,P145,W010,2024-02-13,Would like more tailored examples for our discipline.,neutral,ethical concerns
+R0341,P191,W039,2024-04-14,Great balance between demos and discussion.,positive,ethical concerns
+R0342,P213,W034,2024-09-16,Resources were actionable for my courses.,positive,classroom use
+R0343,P065,W018,2023-07-19,Content was helpful but a bit fast.,neutral,ethical concerns
+R0344,P133,W021,2024-01-01,Workshop felt too introductory for our team.,negative,ethical concerns
+R0345,P217,W031,2023-08-14,Practical examples made AI integration feel doable.,positive,administrative processes
+R0346,P115,W015,2024-07-30,Practical examples made AI integration feel doable.,positive,ethical concerns
+R0347,P282,W054,2023-12-26,Great balance between demos and discussion.,positive,assessment
+R0348,P017,W056,2024-01-12,"Good overview, I need to explore tools further.",neutral,research workflows
+R0349,P235,W031,2023-08-14,Resources were actionable for my courses.,positive,administrative processes
+R0350,P022,W037,2023-11-27,Resources were actionable for my courses.,positive,research workflows
+R0351,P154,W057,2023-12-20,Resources were actionable for my courses.,positive,research workflows
+R0352,P163,W051,2024-03-26,Resources were actionable for my courses.,positive,classroom use
+R0353,P198,W052,2024-09-05,"Good overview, I need to explore tools further.",neutral,classroom use
+R0354,P140,W012,2023-10-15,Resources were actionable for my courses.,positive,research workflows
+R0355,P157,W045,2024-01-05,"Good overview, I need to explore tools further.",neutral,assessment
+R0356,P013,W025,2024-09-23,Practical examples made AI integration feel doable.,positive,ethical concerns
+R0357,P101,W017,2023-08-01,Slides were dense but the Q&A clarified things.,neutral,classroom use
+R0358,P243,W053,2023-11-05,Resources were actionable for my courses.,positive,classroom use
+R0359,P220,W002,2024-02-25,Would like more tailored examples for our discipline.,neutral,ethical concerns
+R0360,P105,W041,2024-03-29,"Good overview, I need to explore tools further.",neutral,classroom use

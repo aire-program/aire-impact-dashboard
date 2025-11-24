@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Confidence Surveys Schema",
+  "type": "object",
+  "properties": {
+    "survey_id": { "type": "string" },
+    "participant_id": { "type": "string" },
+    "workshop_id": { "type": "string" },
+    "date": { "type": "string", "format": "date" },
+    "confidence_score": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "understanding_responsible_ai": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "comfort_with_tools": { "type": "integer", "minimum": 1, "maximum": 5 }
+  },
+  "required": [
+    "survey_id",
+    "participant_id",
+    "workshop_id",
+    "date",
+    "confidence_score",
+    "understanding_responsible_ai",
+    "comfort_with_tools"
+  ],
+  "additionalProperties": false
+}

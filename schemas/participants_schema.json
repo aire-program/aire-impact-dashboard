@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Participants Schema",
+  "type": "object",
+  "properties": {
+    "participant_id": { "type": "string" },
+    "role": { "type": "string", "enum": ["faculty", "staff", "graduate student"] },
+    "department_id": { "type": "string" },
+    "workshops_attended": { "type": "integer", "minimum": 0 },
+    "last_attended_date": { "type": "string", "format": "date" },
+    "adoption_level": { "type": "string", "enum": ["early", "developing", "established"] },
+    "ai_confidence_self_rating": { "type": "integer", "minimum": 1, "maximum": 5 }
+  },
+  "required": [
+    "participant_id",
+    "role",
+    "department_id",
+    "workshops_attended",
+    "last_attended_date",
+    "adoption_level",
+    "ai_confidence_self_rating"
+  ],
+  "additionalProperties": false
+}

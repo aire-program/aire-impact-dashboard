@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Reflections Schema",
+  "type": "object",
+  "properties": {
+    "reflection_id": { "type": "string" },
+    "participant_id": { "type": "string" },
+    "workshop_id": { "type": "string" },
+    "date": { "type": "string", "format": "date" },
+    "reflection_text": { "type": "string" },
+    "sentiment": { "type": "string", "enum": ["positive", "neutral", "negative"] },
+    "theme": { "type": "string" }
+  },
+  "required": [
+    "reflection_id",
+    "participant_id",
+    "workshop_id",
+    "date",
+    "reflection_text",
+    "sentiment",
+    "theme"
+  ],
+  "additionalProperties": false
+}

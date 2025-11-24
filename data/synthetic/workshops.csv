@@ -1,0 +1,61 @@
+workshop_id,date,title,format,audience,department_id,registrations,attendances,completion_rate
+W001,2023-08-25,AI Literacy Session 01,micro-course,faculty,D001,53,48,0.68
+W002,2024-02-23,AI Literacy Session 02,micro-course,faculty,D002,107,107,0.87
+W003,2024-09-02,AI Literacy Session 03,webinar,staff,D008,95,79,0.83
+W004,2024-07-20,AI Literacy Session 04,webinar,staff,D008,43,37,0.78
+W005,2023-09-03,AI Literacy Session 05,webinar,faculty,D007,26,22,0.65
+W006,2023-07-07,AI Literacy Session 06,workshop,graduate students,D003,50,34,0.72
+W007,2024-08-27,AI Literacy Session 07,webinar,mixed,D009,89,64,0.74
+W008,2023-11-20,AI Literacy Session 08,workshop,graduate students,D008,103,87,0.77
+W009,2024-03-13,AI Literacy Session 09,workshop,mixed,D003,18,14,0.9
+W010,2024-02-11,AI Literacy Session 10,micro-course,staff,D010,94,87,0.81
+W011,2024-04-16,AI Literacy Session 11,workshop,staff,D005,40,30,0.9
+W012,2023-10-13,AI Literacy Session 12,workshop,faculty,D006,45,28,0.74
+W013,2024-04-11,AI Literacy Session 13,workshop,faculty,D012,45,38,0.89
+W014,2024-08-13,AI Literacy Session 14,workshop,faculty,D009,44,38,0.79
+W015,2024-07-28,AI Literacy Session 15,workshop,staff,D009,79,79,0.75
+W016,2024-09-03,AI Literacy Session 16,workshop,staff,D009,69,57,0.72
+W017,2023-07-30,AI Literacy Session 17,workshop,faculty,D007,19,13,0.69
+W018,2023-07-17,AI Literacy Session 18,micro-course,staff,D006,104,98,0.7
+W019,2023-12-05,AI Literacy Session 19,micro-course,graduate students,D005,61,61,0.87
+W020,2023-10-17,AI Literacy Session 20,webinar,staff,D004,115,74,0.84
+W021,2023-12-30,AI Literacy Session 21,webinar,graduate students,D009,76,50,0.84
+W022,2023-11-26,AI Literacy Session 22,workshop,graduate students,D003,37,37,0.81
+W023,2023-08-13,AI Literacy Session 23,institute,staff,D007,99,98,0.75
+W024,2023-08-21,AI Literacy Session 24,institute,mixed,D003,24,23,0.71
+W025,2024-09-21,AI Literacy Session 25,micro-course,faculty,D001,65,50,0.86
+W026,2023-09-25,AI Literacy Session 26,workshop,graduate students,D003,37,29,0.79
+W027,2024-01-01,AI Literacy Session 27,webinar,mixed,D001,89,88,0.8
+W028,2023-07-05,AI Literacy Session 28,workshop,graduate students,D002,127,93,0.85
+W029,2024-02-07,AI Literacy Session 29,workshop,mixed,D004,50,33,0.72
+W030,2024-06-06,AI Literacy Session 30,micro-course,graduate students,D001,50,45,0.69
+W031,2023-08-12,AI Literacy Session 31,workshop,faculty,D006,119,115,0.85
+W032,2024-01-15,AI Literacy Session 32,workshop,graduate students,D001,86,69,0.78
+W033,2024-03-18,AI Literacy Session 33,webinar,faculty,D012,109,94,0.77
+W034,2024-09-14,AI Literacy Session 34,institute,mixed,D005,49,29,0.84
+W035,2023-11-22,AI Literacy Session 35,workshop,staff,D006,75,47,0.71
+W036,2024-04-07,AI Literacy Session 36,institute,faculty,D011,123,74,0.79
+W037,2023-11-25,AI Literacy Session 37,webinar,faculty,D006,65,45,0.85
+W038,2024-07-05,AI Literacy Session 38,webinar,mixed,D010,24,22,0.73
+W039,2024-04-12,AI Literacy Session 39,workshop,faculty,D012,132,101,0.79
+W040,2024-01-17,AI Literacy Session 40,webinar,faculty,D010,80,69,0.75
+W041,2024-03-27,AI Literacy Session 41,workshop,faculty,D006,32,24,0.62
+W042,2024-07-13,AI Literacy Session 42,workshop,mixed,D007,85,56,0.81
+W043,2023-07-24,AI Literacy Session 43,micro-course,staff,D007,57,53,0.68
+W044,2024-06-05,AI Literacy Session 44,workshop,faculty,D007,26,26,0.62
+W045,2024-01-03,AI Literacy Session 45,workshop,faculty,D002,113,91,0.68
+W046,2024-09-09,AI Literacy Session 46,webinar,staff,D006,110,68,0.85
+W047,2023-10-22,AI Literacy Session 47,workshop,graduate students,D009,46,40,0.84
+W048,2023-12-06,AI Literacy Session 48,micro-course,graduate students,D010,27,21,0.83
+W049,2024-04-16,AI Literacy Session 49,workshop,staff,D010,36,30,0.98
+W050,2024-05-08,AI Literacy Session 50,micro-course,mixed,D002,130,105,0.79
+W051,2024-03-24,AI Literacy Session 51,institute,staff,D002,52,31,0.95
+W052,2024-09-03,AI Literacy Session 52,workshop,mixed,D010,60,47,0.62
+W053,2023-11-03,AI Literacy Session 53,workshop,staff,D003,131,112,0.88
+W054,2023-12-24,AI Literacy Session 54,webinar,faculty,D003,122,79,0.68
+W055,2023-08-24,AI Literacy Session 55,webinar,graduate students,D008,53,51,0.78
+W056,2024-01-10,AI Literacy Session 56,micro-course,staff,D003,129,112,0.82
+W057,2023-12-18,AI Literacy Session 57,webinar,faculty,D005,29,17,0.87
+W058,2023-10-17,AI Literacy Session 58,workshop,staff,D004,129,101,0.85
+W059,2023-11-24,AI Literacy Session 59,webinar,staff,D012,78,64,0.76
+W060,2024-09-07,AI Literacy Session 60,institute,staff,D005,86,85,0.73

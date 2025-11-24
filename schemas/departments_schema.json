@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Departments Schema",
+  "type": "object",
+  "properties": {
+    "department_id": { "type": "string" },
+    "department_name": { "type": "string" },
+    "division": { "type": "string" },
+    "baseline_readiness_score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "current_readiness_score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "training_coverage_rate": { "type": "number", "minimum": 0, "maximum": 1 }
+  },
+  "required": [
+    "department_id",
+    "department_name",
+    "division",
+    "baseline_readiness_score",
+    "current_readiness_score",
+    "training_coverage_rate"
+  ],
+  "additionalProperties": false
+}

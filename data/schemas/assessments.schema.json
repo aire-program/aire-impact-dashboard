@@ -1,0 +1,62 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "assessment_id": {
+            "type": "string"
+        },
+        "person_id": {
+            "type": "string"
+        },
+        "workshop_id": {
+            "type": "string"
+        },
+        "timestamp": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "role": {
+            "type": "string",
+            "enum": [
+                "faculty",
+                "staff",
+                "grad_student"
+            ]
+        },
+        "department_id": {
+            "type": "string"
+        },
+        "confidence_ai_tools": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+        },
+        "confidence_pedagogical_use": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+        },
+        "confidence_risk_mitigation": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+        },
+        "overall_readiness": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+        }
+    },
+    "required": [
+        "assessment_id",
+        "person_id",
+        "workshop_id",
+        "timestamp",
+        "role",
+        "department_id",
+        "confidence_ai_tools",
+        "confidence_pedagogical_use",
+        "confidence_risk_mitigation",
+        "overall_readiness"
+    ]
+}

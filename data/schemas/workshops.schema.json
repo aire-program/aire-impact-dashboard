@@ -1,0 +1,69 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "workshop_id": {
+            "type": "string"
+        },
+        "title": {
+            "type": "string"
+        },
+        "date": {
+            "type": "string",
+            "format": "date"
+        },
+        "modality": {
+            "type": "string",
+            "enum": [
+                "online",
+                "in_person",
+                "hybrid"
+            ]
+        },
+        "track": {
+            "type": "string",
+            "enum": [
+                "fundamentals",
+                "advanced",
+                "ethics",
+                "assessment",
+                "special_topic"
+            ]
+        },
+        "level": {
+            "type": "string",
+            "enum": [
+                "intro",
+                "intermediate",
+                "advanced"
+            ]
+        },
+        "host_department_id": {
+            "type": "string"
+        },
+        "capacity": {
+            "type": "integer",
+            "minimum": 0
+        },
+        "registrations": {
+            "type": "integer",
+            "minimum": 0
+        },
+        "attended": {
+            "type": "integer",
+            "minimum": 0
+        }
+    },
+    "required": [
+        "workshop_id",
+        "title",
+        "date",
+        "modality",
+        "track",
+        "level",
+        "host_department_id",
+        "capacity",
+        "registrations",
+        "attended"
+    ]
+}

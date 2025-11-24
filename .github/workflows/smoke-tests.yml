@@ -1,0 +1,34 @@
+name: Smoke Tests
+
+on:
+  push:
+    paths:
+      - 'app/**'
+      - 'data/**'
+      - 'scripts/**'
+      - 'requirements.txt'
+  pull_request:
+    paths:
+      - 'app/**'
+      - 'data/**'
+      - 'scripts/**'
+      - 'requirements.txt'
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Generate Data
+      run: python scripts/generate_dummy_data.py
+    - name: Verify App Import
+      run: |
+        python -c "from app import main; print('App imports successfully')"

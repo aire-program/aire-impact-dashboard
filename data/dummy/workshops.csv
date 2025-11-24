@@ -1,0 +1,21 @@
+workshop_id,title,date,modality,track,level,host_department_id,capacity,registrations,attended
+WS_001,AI Workshop 1: Data Analysis,2023-01-23,online,special_topic,intermediate,DEPT_010,100,84,61
+WS_002,AI Workshop 2: Ethics,2023-07-05,in_person,fundamentals,intro,DEPT_002,30,17,11
+WS_003,AI Workshop 3: Prompt Engineering,2023-07-14,online,ethics,intermediate,DEPT_004,50,39,37
+WS_004,AI Workshop 4: Future Trends,2023-12-10,hybrid,advanced,advanced,DEPT_004,50,47,34
+WS_005,AI Workshop 5: Future Trends,2023-03-25,online,ethics,intro,DEPT_004,100,74,59
+WS_006,AI Workshop 6: Basics,2023-01-17,online,special_topic,advanced,DEPT_006,50,37,29
+WS_007,AI Workshop 7: Data Analysis,2023-04-19,online,ethics,intro,DEPT_004,100,75,72
+WS_008,AI Workshop 8: Future Trends,2023-10-15,in_person,ethics,intro,DEPT_003,50,48,46
+WS_009,AI Workshop 9: Basics,2023-09-18,online,advanced,advanced,DEPT_007,100,55,39
+WS_010,AI Workshop 10: Future Trends,2023-11-02,in_person,special_topic,intermediate,DEPT_009,20,16,14
+WS_011,AI Workshop 11: Prompt Engineering,2023-01-06,hybrid,ethics,intro,DEPT_005,20,20,18
+WS_012,AI Workshop 12: Prompt Engineering,2023-08-11,hybrid,advanced,advanced,DEPT_002,30,29,20
+WS_013,AI Workshop 13: Future Trends,2023-11-17,online,advanced,intermediate,DEPT_003,50,45,39
+WS_014,AI Workshop 14: Data Analysis,2023-10-04,online,fundamentals,intermediate,DEPT_005,20,19,15
+WS_015,AI Workshop 15: Basics,2023-05-03,online,assessment,intro,DEPT_009,20,13,13
+WS_016,AI Workshop 16: Ethics,2023-03-06,in_person,special_topic,advanced,DEPT_007,30,30,29
+WS_017,AI Workshop 17: Prompt Engineering,2023-04-19,in_person,special_topic,intermediate,DEPT_002,30,24,22
+WS_018,AI Workshop 18: Basics,2023-05-07,hybrid,special_topic,intro,DEPT_010,30,17,13
+WS_019,AI Workshop 19: Ethics,2023-04-23,online,fundamentals,intermediate,DEPT_002,20,11,7
+WS_020,AI Workshop 20: Ethics,2023-09-21,hybrid,advanced,advanced,DEPT_010,30,23,23

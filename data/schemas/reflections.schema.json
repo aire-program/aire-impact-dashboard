@@ -1,0 +1,64 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "reflection_id": {
+            "type": "string"
+        },
+        "person_id": {
+            "type": "string"
+        },
+        "workshop_id": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "timestamp": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "department_id": {
+            "type": "string"
+        },
+        "role": {
+            "type": "string",
+            "enum": [
+                "faculty",
+                "staff",
+                "grad_student"
+            ]
+        },
+        "reflection_text": {
+            "type": "string"
+        },
+        "sentiment": {
+            "type": "string",
+            "enum": [
+                "positive",
+                "mixed",
+                "negative"
+            ]
+        },
+        "theme": {
+            "type": "string",
+            "enum": [
+                "confidence",
+                "time",
+                "policy",
+                "support",
+                "tools"
+            ]
+        }
+    },
+    "required": [
+        "reflection_id",
+        "person_id",
+        "timestamp",
+        "department_id",
+        "role",
+        "reflection_text",
+        "sentiment",
+        "theme"
+    ]
+}

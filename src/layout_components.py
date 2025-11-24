@@ -44,9 +44,9 @@ def inject_styles():
         }}
         /* Tag chips */
         div[data-baseweb="tag"] {{
-            background-color: var(--soft);
-            color: var(--primary-dark);
-            border: 1px solid #b7d1c7;
+            background-color: var(--soft) !important;
+            color: var(--primary-dark) !important;
+            border: 1px solid #b7d1c7 !important;
         }}
         /* Top banner */
         .aire-banner {{

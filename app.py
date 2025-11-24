@@ -157,14 +157,29 @@ def main():
     with tabs[4]:
         render_reflection_section(sentiment_df, theme_df)
     with tabs[5]:
-        if len(selected_depts) == 1:
-            dept_name = departments.set_index("department_id").loc[selected_depts[0], "department_name"]
-            dept_adopt = adoption_df[adoption_df["department_id"] == selected_depts[0]]
-            dept_ready = readiness_df[readiness_df["department_id"] == selected_depts[0]]
-            dept_timeseries = timeseries_df  # already filtered
-            render_department_focus(dept_name, dept_adopt, dept_ready, dept_timeseries, theme_df)
-        else:
-            st.info("Select exactly one department to view the focus panel.")
+        focus_options = selected_depts if selected_depts else list(departments["department_id"])
+        focus_dept = st.selectbox(
+            "Department to focus",
+            options=focus_options,
+            format_func=lambda x: departments.set_index("department_id").loc[x, "department_name"],
+        )
+        focus_name = departments.set_index("department_id").loc[focus_dept, "department_name"]
+        dept_adopt = adoption_df[adoption_df["department_id"] == focus_dept]
+        dept_ready = readiness_df[readiness_df["department_id"] == focus_dept]
+        dept_engagement = compute_workshop_engagement(
+            filter_by_departments(filtered_workshops, "department_id", [focus_dept]),
+            [focus_dept],
+            audience_filter,
+        )
+        dept_timeseries = dept_engagement["timeseries"]
+        dept_reflection = compute_reflection_sentiment(
+            filter_by_departments(reflections, "department_id", [focus_dept]),
+            participants,
+            filtered_department_ids=[focus_dept],
+            filtered_roles=role_filter,
+        )
+        dept_themes = dept_reflection["themes"]
+        render_department_focus(focus_name, dept_adopt, dept_ready, dept_timeseries, dept_themes)
 
 
 if __name__ == "__main__":

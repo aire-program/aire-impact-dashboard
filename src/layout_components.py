@@ -43,10 +43,13 @@ def inject_styles():
             color: var(--primary-dark);
         }}
         /* Tag chips */
-        div[data-baseweb="tag"] {{
+        div[data-baseweb="tag"], span[data-baseweb="tag"] {{
             background-color: var(--soft) !important;
             color: var(--primary-dark) !important;
-            border: 1px solid #b7d1c7 !important;
+            border: 1px solid #9bc7b3 !important;
+        }}
+        .stMultiSelect [data-baseweb="tag"] svg {{
+            color: var(--primary-dark) !important;
         }}
         /* Top banner */
         .aire-banner {{

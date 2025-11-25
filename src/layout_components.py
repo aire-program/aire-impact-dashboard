@@ -138,20 +138,24 @@ def render_header(active_source: str, last_refreshed: str, view: str = "dashboar
                         <div style="font-size:13px;opacity:0.9;">Applied AI Innovation & Research Enablement (AIRE) | College of Social Science | Michigan State University</div>
                     </div>
                 </div>
-                <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
-                    <span class="chip">Source: {active_source.title()}</span>
-                    <span class="chip">Last refreshed: {last_refreshed}</span>
-                    <span class="chip">Leadership-facing | Responsible AI adoption</span>
-                </div>
             </div>
         </div>
         """,
         unsafe_allow_html=True,
     )
-    top_row = st.columns([3, 1])
+    top_row = st.columns([2, 2, 1])
     with top_row[0]:
         st.caption("Decision-support pillar for AIRE literacy, readiness, and adoption. Use filters and uploads to reflect current institutional data.")
     with top_row[1]:
+        st.markdown(
+            f"""
+            <div style="font-size:13px; color: {PALETTE['primary_dark']};">
+                Source: {active_source} | Last refreshed: {last_refreshed} | Leadership-facing | Responsible AI adoption
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+    with top_row[2]:
         if view == "data_management":
             if st.button("Back to dashboard", type="primary"):
                 st.session_state["view"] = "dashboard"

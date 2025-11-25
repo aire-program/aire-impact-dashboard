@@ -12,6 +12,7 @@ from .charts import (
     make_theme_distribution_bar,
     make_workshop_engagement_timeseries,
 )
+from .data_sources import REQUIRED_FILES
 
 FONT_FAMILY = "'IBM Plex Sans', 'Inter', system-ui, -apple-system, sans-serif"
 
@@ -124,6 +125,15 @@ def render_header():
         """,
         unsafe_allow_html=True,
     )
+
+
+def render_upload_button():
+    col1, col2 = st.columns([1, 5])
+    with col1:
+        if st.button("Upload data", help="Manage data ingestion and validation for the dashboard"):
+            st.session_state["view"] = "data_management"
+    with col2:
+        st.caption("Upload CSVs aligned to required columns to drive the dashboard with institutional data for this session.")
 
 
 def render_sidebar_filters(all_departments_df, all_roles_list, default_date_range):
@@ -262,3 +272,60 @@ def render_executive_notes(notes: List[str]):
     )
     for note in notes:
         st.markdown(f"- {note}")
+
+
+def render_data_management_panel():
+    st.subheader("Data Management and Upload")
+    st.write(
+        "Use this panel to load updated AIRE program data. Administrators export CSVs from institutional sources, align them to required columns, and upload for validation. Synthetic data remains available at any time for demonstration and exploration."
+    )
+    st.write(
+        "The internal AIRE Impact Dashboard connects to secure institutional systems. This public environment supports local analysis by validating uploaded CSVs against documented formats."
+    )
+
+    st.markdown("### Required CSV structure")
+    for key, (filename, schema_name) in REQUIRED_FILES.items():
+        st.markdown(f"**{filename}**")
+        if "workshops" in filename:
+            st.write(
+                "- workshop_id (string)\n- date (YYYY-MM-DD)\n- title (string)\n- format (workshop, micro-course, webinar, institute)\n- audience (faculty, staff, graduate students, mixed)\n- department_id (string; matches departments.csv)\n- registrations (integer)\n- attendances (integer)\n- completion_rate (0–1)"
+            )
+        elif "participants" in filename:
+            st.write(
+                "- participant_id (string)\n- role (faculty, staff, graduate student)\n- department_id (string)\n- workshops_attended (integer)\n- last_attended_date (YYYY-MM-DD)\n- adoption_level (early, developing, established)\n- ai_confidence_self_rating (1–5)"
+            )
+        elif "confidence_surveys" in filename:
+            st.write(
+                "- survey_id (string)\n- participant_id (string)\n- workshop_id (string)\n- date (YYYY-MM-DD)\n- confidence_score (1–5)\n- understanding_responsible_ai (1–5)\n- comfort_with_tools (1–5)"
+            )
+        elif "reflections" in filename:
+            st.write(
+                "- reflection_id (string)\n- participant_id (string)\n- workshop_id (string)\n- date (YYYY-MM-DD)\n- reflection_text (string)\n- sentiment (positive, neutral, negative)\n- theme (e.g., classroom use, assessment, ethical concerns, research workflows, administrative processes)"
+            )
+        elif "departments" in filename:
+            st.write(
+                "- department_id (string)\n- department_name (string)\n- division (string)\n- baseline_readiness_score (0–1)\n- current_readiness_score (0–1)\n- training_coverage_rate (0–1)"
+            )
+
+    st.markdown("### Upload files for this session")
+    uploaders = {}
+    for key, (filename, _) in REQUIRED_FILES.items():
+        uploaders[filename] = st.file_uploader(f"Upload {filename}", type=["csv"])
+
+    all_present = all(uploaders[f] is not None for f in uploaders)
+
+    if st.button("Validate and Load Data", disabled=not all_present):
+        if not all_present:
+            st.error("All required CSVs must be provided before validation.")
+        else:
+            uploaded_files = {name: uploaders[name] for name in uploaders}
+            st.session_state["uploaded_raw"] = uploaded_files
+            st.session_state["trigger_validation"] = True
+
+    if st.button("Back to dashboard"):
+        st.session_state["view"] = "dashboard"
+
+    if st.button("Reset to synthetic data"):
+        st.session_state["uploaded_data"] = None
+        st.session_state["active_source"] = "synthetic"
+        st.success("Dashboard has been reset to the synthetic dataset.")

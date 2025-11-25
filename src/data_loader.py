@@ -34,6 +34,19 @@ def _load_and_validate(csv_name: str, schema_name: str, date_cols=None) -> pd.Da
     return df
 
 
+def validate_dataframe(df: pd.DataFrame, schema_name: str) -> None:
+    """
+    Validate an in-memory DataFrame against a JSON schema.
+    Raises ValueError with details if validation fails.
+    """
+    validator = _read_schema(schema_name)
+    for idx, record in df.iterrows():
+        errors = sorted(validator.iter_errors(record.to_dict()), key=lambda e: e.path)
+        if errors:
+            messages = "; ".join([f"{'.'.join(map(str, e.path))}: {e.message}" for e in errors])
+            raise ValueError(f"Validation failed for {schema_name} at row {idx}: {messages}")
+
+
 def load_workshops() -> pd.DataFrame:
     return _load_and_validate(
         "workshops.csv",

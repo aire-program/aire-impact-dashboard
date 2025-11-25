@@ -34,6 +34,11 @@ Applied AI Innovation & Research Enablement (AIRE) | College of Social Science |
 - **Departments:** Select one, multiple, or all departments; KPIs and charts respect the selection.
 - **User groups:** Filter by faculty, staff, graduate students, or mixed audiences; affects participant-driven metrics and workshop audience views.
 
+## Data Sources and Uploads
+- Ships with a synthetic dataset for immediate exploration and demonstration.
+- Data Management / Upload panel allows administrators to upload CSVs aligned to required columns; validation is enforced against documented schemas.
+- Uploaded data is session-scoped; synthetic data remains available at any time.
+
 ## Run Locally
 ```
 pip install -r requirements.txt

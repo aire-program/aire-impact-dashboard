@@ -20,9 +20,18 @@ from src.layout_components import (
     render_overview_section,
     render_participation_section,
     render_reflection_section,
+    render_upload_button,
     render_sidebar_filters,
+    render_data_management_panel,
 )
 from src.charts import PALETTE
+from src.data_sources import (
+    SYNTHETIC,
+    UPLOADED,
+    get_available_data_sources,
+    load_data_for_source,
+    process_uploads,
+)
 
 
 @st.cache_data
@@ -53,9 +62,55 @@ def _map_roles_to_audiences(selected_roles):
 
 def main():
     st.set_page_config(page_title="AIRE Impact Dashboard", layout="wide")
-    render_header()
+    if "active_source" not in st.session_state:
+        st.session_state["active_source"] = SYNTHETIC
+    if "uploaded_data" not in st.session_state:
+        st.session_state["uploaded_data"] = None
+    if "view" not in st.session_state:
+        st.session_state["view"] = "dashboard"
+    if "trigger_validation" not in st.session_state:
+        st.session_state["trigger_validation"] = False
 
-    data = _load_data()
+    render_header()
+    render_upload_button()
+
+    if st.session_state.get("trigger_validation"):
+        try:
+            files = st.session_state.get("uploaded_raw", {})
+            if files:
+                uploaded_data = process_uploads(files)
+                st.session_state["uploaded_data"] = uploaded_data
+                st.session_state["active_source"] = UPLOADED
+                st.session_state["upload_status"] = "Uploaded data are now in use for this session."
+                st.success("Uploaded data validated and loaded. Dashboard is now using session uploads.")
+            else:
+                st.error("No files found for validation.")
+        except Exception as e:
+            st.session_state["active_source"] = SYNTHETIC
+            st.session_state["upload_status"] = f"Validation failed: {e}"
+            st.error(f"Validation failed: {e}")
+        finally:
+            st.session_state["trigger_validation"] = False
+
+    if st.session_state["view"] == "data_management":
+        render_data_management_panel()
+        return
+
+    data_source_options = [SYNTHETIC]
+    if st.session_state.get("uploaded_data"):
+        data_source_options.append(UPLOADED)
+    selected_source = st.sidebar.selectbox(
+        "Data source",
+        options=data_source_options,
+        format_func=lambda x: "Synthetic dataset (default)" if x == SYNTHETIC else "Uploaded dataset (this session)",
+        index=data_source_options.index(st.session_state["active_source"]) if st.session_state["active_source"] in data_source_options else 0,
+    )
+    st.session_state["active_source"] = selected_source
+    st.sidebar.caption("Synthetic data is always available. Uploaded data remains active only for this session.")
+    if st.session_state.get("upload_status"):
+        st.sidebar.info(st.session_state["upload_status"])
+
+    data = load_data_for_source(selected_source)
     workshops = data["workshops"]
     participants = data["participants"]
     conf_pre = data["confidence_pre"]

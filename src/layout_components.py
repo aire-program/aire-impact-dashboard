@@ -56,9 +56,9 @@ def inject_styles():
         .aire-banner {{
             background: var(--primary-dark);
             color: #f2fbff;
-            padding: 14px 18px;
-            border-radius: 12px;
-            margin-bottom: 12px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            margin-bottom: 10px;
         }}
         .aire-banner strong {{ color: #f2fbff; }}
         .metric-card-title {{
@@ -90,28 +90,47 @@ def inject_styles():
         .stMetric > div {{
             background: #ffffff;
             border: 1px solid #e2ebf0;
-            border-radius: 12px;
+            border-radius: 10px;
             padding: 8px 10px;
         }}
         .executive-card {{
             background:#f7fbfd;
             border:1px solid #dbe9f1;
-            border-radius:12px;
+            border-radius:10px;
             padding:14px 16px;
         }}
         .lucide {{ display:inline-flex; vertical-align:middle; }}
+        .chip {{
+            display:inline-flex;
+            align-items:center;
+            gap:6px;
+            background:#eef6fa;
+            color: var(--primary-dark);
+            padding:6px 10px;
+            border-radius:20px;
+            border:1px solid #d2e5ee;
+            font-size:12px;
+            font-weight:600;
+        }}
+        .primary-btn {{
+            background: {PALETTE["primary"]};
+            color:#fff !important;
+            padding:8px 14px;
+            border-radius:8px;
+            border:none;
+        }}
         </style>
         """,
         unsafe_allow_html=True,
     )
 
 
-def render_header():
+def render_header(active_source: str, last_refreshed: str, view: str = "dashboard"):
     inject_styles()
     st.markdown(
         f"""
         <div class="aire-banner">
-            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
                 <div style="display:flex;gap:10px;align-items:center;">
                     <span class="lucide">{LUCIDE_ICONS["building"]}</span>
                     <div>
@@ -119,21 +138,26 @@ def render_header():
                         <div style="font-size:13px;opacity:0.9;">Applied AI Innovation & Research Enablement (AIRE) | College of Social Science | Michigan State University</div>
                     </div>
                 </div>
-                <div style="font-size:12px;opacity:0.9;">Leadership-facing view of AIRE literacy, readiness, and responsible AI adoption</div>
+                <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+                    <span class="chip">Source: {active_source.title()}</span>
+                    <span class="chip">Last refreshed: {last_refreshed}</span>
+                    <span class="chip">Leadership-facing | Responsible AI adoption</span>
+                </div>
             </div>
         </div>
         """,
         unsafe_allow_html=True,
     )
-
-
-def render_upload_button():
-    col1, col2 = st.columns([1, 5])
-    with col1:
-        if st.button("Upload data", help="Manage data ingestion and validation for the dashboard"):
-            st.session_state["view"] = "data_management"
-    with col2:
-        st.caption("Upload CSVs aligned to required columns to drive the dashboard with institutional data for this session.")
+    top_row = st.columns([3, 1])
+    with top_row[0]:
+        st.caption("Decision-support pillar for AIRE literacy, readiness, and adoption. Use filters and uploads to reflect current institutional data.")
+    with top_row[1]:
+        if view == "data_management":
+            if st.button("Back to dashboard", type="primary"):
+                st.session_state["view"] = "dashboard"
+        else:
+            if st.button("Upload data", type="primary", help="Manage data ingestion and validation for the dashboard"):
+                st.session_state["view"] = "data_management"
 
 
 def render_sidebar_filters(all_departments_df, all_roles_list, default_date_range):
@@ -148,13 +172,32 @@ def render_sidebar_filters(all_departments_df, all_roles_list, default_date_rang
         options=all_departments_df["department_id"],
         format_func=lambda x: all_departments_df.set_index("department_id").loc[x, "department_name"],
         default=list(all_departments_df["department_id"]),
+        key="dept_filter",
     )
+    dept_col1, dept_col2 = st.sidebar.columns(2)
+    if dept_col1.button("Select all depts"):
+        st.session_state["dept_filter"] = list(all_departments_df["department_id"])
+        selected_depts = st.session_state["dept_filter"]
+    if dept_col2.button("Clear depts"):
+        st.session_state["dept_filter"] = []
+        selected_depts = []
+    st.sidebar.caption(f"Departments selected: {len(selected_depts)}")
+
     selected_roles = st.sidebar.multiselect(
         "Faculty and staff segments",
         options=all_roles_list,
         default=all_roles_list,
         help="Focus on specific user groups to gauge adoption equity and confidence shifts.",
+        key="role_filter",
     )
+    role_col1, role_col2 = st.sidebar.columns(2)
+    if role_col1.button("Select all roles"):
+        st.session_state["role_filter"] = list(all_roles_list)
+        selected_roles = st.session_state["role_filter"]
+    if role_col2.button("Clear roles"):
+        st.session_state["role_filter"] = []
+        selected_roles = []
+    st.sidebar.caption(f"Roles selected: {len(selected_roles)}")
     return date_range, selected_depts, selected_roles
 
 
@@ -284,48 +327,53 @@ def render_data_management_panel():
     )
 
     st.markdown("### Required CSV structure")
-    for key, (filename, schema_name) in REQUIRED_FILES.items():
-        st.markdown(f"**{filename}**")
-        if "workshops" in filename:
-            st.write(
-                "- workshop_id (string)\n- date (YYYY-MM-DD)\n- title (string)\n- format (workshop, micro-course, webinar, institute)\n- audience (faculty, staff, graduate students, mixed)\n- department_id (string; matches departments.csv)\n- registrations (integer)\n- attendances (integer)\n- completion_rate (0–1)"
-            )
-        elif "participants" in filename:
-            st.write(
-                "- participant_id (string)\n- role (faculty, staff, graduate student)\n- department_id (string)\n- workshops_attended (integer)\n- last_attended_date (YYYY-MM-DD)\n- adoption_level (early, developing, established)\n- ai_confidence_self_rating (1–5)"
-            )
-        elif "confidence_surveys" in filename:
-            st.write(
-                "- survey_id (string)\n- participant_id (string)\n- workshop_id (string)\n- date (YYYY-MM-DD)\n- confidence_score (1–5)\n- understanding_responsible_ai (1–5)\n- comfort_with_tools (1–5)"
-            )
-        elif "reflections" in filename:
-            st.write(
-                "- reflection_id (string)\n- participant_id (string)\n- workshop_id (string)\n- date (YYYY-MM-DD)\n- reflection_text (string)\n- sentiment (positive, neutral, negative)\n- theme (e.g., classroom use, assessment, ethical concerns, research workflows, administrative processes)"
-            )
-        elif "departments" in filename:
-            st.write(
-                "- department_id (string)\n- department_name (string)\n- division (string)\n- baseline_readiness_score (0–1)\n- current_readiness_score (0–1)\n- training_coverage_rate (0–1)"
-            )
-
-    st.markdown("### Upload files for this session")
     uploaders = {}
-    for key, (filename, _) in REQUIRED_FILES.items():
-        uploaders[filename] = st.file_uploader(f"Upload {filename}", type=["csv"])
+    for key, (filename, schema_name) in REQUIRED_FILES.items():
+        with st.expander(f"{filename} format and upload", expanded=False):
+            if "workshops" in filename:
+                st.write(
+                    "- workshop_id (string)\n- date (YYYY-MM-DD)\n- title (string)\n- format (workshop, micro-course, webinar, institute)\n- audience (faculty, staff, graduate students, mixed)\n- department_id (string; matches departments.csv)\n- registrations (integer)\n- attendances (integer)\n- completion_rate (0–1)"
+                )
+            elif "participants" in filename:
+                st.write(
+                    "- participant_id (string)\n- role (faculty, staff, graduate student)\n- department_id (string)\n- workshops_attended (integer)\n- last_attended_date (YYYY-MM-DD)\n- adoption_level (early, developing, established)\n- ai_confidence_self_rating (1–5)"
+                )
+            elif "confidence_surveys" in filename:
+                st.write(
+                    "- survey_id (string)\n- participant_id (string)\n- workshop_id (string)\n- date (YYYY-MM-DD)\n- confidence_score (1–5)\n- understanding_responsible_ai (1–5)\n- comfort_with_tools (1–5)"
+                )
+            elif "reflections" in filename:
+                st.write(
+                    "- reflection_id (string)\n- participant_id (string)\n- workshop_id (string)\n- date (YYYY-MM-DD)\n- reflection_text (string)\n- sentiment (positive, neutral, negative)\n- theme (e.g., classroom use, assessment, ethical concerns, research workflows, administrative processes)"
+                )
+            elif "departments" in filename:
+                st.write(
+                    "- department_id (string)\n- department_name (string)\n- division (string)\n- baseline_readiness_score (0–1)\n- current_readiness_score (0–1)\n- training_coverage_rate (0–1)"
+                )
+            uploaders[filename] = st.file_uploader(f"Upload {filename}", type=["csv"], key=f"upload_{filename}")
+            if uploaders[filename] is not None:
+                st.success(f"{filename} ready for validation.")
+            else:
+                st.info(f"{filename} not yet provided.")
 
     all_present = all(uploaders[f] is not None for f in uploaders)
 
-    if st.button("Validate and Load Data", disabled=not all_present):
-        if not all_present:
-            st.error("All required CSVs must be provided before validation.")
-        else:
-            uploaded_files = {name: uploaders[name] for name in uploaders}
-            st.session_state["uploaded_raw"] = uploaded_files
-            st.session_state["trigger_validation"] = True
-
-    if st.button("Back to dashboard"):
-        st.session_state["view"] = "dashboard"
-
-    if st.button("Reset to synthetic data"):
-        st.session_state["uploaded_data"] = None
-        st.session_state["active_source"] = "synthetic"
-        st.success("Dashboard has been reset to the synthetic dataset.")
+    action_bar = st.container()
+    with action_bar:
+        col_a, col_b, col_c = st.columns([2, 1, 1])
+        with col_a:
+            if st.button("Validate and Load Data", disabled=not all_present, type="primary"):
+                if not all_present:
+                    st.error("All required CSVs must be provided before validation.")
+                else:
+                    uploaded_files = {name: uploaders[name] for name in uploaders}
+                    st.session_state["uploaded_raw"] = uploaded_files
+                    st.session_state["trigger_validation"] = True
+        with col_b:
+            if st.button("Back to dashboard"):
+                st.session_state["view"] = "dashboard"
+        with col_c:
+            if st.button("Reset to synthetic data"):
+                st.session_state["uploaded_data"] = None
+                st.session_state["active_source"] = "synthetic"
+                st.success("Dashboard has been reset to the synthetic dataset.")

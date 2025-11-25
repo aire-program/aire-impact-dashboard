@@ -20,7 +20,6 @@ from src.layout_components import (
     render_overview_section,
     render_participation_section,
     render_reflection_section,
-    render_upload_button,
     render_sidebar_filters,
     render_data_management_panel,
 )
@@ -71,9 +70,6 @@ def main():
     if "trigger_validation" not in st.session_state:
         st.session_state["trigger_validation"] = False
 
-    render_header()
-    render_upload_button()
-
     if st.session_state.get("trigger_validation"):
         try:
             files = st.session_state.get("uploaded_raw", {})
@@ -91,10 +87,6 @@ def main():
             st.error(f"Validation failed: {e}")
         finally:
             st.session_state["trigger_validation"] = False
-
-    if st.session_state["view"] == "data_management":
-        render_data_management_panel()
-        return
 
     data_source_options = [SYNTHETIC]
     if st.session_state.get("uploaded_data"):
@@ -117,6 +109,16 @@ def main():
     conf_post = data["confidence_post"]
     reflections = data["reflections"]
     departments = data["departments"]
+
+    last_refreshed = (
+        workshops["date"].max().strftime("%Y-%m-%d") if not workshops.empty else "N/A"
+    )
+    source_label = "Synthetic dataset (default)" if selected_source == SYNTHETIC else "Uploaded dataset (this session)"
+    render_header(source_label, last_refreshed, view=st.session_state["view"])
+
+    if st.session_state["view"] == "data_management":
+        render_data_management_panel()
+        return
 
     all_roles = ["faculty", "staff", "graduate student", "mixed"]
     date_range = (

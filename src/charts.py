@@ -26,6 +26,7 @@ def _apply_layout_defaults(fig: go.Figure, title: str) -> go.Figure:
         xaxis=dict(showgrid=False, zeroline=False, linecolor="#d8e3ea", title_font=dict(size=12)),
         yaxis=dict(showgrid=True, gridcolor="#dfe9ef", zeroline=False, title_font=dict(size=12)),
         font=dict(color=PALETTE["primary_dark"]),
+        legend=dict(orientation="h", yanchor="bottom", y=1.05, x=0, font=dict(size=11)),
     )
     return fig
 

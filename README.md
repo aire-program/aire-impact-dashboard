@@ -17,7 +17,7 @@ Designed to close the loop between training (AIRE Literacy Hub) and application 
 *   **Risk & Sentiment:** Surfacing qualitative themes from participant reflections to guide policy and support structures.
 
 ### Public Reference Implementation
-This repository contains the **public reference implementation** of the internal dashboard. To ensure transparency and facilitate collaboration without compromising privacy, this instance operates on a **high-fidelity synthetic dataset**. This data mirrors the statistical properties, adoption patterns, and structural relationships of the actual institutional deployment, allowing external stakeholders to evaluate the analytical framework in a privacy-preserving environment.
+This repository contains the **public reference implementation** aligned with the internal dashboard. To maintain transparency while safeguarding confidentiality, it ships with a **fabricated, high-fidelity synthetic dataset** that mirrors the statistical properties, adoption patterns, and structural relationships observed in production. The operational deployment remains inside the College of Social Science environment; this version allows partners to review the analytical model without exposing institutional records.
 
 ---
 
@@ -92,7 +92,7 @@ This approach allows researchers, developers, and collaborators to:
 - upload their own datasets  
 - integrate or extend the dashboard in their own environments  
 
-The synthetic dataset also supports teaching, demonstration, and onboarding without requiring access to restricted institutional systems.
+The synthetic dataset also supports orientation, sandbox testing, and onboarding without requiring any connection to restricted institutional systems.
 
 ---
 

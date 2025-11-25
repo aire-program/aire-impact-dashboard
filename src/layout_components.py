@@ -161,7 +161,7 @@ def render_header(active_source: str, last_refreshed: str, view: str = "dashboar
             if st.button("Back to dashboard", type="primary"):
                 st.session_state["view"] = "dashboard"
         else:
-            if st.button("Upload data", type="primary", help="Manage data ingestion and validation for the dashboard"):
+            if st.button("Data ingestion & validation", type="primary", help="Manage data ingestion and validation for the dashboard"):
                 st.session_state["view"] = "data_management"
 
 
@@ -180,16 +180,16 @@ def render_sidebar_filters(all_departments_df, all_roles_list, default_date_rang
         key="dept_filter",
     )
     dept_col1, dept_col2 = st.sidebar.columns(2)
-    if dept_col1.button("Select all depts"):
+    if dept_col1.button("Select all departments"):
         st.session_state["dept_filter"] = list(all_departments_df["department_id"])
         selected_depts = st.session_state["dept_filter"]
-    if dept_col2.button("Clear depts"):
+    if dept_col2.button("Clear departments"):
         st.session_state["dept_filter"] = []
         selected_depts = []
     st.sidebar.caption(f"Departments selected: {len(selected_depts)}")
 
     selected_roles = st.sidebar.multiselect(
-        "Faculty and staff segments",
+        "Faculty, staff, and graduate student segments",
         options=all_roles_list,
         default=all_roles_list,
         help="Focus on specific user groups to gauge adoption equity and confidence shifts.",
@@ -244,20 +244,20 @@ def render_participation_section(timeseries_df, by_format_df, by_audience_df, co
     col1.plotly_chart(make_workshop_engagement_timeseries(timeseries_df), use_container_width=True)
     with col2:
         if completion_df.empty:
-            st.info("No data for this selection")
+            st.info("No data available for the current filters.")
         else:
             st.metric("Average Completion", f"{completion_df['value'].iloc[0]*100:.0f}%")
 
     col3, col4 = st.columns(2)
     if by_format_df.empty:
-        col3.info("No data for this selection")
+        col3.info("No data available for the current filters.")
     else:
         col3.plotly_chart(
             px.bar(by_format_df, x="format", y="attendances", title="Engagement by Format", color_discrete_sequence=[PALETTE["primary"]]),
             use_container_width=True,
         )
     if by_audience_df.empty:
-        col4.info("No data for this selection")
+        col4.info("No data available for the current filters.")
     else:
         col4.plotly_chart(
             px.bar(by_audience_df, x="audience", y="attendances", title="Engagement by Audience", color_discrete_sequence=[PALETTE["accent"]]),
@@ -287,7 +287,7 @@ def render_department_readiness_section(readiness_df):
 def render_department_focus(dept_name: str, adoption_df, readiness_df, timeseries_df, themes_df):
     st.markdown(f"### {dept_name} Focus")
     st.write(
-        "Targeted view for this department: adoption strength, readiness posture, and engagement signals to brief chairs and associate deans."
+        "Department-level briefing: adoption strength, readiness posture, and engagement signals to inform chair conversations and action plans."
     )
     col1, col2 = st.columns(2)
     if not adoption_df.empty:
@@ -380,7 +380,7 @@ def render_data_management_panel():
             if st.button("Back to dashboard"):
                 st.session_state["view"] = "dashboard"
         with col_c:
-            if st.button("Reset to synthetic data"):
+            if st.button("Return to reference dataset"):
                 st.session_state["uploaded_data"] = None
                 st.session_state["active_source"] = "synthetic"
-                st.success("Dashboard has been reset to the synthetic dataset.")
+                st.success("Dashboard is now using the reference synthetic dataset for this session.")

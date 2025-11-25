@@ -92,13 +92,13 @@ def main():
     if st.session_state.get("uploaded_data"):
         data_source_options.append(UPLOADED)
     selected_source = st.sidebar.selectbox(
-        "Data source",
+        "Data context",
         options=data_source_options,
         format_func=lambda x: "Standard Reference Dataset (Synthetic/Anonymized)" if x == SYNTHETIC else "Session Upload (Local/Secure)",
         index=data_source_options.index(st.session_state["active_source"]) if st.session_state["active_source"] in data_source_options else 0,
     )
     st.session_state["active_source"] = selected_source
-    st.sidebar.caption("Synthetic data is always available. Uploaded data remains active only for this session.")
+    st.sidebar.caption("Reference synthetic dataset contains no institutional records; uploaded data remains local to this session.")
     if st.session_state.get("upload_status"):
         st.sidebar.info(st.session_state["upload_status"])
 
@@ -113,7 +113,7 @@ def main():
     last_refreshed = (
         workshops["date"].max().strftime("%Y-%m-%d") if not workshops.empty else "N/A"
     )
-    source_label = "Synthetic dataset (default)" if selected_source == SYNTHETIC else "Uploaded dataset (this session)"
+    source_label = "Reference synthetic dataset (no institutional records)" if selected_source == SYNTHETIC else "Session upload (local memory only)"
     render_header(source_label, last_refreshed, view=st.session_state["view"])
 
     if st.session_state["view"] == "data_management":
@@ -263,11 +263,11 @@ def main():
         )
     with tabs[5]:
         st.markdown(
-            "Targeted snapshot for the selected department. Brief chairs and associate deans with tailored insight for action planning. Calibrate supports and track progress against readiness and coverage targets while monitoring participation demand."
+            "Targeted snapshot for the selected department to brief chairs and associate deans. Calibrate supports, monitor readiness and coverage targets, and track participation demand."
         )
         focus_options = selected_depts if selected_depts else list(departments["department_id"])
         focus_dept = st.selectbox(
-            "Department to focus",
+            "Department in focus",
             options=focus_options,
             format_func=lambda x: departments.set_index("department_id").loc[x, "department_name"],
         )

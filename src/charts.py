@@ -43,7 +43,7 @@ def make_overview_kpi_cards(adoption_index: float, coverage_rate: float, avg_com
 def make_adoption_radar_chart(dept_adoption_df: pd.DataFrame):
     if dept_adoption_df.empty:
         fig = go.Figure()
-        fig.add_annotation(text="No data for this selection", showarrow=False)
+        fig.add_annotation(text="No data available for the current filters.", showarrow=False)
         return _apply_layout_defaults(fig, "AI Adoption Index by Department")
     fig = px.line_polar(dept_adoption_df, r="adoption_index", theta="department_name", line_close=True, color_discrete_sequence=[PALETTE["primary"]])
     fig.update_traces(fill="toself", hovertemplate="%{theta}<br>Adoption Index: %{r:.1f}<extra></extra>")
@@ -53,7 +53,7 @@ def make_adoption_radar_chart(dept_adoption_df: pd.DataFrame):
 def make_confidence_change_chart(impact_df: pd.DataFrame):
     if impact_df.empty:
         fig = go.Figure()
-        fig.add_annotation(text="No confidence survey data for this selection", showarrow=False)
+        fig.add_annotation(text="No confidence survey data available for the current filters.", showarrow=False)
         return _apply_layout_defaults(fig, "Confidence Change (Pre vs Post)")
     melted = impact_df.melt(id_vars=["metric"], value_vars=["pre_mean", "post_mean"], var_name="stage", value_name="score")
     fig = px.bar(melted, x="metric", y="score", color="stage", barmode="group", color_discrete_sequence=[PALETTE["primary"], PALETTE["accent"]])
@@ -65,7 +65,7 @@ def make_confidence_change_chart(impact_df: pd.DataFrame):
 def make_workshop_engagement_timeseries(engagement_df: pd.DataFrame):
     if engagement_df.empty:
         fig = go.Figure()
-        fig.add_annotation(text="No workshop activity for this selection", showarrow=False)
+        fig.add_annotation(text="No workshop activity available for the current filters.", showarrow=False)
         return _apply_layout_defaults(fig, "Attendance Over Time")
     fig = px.line(engagement_df, x="month", y="attendances", markers=True, color_discrete_sequence=[PALETTE["primary"]])
     fig.update_traces(hovertemplate="%{x|%b %Y}: %{y} attendances")
@@ -76,7 +76,7 @@ def make_workshop_engagement_timeseries(engagement_df: pd.DataFrame):
 def make_reflection_sentiment_bar(sentiment_df: pd.DataFrame):
     if sentiment_df.empty:
         fig = go.Figure()
-        fig.add_annotation(text="No reflections for this selection", showarrow=False)
+        fig.add_annotation(text="No reflections available for the current filters.", showarrow=False)
         return _apply_layout_defaults(fig, "Reflection Sentiment")
     fig = px.bar(sentiment_df, x="sentiment", y="count", color="sentiment", color_discrete_map={"positive": PALETTE["primary"], "neutral": PALETTE["muted"], "negative": PALETTE["warning"]})
     fig.update_layout(xaxis_title="Sentiment", yaxis_title="Count")
@@ -87,7 +87,7 @@ def make_reflection_sentiment_bar(sentiment_df: pd.DataFrame):
 def make_theme_distribution_bar(theme_df: pd.DataFrame):
     if theme_df.empty:
         fig = go.Figure()
-        fig.add_annotation(text="No reflection themes for this selection", showarrow=False)
+        fig.add_annotation(text="No reflection themes available for the current filters.", showarrow=False)
         return _apply_layout_defaults(fig, "Reflection Themes")
     fig = px.bar(theme_df, x="theme", y="count", color_discrete_sequence=[PALETTE["primary"]])
     fig.update_layout(xaxis_title="Theme", yaxis_title="Count")
@@ -98,7 +98,7 @@ def make_theme_distribution_bar(theme_df: pd.DataFrame):
 def make_department_readiness_scatter(readiness_df: pd.DataFrame):
     if readiness_df.empty:
         fig = go.Figure()
-        fig.add_annotation(text="No readiness data for this selection", showarrow=False)
+        fig.add_annotation(text="No readiness data available for the current filters.", showarrow=False)
         return _apply_layout_defaults(fig, "Department Readiness vs Coverage")
     fig = px.scatter(
         readiness_df,

@@ -115,10 +115,10 @@ def render_header():
                     <span class="lucide">{LUCIDE_ICONS["building"]}</span>
                     <div>
                         <div style="font-size:18px;font-weight:700;letter-spacing:0.2px;">AIRE Impact Dashboard</div>
-                        <div style="font-size:13px;opacity:0.9;">Applied AI Innovation & Research Enablement | Michigan State University</div>
+                        <div style="font-size:13px;opacity:0.9;">Applied AI Innovation & Research Enablement (AIRE) | College of Social Science | Michigan State University</div>
                     </div>
                 </div>
-                <div style="font-size:12px;opacity:0.9;">Synthetic data mirror for demo & collaboration</div>
+                <div style="font-size:12px;opacity:0.9;">Leadership-facing view of AIRE literacy, readiness, and responsible AI adoption</div>
             </div>
         </div>
         """,
@@ -127,25 +127,33 @@ def render_header():
 
 
 def render_sidebar_filters(all_departments_df, all_roles_list, default_date_range):
-    st.sidebar.header("Filters")
+    st.sidebar.header("Decision Filters")
+    st.sidebar.write(
+        "Adjust the institutional view by date, department, and audience to understand reach, readiness, and equity of access."
+    )
     start_default, end_default = default_date_range
-    date_range = st.sidebar.date_input("Workshop date range", value=(start_default, end_default))
+    date_range = st.sidebar.date_input("Workshop date window", value=(start_default, end_default))
     selected_depts = st.sidebar.multiselect(
-        "Departments",
+        "Departments to analyze",
         options=all_departments_df["department_id"],
         format_func=lambda x: all_departments_df.set_index("department_id").loc[x, "department_name"],
         default=list(all_departments_df["department_id"]),
     )
-    selected_roles = st.sidebar.multiselect("User groups", options=all_roles_list, default=all_roles_list)
+    selected_roles = st.sidebar.multiselect(
+        "Faculty and staff segments",
+        options=all_roles_list,
+        default=all_roles_list,
+        help="Focus on specific user groups to gauge adoption equity and confidence shifts.",
+    )
     return date_range, selected_depts, selected_roles
 
 
 def render_overview_section(adoption_overall, coverage_rate, avg_completion, total_attendance):
     st.subheader("Overview")
     st.write(
-        "WHAT: Quick view of the program's footprint, completion, and adoption. "
-        "WHY: Leadership can see immediate progress and relative momentum. "
-        "HOW: Cards respond to filters for department and audience."
+        "WHAT: Core signals from the Applied AI Innovation & Research Enablement (AIRE) Program—adoption strength, training coverage, completion, and participation volume. "
+        "WHY: Chairs, associate deans, and program directors use this view weekly to verify reach, benchmark momentum, and confirm coverage targets. "
+        "HOW: Interpret movements alongside filters to see how departmental selections and audience focus shift institutional readiness."
     )
     cards = make_overview_kpi_cards(adoption_overall, coverage_rate, avg_completion, total_attendance)
     cols = st.columns(len(cards))
@@ -156,9 +164,9 @@ def render_overview_section(adoption_overall, coverage_rate, avg_completion, tot
 def render_adoption_section(dept_adoption_df):
     st.subheader("AI Adoption & Readiness")
     st.write(
-        "WHAT: Composite adoption index blending readiness, training coverage, and participant adoption levels. "
-        "WHY: Signals where departments are accelerating or need support. "
-        "HOW: Radar chart compares selected departments; index scales 0–100."
+        "WHAT: Composite adoption index combining readiness, training coverage, and participant adoption levels across departments. "
+        "WHY: Highlights where responsible AI use is stabilizing, where uptake is uneven, and where stewardship attention is needed. "
+        "HOW: Compare departments to identify outliers; values are scaled 0–100 to support goal-setting and peer benchmarking."
     )
     fig = make_adoption_radar_chart(dept_adoption_df)
     st.plotly_chart(fig, use_container_width=True)
@@ -167,9 +175,9 @@ def render_adoption_section(dept_adoption_df):
 def render_learning_impact_section(impact_summary_df):
     st.subheader("Learning Outcomes & Confidence")
     st.write(
-        "WHAT: Change in self-reported confidence and responsible AI understanding before vs. after sessions. "
-        "WHY: Gauges learning effectiveness for audiences and departments. "
-        "HOW: Bars show pre/post averages; positive deltas indicate improved confidence."
+        "WHAT: Movement in confidence and responsible AI understanding before and after AIRE learning interventions. "
+        "WHY: Confirms whether training is increasing responsible AI competency for faculty, staff, and graduate students. "
+        "HOW: Track pre/post averages and deltas; sustained gains signal effective design, while flat lines flag the need for targeted reinforcement."
     )
     fig = make_confidence_change_chart(impact_summary_df)
     st.plotly_chart(fig, use_container_width=True)
@@ -178,9 +186,9 @@ def render_learning_impact_section(impact_summary_df):
 def render_participation_section(timeseries_df, by_format_df, by_audience_df, completion_df):
     st.subheader("Participation & Engagement")
     st.write(
-        "WHAT: Attendance over time and by format/audience. "
-        "WHY: Identifies demand patterns, preferred formats, and surge moments. "
-        "HOW: Lines show monthly attendance; bars break down format and audience volume."
+        "WHAT: Participation trends by month, learning format, and audience segment. "
+        "WHY: Guides scheduling, facilitator load, and modality investments to meet demand equitably. "
+        "HOW: Use the time series to spot surges; format and audience breakouts reveal where coverage is strong and where additional outreach is needed."
     )
     col1, col2 = st.columns([2, 1])
     col1.plotly_chart(make_workshop_engagement_timeseries(timeseries_df), use_container_width=True)
@@ -210,9 +218,9 @@ def render_participation_section(timeseries_df, by_format_df, by_audience_df, co
 def render_reflection_section(sentiment_df, theme_df):
     st.subheader("Reflections & Sentiment")
     st.write(
-        "WHAT: Participant reflections themed by use case with sentiment distribution. "
-        "WHY: Surfaces qualitative signals on adoption, risks, and support needs. "
-        "HOW: Bars show sentiment mix and dominant themes for the selection."
+        "WHAT: Themed reflections with sentiment to capture qualitative signals about responsible AI practice, risk posture, and support needs. "
+        "WHY: Complements quantitative KPIs with lived experience from faculty, staff, and graduate students—critical for governance and equity monitoring. "
+        "HOW: Review dominant themes and sentiment mix to target guidance, policy reinforcement, or follow-up consultations."
     )
     col1, col2 = st.columns(2)
     col1.plotly_chart(make_reflection_sentiment_bar(sentiment_df), use_container_width=True)
@@ -222,9 +230,9 @@ def render_reflection_section(sentiment_df, theme_df):
 def render_department_readiness_section(readiness_df):
     st.subheader("Department Readiness Matrix")
     st.write(
-        "WHAT: Scatter of readiness vs. coverage with participant volume. "
-        "WHY: Highlights where adoption work is translating into readiness gains. "
-        "HOW: Bubble size approximates participant volume; use filters to isolate departments."
+        "WHAT: Readiness versus coverage with participant volume context for each department. "
+        "WHY: Shows whether training reach is translating into operational readiness and where gaps remain. "
+        "HOW: Use bubble size for participation scale; compare to targets to prioritize direct support or peer mentoring."
     )
     fig = make_department_readiness_scatter(readiness_df)
     st.plotly_chart(fig, use_container_width=True)
@@ -233,7 +241,7 @@ def render_department_readiness_section(readiness_df):
 def render_department_focus(dept_name: str, adoption_df, readiness_df, timeseries_df, themes_df):
     st.markdown(f"### {dept_name} Focus")
     st.write(
-        "Targeted snapshot for the selected department with adoption, readiness, and engagement highlights."
+        "Targeted view for this department: adoption strength, readiness posture, and engagement signals to brief chairs and associate deans."
     )
     col1, col2 = st.columns(2)
     if not adoption_df.empty:

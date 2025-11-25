@@ -135,7 +135,7 @@ def render_header(active_source: str, last_refreshed: str, view: str = "dashboar
                     <span class="lucide">{LUCIDE_ICONS["building"]}</span>
                     <div>
                         <div style="font-size:18px;font-weight:700;letter-spacing:0.2px;">AIRE Impact Dashboard</div>
-                        <div style="font-size:13px;opacity:0.9;">Applied AI Innovation & Research Enablement (AIRE) | College of Social Science | Michigan State University</div>
+                        <div style="font-size:13px;opacity:0.9;">Institutional Decision Support | College of Social Science | Michigan State University</div>
                     </div>
                 </div>
             </div>
@@ -145,12 +145,13 @@ def render_header(active_source: str, last_refreshed: str, view: str = "dashboar
     )
     top_row = st.columns([2, 2, 1])
     with top_row[0]:
-        st.caption("Decision-support pillar for AIRE literacy, readiness, and adoption. Use filters and uploads to reflect current institutional data.")
+        st.caption("Restricted: Institutional Decision Support. Data sensitivity protocols apply.")
     with top_row[1]:
         st.markdown(
             f"""
-            <div style="font-size:13px; color: {PALETTE['primary_dark']};">
-                Source: {active_source} | Last refreshed: {last_refreshed} | Leadership-facing | Responsible AI adoption
+            <div style="font-size:13px; color: {PALETTE['primary_dark']}; text-align: right;">
+                <strong>Data Context:</strong> {active_source} <br>
+                <strong>Status:</strong> Live | <strong>Refresh:</strong> {last_refreshed}
             </div>
             """,
             unsafe_allow_html=True,
@@ -322,12 +323,14 @@ def render_executive_notes(notes: List[str]):
 
 
 def render_data_management_panel():
-    st.subheader("Data Management and Upload")
+    st.subheader("Data Ingestion & Validation")
     st.write(
-        "Use this panel to load updated AIRE program data. Administrators export CSVs from institutional sources, align them to required columns, and upload for validation. Synthetic data remains available at any time for demonstration and exploration."
+        "Secure interface for loading institutional extracts. This module validates schema conformity before integrating data into the session's analytical context. "
+        "Standard operating procedure requires fresh extracts from the AIRE Data Warehouse at the start of each monthly reporting cycle."
     )
-    st.write(
-        "The internal AIRE Impact Dashboard connects to secure institutional systems. This public environment supports local analysis by validating uploaded CSVs against documented formats."
+    st.info(
+        "**Privacy Notice:** Uploaded data is processed locally within the session memory and is never persisted to external storage. "
+        "Ensure all PII has been hashed or removed prior to ingestion, per CSS Data Governance Policy 2024-02."
     )
 
     st.markdown("### Required CSV structure")

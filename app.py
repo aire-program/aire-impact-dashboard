@@ -94,7 +94,7 @@ def main():
     selected_source = st.sidebar.selectbox(
         "Data source",
         options=data_source_options,
-        format_func=lambda x: "Synthetic dataset (default)" if x == SYNTHETIC else "Uploaded dataset (this session)",
+        format_func=lambda x: "Standard Reference Dataset (Synthetic/Anonymized)" if x == SYNTHETIC else "Session Upload (Local/Secure)",
         index=data_source_options.index(st.session_state["active_source"]) if st.session_state["active_source"] in data_source_options else 0,
     )
     st.session_state["active_source"] = selected_source
@@ -186,9 +186,9 @@ def main():
 
     with tabs[0]:
         st.caption(f"Last refreshed: {last_refreshed.strftime('%Y-%m-%d')}")
-        st.markdown("**Purpose within AIRE:** Leadership-facing signals that tie to the AIRE Literacy Hub and Researcher Sandbox.")
+        st.markdown("**Strategic Value:** High-level synthesis of adoption velocity, coverage equity, and operational readiness.")
         st.markdown(
-            "This view underpins governance discussions on readiness, coverage, completion, and demand; use it to steer resources, confirm equity of access, and recognize sustained momentum."
+            "Use this view to brief leadership on the overall health of the AI enablement initiative. Indicators focus on the conversion of 'activity' (attendance) into 'capacity' (readiness)."
         )
         render_overview_section(adoption_overall, coverage_rate, avg_completion, total_attendance)
         top_ready = (
@@ -198,9 +198,9 @@ def main():
         )
         conf_delta = impact_summary_df["delta"].mean() if not impact_summary_df.empty else 0
         exec_notes = [
-            f"Top readiness: {top_ready}; keep coverage momentum and share playbooks with peers.",
-            f"Confidence delta: {conf_delta:.2f} across metrics; reinforce hands-on practice and responsible use norms.",
-            f"Attendance total: {total_attendance:,}; align facilitator capacity to peak months and high-demand formats.",
+            f"**Readiness Leader:** {top_ready} exhibits highest composite readiness; recommend engaging leadership for peer-mentoring pilot.",
+            f"**Competency Shift:** +{conf_delta:.2f} net gain in confidence metrics post-intervention; validates current curriculum effectiveness.",
+            f"**Capacity Signal:** {total_attendance:,} total engagements recorded; align facilitator staffing to sustain support for high-velocity periods.",
         ]
         render_executive_notes(exec_notes)
         st.download_button(

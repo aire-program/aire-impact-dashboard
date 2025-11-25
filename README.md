@@ -1,34 +1,35 @@
-# AIRE Impact Dashboard  
-### *Public Synthetic-Data Mirror of the Internal Institutional Analytics System*  
-### Applied AI Innovation & Research Enablement (AIRE) Program  
+# AIRE Impact Dashboard
+### Institutional Decision Intelligence for Responsible AI Adoption
+**Applied AI Innovation & Research Enablement (AIRE) Program**  
 College of Social Science, Michigan State University
 
 ---
 
-## Overview
+## System Overview
 
-The **AIRE Impact Dashboard** is the institutional analytics environment used within the College of Social Science at Michigan State University to understand how responsible AI literacy is developing across departments, roles, and instructional pathways.
+The **AIRE Impact Dashboard** serves as the central decision-support interface for the College of Social Science’s responsible AI enablement strategy. It provides leadership, department chairs, and program directors with a unified view of how AI literacy, competency, and operational readiness are evolving across the college.
 
-Developed as part of the **Applied AI Innovation & Research Enablement (AIRE) Program**, the dashboard brings together participation records, pre–post confidence measures, workshop attributes, departmental readiness indicators, and qualitative reflections to create a coherent view of how AI literacy is adopted, strengthened, and sustained across the college.
+Designed to close the loop between training (AIRE Literacy Hub) and application (AIRE Researcher Sandbox), this system translates participation data and confidence metrics into actionable intelligence. It supports governance decisions regarding:
 
-The internal version of the dashboard ran on secure MSU systems and served as a regular point of reference for college leadership, department chairs, faculty development teams, assessment specialists, and governance committees. It supported day-to-day program monitoring as well as longer-term planning for resource allocation, professional development, and responsible AI implementation.
+*   **Resource Allocation:** Identifying high-demand modalities and under-served units.
+*   **Competency Tracking:** Verifying that training interventions yield measurable gains in responsible AI understanding.
+*   **Strategic Readiness:** Monitoring departmental capacity for advanced AI integration.
+*   **Risk & Sentiment:** Surfacing qualitative themes from participant reflections to guide policy and support structures.
 
-This public GitHub repository is a **synthetic-data mirror** of that internal system. It reproduces the structure, workflow, and analytical logic of the institutional dashboard while using fully fabricated data so that external users can explore, run, modify, and understand the framework without exposing confidential institutional information. Every chart and metric loads immediately with meaningful synthetic values, making the environment suitable for demonstration, collaboration, and further development.
+### Public Reference Implementation
+This repository contains the **public reference implementation** of the internal dashboard. To ensure transparency and facilitate collaboration without compromising privacy, this instance operates on a **high-fidelity synthetic dataset**. This data mirrors the statistical properties, adoption patterns, and structural relationships of the actual institutional deployment, allowing external stakeholders to evaluate the analytical framework in a privacy-preserving environment.
 
 ---
 
-## Position in the AIRE Program
+## Strategic Context: The AIRE Ecosystem
 
-The dashboard is one of three components that make up the AIRE Program’s coordinated approach to responsible AI enablement:
+This dashboard functions as the "Insight Layer" within the broader AIRE constellation:
 
-- **AIRE Literacy Hub** — a curricular and training environment that supports faculty, staff, students, and researchers in developing responsible AI practices through workshops, modules, and learning pathways.
+1.  **Enablement (Literacy Hub):** Delivers tiered training, from foundational literacy to advanced technical workshops.
+2.  **Experimentation (Researcher Sandbox):** Provides secure compute and compliant environments for applied research.
+3.  **Intelligence (Impact Dashboard):** Monitors the efficacy of the ecosystem, tracking the conversion of "interest" into "capacity."
 
-- **AIRE Researcher Sandbox** — a research-facing toolkit providing notebooks, pipelines, and safe experimentation environments for scholars who want to integrate AI into their research methods and data workflows.
-
-- **AIRE Impact Dashboard** — the decision-intelligence layer that analyzes how training is being used, how confidence and competency are shifting, where departments are ready to advance, and where additional support will be needed in the coming terms.
-
-Together, these three elements form a continuous cycle: learning → experimentation → insight.  
-The dashboard closes the loop by translating activity and feedback into actionable intelligence for leadership.
+By integrating these signals, the dashboard moves beyond simple "attendance counting" to measure **institutional transformation**.
 
 ---
 

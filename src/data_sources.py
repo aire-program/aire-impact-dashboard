@@ -21,9 +21,9 @@ REQUIRED_FILES = {
 
 
 def get_available_data_sources() -> List[str]:
-    sources = ["Synthetic demonstration dataset (default)"]
+    sources = ["Standard Reference Dataset (Synthetic/Anonymized)"]
     if st.session_state.get("uploaded_data"):
-        sources.append("Uploaded dataset (this session)")
+        sources.append("Session Upload (Local/Secure)")
     return sources
 
 

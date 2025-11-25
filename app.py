@@ -154,7 +154,7 @@ def main():
         )
     with tabs[1]:
         st.markdown(
-            "**WHAT:** Departmental adoption and readiness indicators. **WHY:** Identify prepared vs. at-risk units for responsible AI use. **HOW:** Direct support to departments below coverage/readiness targets; replicate practices from leaders."
+            "Departmental adoption and readiness indicators. Identify prepared vs. at-risk units for responsible AI use. Direct support to departments below coverage/readiness targets; replicate practices from leaders."
         )
         render_adoption_section(adoption_df)
         st.dataframe(
@@ -173,7 +173,7 @@ def main():
         )
     with tabs[2]:
         st.markdown(
-            "**WHAT:** Pre/post confidence and responsible AI understanding. **WHY:** Validate training effectiveness across faculty, staff, and graduate students. **HOW:** Adjust modality and follow-on supports based on observed gains."
+            "Pre/post confidence and responsible AI understanding. Validate training effectiveness across faculty, staff, and graduate students. Adjust modality and follow-on supports based on observed gains."
         )
         render_learning_impact_section(impact_summary_df)
         st.download_button(
@@ -184,7 +184,7 @@ def main():
         )
     with tabs[3]:
         st.markdown(
-            "**WHAT:** Participation over time and by format/audience. **WHY:** Optimize scheduling, facilitator load, and modality investments. **HOW:** Align facilitators to peak months and formats that sustain completion and reach priority audiences."
+            "Participation over time and by format/audience. Optimize scheduling, facilitator load, and modality investments. Align facilitators to peak months and formats that sustain completion and reach priority audiences."
         )
         render_participation_section(timeseries_df, by_format_df, by_audience_df, completion_df)
         st.download_button(
@@ -195,7 +195,7 @@ def main():
         )
     with tabs[4]:
         st.markdown(
-            "**WHAT:** Themed qualitative reflections with sentiment. **WHY:** Surface early signals on adoption, risks, and support needs that quantitative metrics may miss. **HOW:** Address recurring themes (ethical concerns, assessment) with targeted guidance and governance updates."
+            "Themed qualitative reflections with sentiment. Surface early signals on adoption, risks, and support needs that quantitative metrics may miss. Address recurring themes (ethical concerns, assessment) with targeted guidance and governance updates."
         )
         render_reflection_section(sentiment_df, theme_df)
         st.download_button(
@@ -206,7 +206,7 @@ def main():
         )
     with tabs[5]:
         st.markdown(
-            "**WHAT:** Targeted snapshot for the selected department. **WHY:** Brief chairs and associate deans with tailored insight for action planning. **HOW:** Calibrate supports and track progress against readiness and coverage targets while monitoring participation demand."
+            "Targeted snapshot for the selected department. Brief chairs and associate deans with tailored insight for action planning. Calibrate supports and track progress against readiness and coverage targets while monitoring participation demand."
         )
         focus_options = selected_depts if selected_depts else list(departments["department_id"])
         focus_dept = st.selectbox(

@@ -2,32 +2,32 @@
 Applied AI Innovation & Research Enablement (AIRE) | College of Social Science | Michigan State University
 
 ## Purpose Within the AIRE Constellation
-- **WHAT:** Decision-support pillar alongside the AIRE Literacy Hub (responsible AI training) and the AIRE Researcher Sandbox (research experimentation).
-- **WHY:** Leadership, program directors, and analysts need a clear view of institutional impact, departmental readiness, confidence growth, and adoption trends to steer responsible AI uptake.
-- **HOW:** Integrates adoption, readiness, confidence, engagement, and qualitative signals so resources can be targeted to departments and audiences that need support.
+- Decision-support pillar alongside the AIRE Literacy Hub (responsible AI training) and the AIRE Researcher Sandbox (research experimentation).
+- Leadership, program directors, and analysts need a clear view of institutional impact, departmental readiness, confidence growth, and adoption trends to steer responsible AI uptake.
+- Integrates adoption, readiness, confidence, engagement, and qualitative signals so resources can be targeted to departments and audiences that need support.
 
 ## Institutional Positioning
-- **WHAT:** A professional program-evaluation instrument for monitoring reach, training effectiveness, adoption trajectories, and departmental needs.
-- **WHY:** Supports evidence-based planning, accreditation, and continuous improvement across teaching, research, and administrative workflows.
-- **HOW:** Provides transparent metrics for leadership to identify where responsible AI training is succeeding and where additional support structures are required.
+- A professional program-evaluation instrument for monitoring reach, training effectiveness, adoption trajectories, and departmental needs.
+- Supports evidence-based planning, accreditation, and continuous improvement across teaching, research, and administrative workflows.
+- Provides transparent metrics for leadership to identify where responsible AI training is succeeding and where additional support structures are required.
 
 ## Rationale for an Institutional Analytics Layer
-- **WHAT:** A centralized view of uptake, competencies, and equity of access as AI adoption accelerates across the college.
-- **WHY:** Ensures readiness, transparency, and stewardship; anchors reporting to Deans and program directors; supports governance and equitable access.
-- **HOW:** Combines readiness, training coverage, participant adoption levels, and confidence growth to inform strategic investments and faculty development.
+- A centralized view of uptake, competencies, and equity of access as AI adoption accelerates across the college.
+- Ensures readiness, transparency, and stewardship; anchors reporting to Deans and program directors; supports governance and equitable access.
+- Combines readiness, training coverage, participant adoption levels, and confidence growth to inform strategic investments and faculty development.
 
 ## Synthetic Data Notice
-- **WHAT:** This public GitHub version ships with realistic but entirely synthetic data.
-- **WHY:** The internal dashboard uses secure institutional data; the public mirror exists for transparency, reproducibility, and collaborative review of the approach.
-- **HOW:** Synthetic datasets populate every chart on first load, demonstrating the infrastructure without exposing institutional records.
+- This public GitHub version ships with realistic but entirely synthetic data.
+- The internal dashboard uses secure institutional data; the public mirror exists for transparency, reproducibility, and collaborative review of the approach.
+- Synthetic datasets populate every chart on first load, demonstrating the infrastructure without exposing institutional records.
 
-## Dashboard Sections (WHAT / WHY / HOW)
-- **Overview & Governance Signals:** WHAT: adoption index, coverage, completion, attendance footprint. WHY: situational awareness for Deans/program directors. HOW: prioritize support for emerging demand or celebrate units exceeding targets.
-- **AI Adoption & Departmental Readiness:** WHAT: composite adoption index plus readiness vs. coverage with targets. WHY: spot prepared vs. at-risk departments. HOW: direct resources to units below coverage/readiness targets; replicate practices from high performers.
-- **Learning Outcomes & Confidence:** WHAT: pre/post confidence and responsible AI understanding deltas. WHY: validate training effectiveness. HOW: adjust modality and follow-on supports based on audience gains.
-- **Participation & Engagement:** WHAT: attendance over time, format/audience breakdowns, completion. WHY: optimize scheduling and staffing. HOW: align facilitators to peak months and effective formats.
-- **Reflections & Sentiment:** WHAT: themed qualitative feedback with sentiment mix. WHY: surface early signals on adoption, risks, and support needs. HOW: address recurring themes (ethical concerns, assessment) with targeted guidance.
-- **Department Focus:** WHAT: targeted snapshot for a selected department. WHY: brief chairs/associate deans with tailored insight. HOW: calibrate supports and track progress against readiness and coverage targets.
+## Dashboard Sections
+- **Overview & Governance Signals:** Adoption index, coverage, completion, attendance footprint. Situational awareness for Deans/program directors; prioritize support for emerging demand or celebrate units exceeding targets.
+- **AI Adoption & Departmental Readiness:** Composite adoption index plus readiness vs. coverage with targets. Spot prepared vs. at-risk departments; direct resources to units below coverage/readiness targets and replicate practices from high performers.
+- **Learning Outcomes & Confidence:** Pre/post confidence and responsible AI understanding deltas. Validate training effectiveness; adjust modality and follow-on supports based on audience gains.
+- **Participation & Engagement:** Attendance over time, format/audience breakdowns, completion. Optimize scheduling and staffing; align facilitators to peak months and effective formats.
+- **Reflections & Sentiment:** Themed qualitative feedback with sentiment mix. Surface early signals on adoption, risks, and support needs; address recurring themes (ethical concerns, assessment) with targeted guidance.
+- **Department Focus:** Targeted snapshot for a selected department. Brief chairs/associate deans with tailored insight; calibrate supports and track progress against readiness and coverage targets.
 
 ## Filters and How They Work
 - **Date range:** Limits workshops, surveys, and reflections to the selected window.

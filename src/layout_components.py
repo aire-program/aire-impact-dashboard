@@ -151,9 +151,7 @@ def render_sidebar_filters(all_departments_df, all_roles_list, default_date_rang
 def render_overview_section(adoption_overall, coverage_rate, avg_completion, total_attendance):
     st.subheader("Overview")
     st.write(
-        "WHAT: Core signals from the Applied AI Innovation & Research Enablement (AIRE) Program—adoption strength, training coverage, completion, and participation volume. "
-        "WHY: Chairs, associate deans, and program directors use this view weekly to verify reach, benchmark momentum, and confirm coverage targets. "
-        "HOW: Interpret movements alongside filters to see how departmental selections and audience focus shift institutional readiness."
+        "Core signals from the Applied AI Innovation & Research Enablement (AIRE) Program—adoption strength, training coverage, completion, and participation volume. Chairs, associate deans, and program directors use this view weekly to verify reach, benchmark momentum, and confirm coverage targets. Interpret movements alongside filters to see how departmental selections and audience focus shift institutional readiness."
     )
     cards = make_overview_kpi_cards(adoption_overall, coverage_rate, avg_completion, total_attendance)
     cols = st.columns(len(cards))
@@ -164,9 +162,7 @@ def render_overview_section(adoption_overall, coverage_rate, avg_completion, tot
 def render_adoption_section(dept_adoption_df):
     st.subheader("AI Adoption & Readiness")
     st.write(
-        "WHAT: Composite adoption index combining readiness, training coverage, and participant adoption levels across departments. "
-        "WHY: Highlights where responsible AI use is stabilizing, where uptake is uneven, and where stewardship attention is needed. "
-        "HOW: Compare departments to identify outliers; values are scaled 0–100 to support goal-setting and peer benchmarking."
+        "Composite adoption index combining readiness, training coverage, and participant adoption levels across departments. Highlights where responsible AI use is stabilizing, where uptake is uneven, and where stewardship attention is needed. Compare departments to identify outliers; values are scaled 0–100 to support goal-setting and peer benchmarking."
     )
     fig = make_adoption_radar_chart(dept_adoption_df)
     st.plotly_chart(fig, use_container_width=True)
@@ -175,9 +171,7 @@ def render_adoption_section(dept_adoption_df):
 def render_learning_impact_section(impact_summary_df):
     st.subheader("Learning Outcomes & Confidence")
     st.write(
-        "WHAT: Movement in confidence and responsible AI understanding before and after AIRE learning interventions. "
-        "WHY: Confirms whether training is increasing responsible AI competency for faculty, staff, and graduate students. "
-        "HOW: Track pre/post averages and deltas; sustained gains signal effective design, while flat lines flag the need for targeted reinforcement."
+        "Movement in confidence and responsible AI understanding before and after AIRE learning interventions. Confirms whether training is increasing responsible AI competency for faculty, staff, and graduate students. Track pre/post averages and deltas; sustained gains signal effective design, while flat lines flag the need for targeted reinforcement."
     )
     fig = make_confidence_change_chart(impact_summary_df)
     st.plotly_chart(fig, use_container_width=True)
@@ -186,9 +180,7 @@ def render_learning_impact_section(impact_summary_df):
 def render_participation_section(timeseries_df, by_format_df, by_audience_df, completion_df):
     st.subheader("Participation & Engagement")
     st.write(
-        "WHAT: Participation trends by month, learning format, and audience segment. "
-        "WHY: Guides scheduling, facilitator load, and modality investments to meet demand equitably. "
-        "HOW: Use the time series to spot surges; format and audience breakouts reveal where coverage is strong and where additional outreach is needed."
+        "Participation trends by month, learning format, and audience segment. Guides scheduling, facilitator load, and modality investments to meet demand equitably. Use the time series to spot surges; format and audience breakouts reveal where coverage is strong and where additional outreach is needed."
     )
     col1, col2 = st.columns([2, 1])
     col1.plotly_chart(make_workshop_engagement_timeseries(timeseries_df), use_container_width=True)
@@ -218,9 +210,7 @@ def render_participation_section(timeseries_df, by_format_df, by_audience_df, co
 def render_reflection_section(sentiment_df, theme_df):
     st.subheader("Reflections & Sentiment")
     st.write(
-        "WHAT: Themed reflections with sentiment to capture qualitative signals about responsible AI practice, risk posture, and support needs. "
-        "WHY: Complements quantitative KPIs with lived experience from faculty, staff, and graduate students—critical for governance and equity monitoring. "
-        "HOW: Review dominant themes and sentiment mix to target guidance, policy reinforcement, or follow-up consultations."
+        "Themed reflections with sentiment to capture qualitative signals about responsible AI practice, risk posture, and support needs. Complements quantitative KPIs with lived experience from faculty, staff, and graduate students—critical for governance and equity monitoring. Review dominant themes and sentiment mix to target guidance, policy reinforcement, or follow-up consultations."
     )
     col1, col2 = st.columns(2)
     col1.plotly_chart(make_reflection_sentiment_bar(sentiment_df), use_container_width=True)
@@ -230,9 +220,7 @@ def render_reflection_section(sentiment_df, theme_df):
 def render_department_readiness_section(readiness_df):
     st.subheader("Department Readiness Matrix")
     st.write(
-        "WHAT: Readiness versus coverage with participant volume context for each department. "
-        "WHY: Shows whether training reach is translating into operational readiness and where gaps remain. "
-        "HOW: Use bubble size for participation scale; compare to targets to prioritize direct support or peer mentoring."
+        "Readiness versus coverage with participant volume context for each department. Shows whether training reach is translating into operational readiness and where gaps remain. Use bubble size for participation scale; compare to targets to prioritize direct support or peer mentoring."
     )
     fig = make_department_readiness_scatter(readiness_df)
     st.plotly_chart(fig, use_container_width=True)

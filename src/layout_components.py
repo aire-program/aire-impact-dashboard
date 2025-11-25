@@ -207,9 +207,9 @@ def render_sidebar_filters(all_departments_df, all_roles_list, default_date_rang
 
 
 def render_overview_section(adoption_overall, coverage_rate, avg_completion, total_attendance):
-    st.subheader("Overview")
+    st.subheader("Executive Summary")
     st.write(
-        "Core signals from the Applied AI Innovation & Research Enablement (AIRE) Program—adoption strength, training coverage, completion, and participation volume. Chairs, associate deans, and program directors use this view weekly to verify reach, benchmark momentum, and confirm coverage targets. Interpret movements alongside filters to see how departmental selections and audience focus shift institutional readiness."
+        "Key performance indicators tracking the conversion of enablement activities into institutional capacity. Leadership uses this view to verify reach, benchmark momentum, and confirm coverage targets. Interpret movements alongside filters to see how departmental selections and audience focus shift institutional readiness."
     )
     cards = make_overview_kpi_cards(adoption_overall, coverage_rate, avg_completion, total_attendance)
     cols = st.columns(len(cards))
@@ -218,27 +218,27 @@ def render_overview_section(adoption_overall, coverage_rate, avg_completion, tot
 
 
 def render_adoption_section(dept_adoption_df):
-    st.subheader("AI Adoption & Readiness")
+    st.subheader("Departmental Readiness Profile")
     st.write(
-        "Composite adoption index combining readiness, training coverage, and participant adoption levels across departments. Highlights where responsible AI use is stabilizing, where uptake is uneven, and where stewardship attention is needed. Compare departments to identify outliers; values are scaled 0–100 to support goal-setting and peer benchmarking."
+        "Integrated view of training coverage, participation depth, and operational maturity. Highlights where responsible AI use is stabilizing versus where stewardship attention is needed. Compare departments to identify outliers; values are scaled 0–100 to support goal-setting."
     )
     fig = make_adoption_radar_chart(dept_adoption_df)
     st.plotly_chart(fig, use_container_width=True)
 
 
 def render_learning_impact_section(impact_summary_df):
-    st.subheader("Learning Outcomes & Confidence")
+    st.subheader("Competency Growth Analysis")
     st.write(
-        "Movement in confidence and responsible AI understanding before and after AIRE learning interventions. Confirms whether training is increasing responsible AI competency for faculty, staff, and graduate students. Track pre/post averages and deltas; sustained gains signal effective design, while flat lines flag the need for targeted reinforcement."
+        "Pre- and post-intervention assessment of responsible AI understanding. Confirms whether training is increasing responsible AI competency for faculty, staff, and graduate students. Sustained gains signal effective design, while flat lines flag the need for targeted reinforcement."
     )
     fig = make_confidence_change_chart(impact_summary_df)
     st.plotly_chart(fig, use_container_width=True)
 
 
 def render_participation_section(timeseries_df, by_format_df, by_audience_df, completion_df):
-    st.subheader("Participation & Engagement")
+    st.subheader("Engagement Velocity")
     st.write(
-        "Participation trends by month, learning format, and audience segment. Guides scheduling, facilitator load, and modality investments to meet demand equitably. Use the time series to spot surges; format and audience breakouts reveal where coverage is strong and where additional outreach is needed."
+        "Longitudinal tracking of workshop attendance and modality preferences. Guides scheduling, facilitator load, and modality investments to meet demand equitably. Use the time series to spot surges; format and audience breakouts reveal where coverage is strong and where additional outreach is needed."
     )
     col1, col2 = st.columns([2, 1])
     col1.plotly_chart(make_workshop_engagement_timeseries(timeseries_df), use_container_width=True)
@@ -266,9 +266,9 @@ def render_participation_section(timeseries_df, by_format_df, by_audience_df, co
 
 
 def render_reflection_section(sentiment_df, theme_df):
-    st.subheader("Reflections & Sentiment")
+    st.subheader("Qualitative Intelligence")
     st.write(
-        "Themed reflections with sentiment to capture qualitative signals about responsible AI practice, risk posture, and support needs. Complements quantitative KPIs with lived experience from faculty, staff, and graduate students—critical for governance and equity monitoring. Review dominant themes and sentiment mix to target guidance, policy reinforcement, or follow-up consultations."
+        "Thematic analysis of participant feedback and sentiment signals. Complements quantitative KPIs with lived experience from faculty, staff, and graduate students—critical for governance and equity monitoring. Review dominant themes and sentiment mix to target guidance, policy reinforcement, or follow-up consultations."
     )
     col1, col2 = st.columns(2)
     col1.plotly_chart(make_reflection_sentiment_bar(sentiment_df), use_container_width=True)
@@ -276,18 +276,18 @@ def render_reflection_section(sentiment_df, theme_df):
 
 
 def render_department_readiness_section(readiness_df):
-    st.subheader("Department Readiness Matrix")
+    st.subheader("Strategic Alignment Matrix")
     st.write(
-        "Readiness versus coverage with participant volume context for each department. Shows whether training reach is translating into operational readiness and where gaps remain. Use bubble size for participation scale; compare to targets to prioritize direct support or peer mentoring."
+        "Evaluating departmental readiness against training penetration. Shows whether training reach is translating into operational readiness and where gaps remain. Use bubble size for participation scale; compare to targets to prioritize direct support or peer mentoring."
     )
     fig = make_department_readiness_scatter(readiness_df)
     st.plotly_chart(fig, use_container_width=True)
 
 
 def render_department_focus(dept_name: str, adoption_df, readiness_df, timeseries_df, themes_df):
-    st.markdown(f"### {dept_name} Focus")
+    st.markdown(f"### Unit-Level Intelligence: {dept_name}")
     st.write(
-        "Department-level briefing: adoption strength, readiness posture, and engagement signals to inform chair conversations and action plans."
+        "Detailed adoption and engagement profile for leadership review. Use this data to inform chair conversations and action plans."
     )
     col1, col2 = st.columns(2)
     if not adoption_df.empty:
@@ -323,9 +323,9 @@ def render_executive_notes(notes: List[str]):
 
 
 def render_data_management_panel():
-    st.subheader("Data Ingestion & Validation")
+    st.subheader("Institutional Data Ingestion")
     st.write(
-        "Secure interface for loading institutional extracts. This module validates schema conformity before integrating data into the session's analytical context. "
+        "Secure validation and loading interface for authorized extracts. This module validates schema conformity before integrating data into the session's analytical context. "
         "Standard operating procedure requires fresh extracts from the AIRE Data Warehouse at the start of each monthly reporting cycle."
     )
     st.info(

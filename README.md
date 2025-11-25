@@ -16,8 +16,11 @@ Designed to close the loop between training (AIRE Literacy Hub) and application 
 *   **Strategic Readiness:** Monitoring departmental capacity for advanced AI integration.
 *   **Risk & Sentiment:** Surfacing qualitative themes from participant reflections to guide policy and support structures.
 
-### Public Reference Implementation
-This repository contains the **public reference implementation** aligned with the internal dashboard. To maintain transparency while safeguarding confidentiality, it ships with a **fabricated, high-fidelity synthetic dataset** that mirrors the statistical properties, adoption patterns, and structural relationships observed in production. The operational deployment remains inside the College of Social Science environment; this version allows partners to review the analytical model without exposing institutional records.
+### Public Reference Implementation & Synthetic Data
+
+This repository contains the **public reference implementation** of the internal AIRE dashboard. To maintain transparency while safeguarding institutional confidentiality, this deployment utilizes a **high-fidelity synthetic dataset**.
+
+This dataset is fabricated to mirror the statistical properties, adoption patterns, and structural relationships observed in the production environment. It allows partners to evaluate the analytical model, KPI logic, and decision-support workflows without accessing restricted institutional records. All names, departments, and feedback entries in this version are generated for demonstration purposes.
 
 ---
 

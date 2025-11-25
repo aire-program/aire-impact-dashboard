@@ -92,13 +92,13 @@ def main():
     if st.session_state.get("uploaded_data"):
         data_source_options.append(UPLOADED)
     selected_source = st.sidebar.selectbox(
-        "Data context",
+        "Data Source Context",
         options=data_source_options,
-        format_func=lambda x: "Standard Reference Dataset (Synthetic/Anonymized)" if x == SYNTHETIC else "Session Upload (Local/Secure)",
+        format_func=lambda x: "Reference Synthetic Set (Non-Production)" if x == SYNTHETIC else "Session Upload (Secure/Local)",
         index=data_source_options.index(st.session_state["active_source"]) if st.session_state["active_source"] in data_source_options else 0,
     )
     st.session_state["active_source"] = selected_source
-    st.sidebar.caption("Reference synthetic dataset contains no institutional records; uploaded data remains local to this session.")
+    st.sidebar.caption("Note: The reference dataset is synthetically generated to mirror institutional patterns without exposing private records.")
     if st.session_state.get("upload_status"):
         st.sidebar.info(st.session_state["upload_status"])
 
@@ -113,7 +113,7 @@ def main():
     last_refreshed = (
         workshops["date"].max().strftime("%Y-%m-%d") if not workshops.empty else "N/A"
     )
-    source_label = "Reference synthetic dataset (no institutional records)" if selected_source == SYNTHETIC else "Session upload (local memory only)"
+    source_label = "Reference Synthetic Data (Non-Production)" if selected_source == SYNTHETIC else "Session Upload (Local Memory Only)"
     render_header(source_label, last_refreshed, view=st.session_state["view"])
 
     if st.session_state["view"] == "data_management":
@@ -186,9 +186,9 @@ def main():
 
     with tabs[0]:
         st.caption(f"Last refreshed: {last_refreshed.strftime('%Y-%m-%d')}")
-        st.markdown("**Strategic Value:** High-level synthesis of adoption velocity, coverage equity, and operational readiness.")
+        st.markdown("**Executive Summary:** High-level synthesis of adoption velocity, training coverage, and operational readiness.")
         st.markdown(
-            "Use this view to brief leadership on the overall health of the AI enablement initiative. Indicators focus on the conversion of 'activity' (attendance) into 'capacity' (readiness)."
+            "Use this view to brief leadership on the overall health of the AI enablement initiative. Indicators track the conversion of 'activity' (attendance) into 'institutional capacity' (readiness)."
         )
         render_overview_section(adoption_overall, coverage_rate, avg_completion, total_attendance)
         top_ready = (
@@ -211,7 +211,7 @@ def main():
         )
     with tabs[1]:
         st.markdown(
-            "Departmental adoption and readiness indicators. Identify prepared vs. at-risk units for responsible AI use. Direct support to departments below coverage/readiness targets; replicate practices from leaders."
+            "Comparative analysis of departmental readiness profiles. Identifies units that are well-positioned for advanced AI integration versus those requiring foundational support. Use these metrics to allocate resources and identify peer-mentoring opportunities."
         )
         render_adoption_section(adoption_df)
         st.dataframe(
@@ -230,7 +230,7 @@ def main():
         )
     with tabs[2]:
         st.markdown(
-            "Pre/post confidence and responsible AI understanding. Validate training effectiveness across faculty, staff, and graduate students. Adjust modality and follow-on supports based on observed gains."
+            "Longitudinal assessment of confidence and competency shifts. Validates whether training interventions are driving measurable improvements in responsible AI understanding across faculty, staff, and graduate student cohorts."
         )
         render_learning_impact_section(impact_summary_df)
         st.download_button(
@@ -241,7 +241,7 @@ def main():
         )
     with tabs[3]:
         st.markdown(
-            "Participation over time and by format/audience. Optimize scheduling, facilitator load, and modality investments. Align facilitators to peak months and formats that sustain completion and reach priority audiences."
+            "Temporal analysis of participation volume and modality preferences. Supports capacity planning, facilitator staffing, and the optimization of workshop formats to maximize institutional reach."
         )
         render_participation_section(timeseries_df, by_format_df, by_audience_df, completion_df)
         st.download_button(
@@ -252,7 +252,7 @@ def main():
         )
     with tabs[4]:
         st.markdown(
-            "Themed qualitative reflections with sentiment. Surface early signals on adoption, risks, and support needs that quantitative metrics may miss. Address recurring themes (ethical concerns, assessment) with targeted guidance and governance updates."
+            "Thematic analysis of qualitative feedback. Surfaces emerging risks, ethical concerns, and support needs reported by participants. These signals are critical for guiding policy adjustments and curriculum refinement."
         )
         render_reflection_section(sentiment_df, theme_df)
         st.download_button(
@@ -263,7 +263,7 @@ def main():
         )
     with tabs[5]:
         st.markdown(
-            "Targeted snapshot for the selected department to brief chairs and associate deans. Calibrate supports, monitor readiness and coverage targets, and track participation demand."
+            "Detailed unit-level reporting for chair briefings and strategic planning. Provides a granular view of adoption, readiness, and engagement for a specific department."
         )
         focus_options = selected_depts if selected_depts else list(departments["department_id"])
         focus_dept = st.selectbox(

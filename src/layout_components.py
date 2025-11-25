@@ -268,7 +268,7 @@ def render_participation_section(timeseries_df, by_format_df, by_audience_df, co
 def render_reflection_section(sentiment_df, theme_df):
     st.subheader("Qualitative Intelligence")
     st.write(
-        "Thematic analysis of participant feedback and sentiment signals. Complements quantitative KPIs with lived experience from faculty, staff, and graduate students—critical for governance and equity monitoring. Review dominant themes and sentiment mix to target guidance, policy reinforcement, or follow-up consultations."
+        "Thematic analysis of participant feedback and sentiment signals. Complements quantitative KPIs with lived experience from faculty, staff, and graduate students, which is critical for governance and equity monitoring. Review dominant themes and sentiment mix to target guidance, policy reinforcement, or follow-up consultations."
     )
     col1, col2 = st.columns(2)
     col1.plotly_chart(make_reflection_sentiment_bar(sentiment_df), use_container_width=True)

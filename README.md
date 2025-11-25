@@ -85,7 +85,7 @@ These sections interact through filters that allow leadership to examine the dat
 
 ## Synthetic Data and Public Transparency
 
-To make this dashboard publicly accessible without exposing institutional information, the GitHub version uses **entirely synthetic data**. The datasets have been carefully constructed to resemble real institutional patterns—varied participation, uneven adoption levels, real-world shifts in confidence, meaningful reflection themes—without duplicating or revealing any data used internally.
+To make this dashboard publicly accessible without exposing institutional information, the GitHub version uses **entirely synthetic data**. The datasets have been carefully constructed to resemble real institutional patterns (varied participation, uneven adoption levels, real-world shifts in confidence, meaningful reflection themes) without duplicating or revealing any data used internally.
 
 This approach allows researchers, developers, and collaborators to:
 

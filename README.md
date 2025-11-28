@@ -1,131 +1,73 @@
-# AIRE Impact Dashboard
-### Institutional Decision Intelligence for Responsible AI Adoption
-**Applied AI Innovation & Research Enablement (AIRE) Program**  
-College of Social Science, Michigan State University
+# AIRE Impact Dashboard  
 
----
+The AIRE Impact Dashboard is the institutional analytics layer of the Applied AI Innovation and Research Enablement (AIRE) Program. It provides leadership and program staff with a clear view of how AI literacy, confidence, participation, and readiness are developing across the college. The dashboard was originally deployed on internal MSU systems and used securely governed datasets. This public version mirrors the structure and analytical logic of the internal deployment while relying entirely on synthetic data.
 
-## System Overview
+The Impact Dashboard helps connect the activities of the AIRE Literacy Hub, the AIRE Researcher Sandbox, and the AIRE Personalization Layer to institutional planning. It presents a structured set of indicators that support ongoing conversations about responsible adoption, professional development, and the readiness of units for deeper AI-related work.
 
-The **AIRE Impact Dashboard** serves as the central decision-support interface for the College of Social Science’s responsible AI enablement strategy. It provides leadership, department chairs, and program directors with a unified view of how AI literacy, competency, and operational readiness are evolving across the college.
+## Role in the AIRE Ecosystem
 
-Designed to close the loop between training (AIRE Literacy Hub) and application (AIRE Researcher Sandbox), this system translates participation data and confidence metrics into actionable intelligence. It supports governance decisions regarding:
+The AIRE Program includes four coordinated components:
 
-*   **Resource Allocation:** Identifying high-demand modalities and under-served units.
-*   **Competency Tracking:** Verifying that training interventions yield measurable gains in responsible AI understanding.
-*   **Strategic Readiness:** Monitoring departmental capacity for advanced AI integration.
-*   **Risk & Sentiment:** Surfacing qualitative themes from participant reflections to guide policy and support structures.
+- AIRE Literacy Hub  
+- AIRE Researcher Sandbox  
+- AIRE Impact Dashboard  
+- AIRE Personalization Layer (Micro Tutor and Learner Scorecard)
 
-### Public Reference Implementation & Synthetic Data
+Within this structure, the Impact Dashboard serves as the primary decision-support environment. It helps leadership track:
 
-This repository contains the **public reference implementation** of the internal AIRE dashboard. To maintain transparency while safeguarding institutional confidentiality, this deployment utilizes a **high-fidelity synthetic dataset**.
+- participation patterns across faculty, staff, students, and researchers  
+- changes in self-reported confidence and understanding of responsible AI practice  
+- emerging strengths and areas where additional support may be needed  
+- differences in adoption and readiness across departments  
+- themes from reflections and other qualitative feedback  
+- indicators that help with planning, accreditation needs, and resource allocation  
 
-This dataset is fabricated to mirror the statistical properties, adoption patterns, and structural relationships observed in the production environment. It allows partners to evaluate the analytical model, KPI logic, and decision-support workflows without accessing restricted institutional records. All names, departments, and feedback entries in this version are generated for demonstration purposes.
+The dashboard provides a stable reference point for understanding how the college’s capacity for responsible AI use is developing over time.
 
----
+## What the Dashboard Shows
 
-## Strategic Context: The AIRE Ecosystem
+The dashboard is organized into several views that work together to present a balanced picture of institutional progress.
 
-This dashboard functions as the "Insight Layer" within the broader AIRE constellation:
+### Overall Program Picture  
+A summary showing participation levels, shifts in confidence, readiness patterns, and basic indicators of adoption. This view provides context for the rest of the dashboard.
 
-1.  **Enablement (Literacy Hub):** Delivers tiered training, from foundational literacy to advanced technical workshops.
-2.  **Experimentation (Researcher Sandbox):** Provides secure compute and compliant environments for applied research.
-3.  **Intelligence (Impact Dashboard):** Monitors the efficacy of the ecosystem, tracking the conversion of "interest" into "capacity."
+### Departmental Adoption and Readiness  
+A comparative view that illustrates how units differ in training coverage, participation, and readiness for deeper AI integration. This helps identify departments that may require additional mentoring or support.
 
-By integrating these signals, the dashboard moves beyond simple "attendance counting" to measure **institutional transformation**.
+### Learning Outcomes and Confidence Growth  
+Pre- and post-training confidence measures indicating whether participants feel better prepared to use AI tools and understand responsible-use expectations.
 
----
+### Participation and Engagement Trends  
+A time-based view that shows how individuals interact with workshops and microcourses across semesters. These patterns help program staff anticipate demand and refine scheduling.
 
-## Purpose and Use in Institutional Decision-Making
+### Reflections and Emerging Themes  
+Synthetic qualitative feedback that models how participants reflect on workshops and training. These themes help inform program improvements and identify areas where new materials or consultations may be helpful.
 
-AI literacy work affects faculty, staff, students, and research units differently. Some departments rapidly embrace new technologies; others proceed more cautiously or require additional support. To manage this diversity across a large and interdisciplinary college, leadership needs a stable view of:
+### Department Readiness Matrix  
+A combined view that compares readiness indicators and training coverage. This model helps units understand their position in the college’s overall AI adoption landscape.
 
-- patterns of participation across roles and units  
-- whether training is improving confidence and competency  
-- which departments are developing readiness for deeper integration  
-- areas where additional mentoring, workshops, or consultations are needed  
-- how teams are responding to responsible AI guidance  
-- emerging questions, concerns, risks, and opportunities reported by participants  
-
-The dashboard consolidates these signals into a single environment that leadership can consult throughout the year. It helps program designers refine workshop sequences, supports accreditation- or reporting-related needs, guides decision-making around professional development, and provides a clearer sense of where the college stands in relation to its goals for responsible and ethical AI adoption.
-
----
-
-## How the Dashboard Is Structured
-
-The dashboard organizes the AIRE Program’s data into several interconnected views, each highlighting a different dimension of institutional progress.
-
-### Overall Program Picture
-
-A high-level summary distilling participation levels, shifts in confidence, adoption indicators, and readiness patterns. This view anchors the rest of the dashboard and helps leadership quickly understand college-wide trends.
-
-### Departmental Adoption and Readiness
-
-Charts that show how units compare in terms of readiness, training coverage, and adoption behaviors. These insights help identify departments that are well-positioned for future AI initiatives and those that may require tailored support.
-
-### Learning Outcomes and Confidence Growth
-
-Pre- and post-training confidence measures that show how well participants feel they understand responsible AI practice, how comfortable they are with tools, and how those self-assessments change after engagement with the AIRE curriculum.
-
-### Participation and Engagement Trends
-
-A time-based view of workshops, microcourses, and training sessions, segmented by role and format. These patterns are useful for planning workshop schedules, anticipating demand, and coordinating faculty development resources.
-
-### Reflections and Emerging Themes
-
-Qualitative feedback from participants, categorized by sentiment and thematic focus. These insights help identify early concerns, areas where more guidance is needed, and opportunities for program improvement.
-
-### Department Readiness Matrix
-
-A combined view of readiness and training coverage that highlights which departments may be ready to begin more advanced or specialized responsible AI initiatives.
-
-These sections interact through filters that allow leadership to examine the data for all departments, specific subsets, or single units, and to isolate the behaviors of different groups such as faculty, staff, and graduate students.
-
----
+All views can be filtered by department, role, or timeframe to support detailed examination.
 
 ## Synthetic Data and Public Transparency
 
-To make this dashboard publicly accessible without exposing institutional information, the GitHub version uses **entirely synthetic data**. The datasets have been carefully constructed to resemble real institutional patterns (varied participation, uneven adoption levels, real-world shifts in confidence, meaningful reflection themes) without duplicating or revealing any data used internally.
+To make this dashboard publicly accessible, the GitHub version uses synthetic data. The datasets have been designed to:
 
-This approach allows researchers, developers, and collaborators to:
+- resemble the structure and statistical patterns of the internal datasets  
+- illustrate typical adoption behavior across a large academic unit  
+- support realistic demonstrations of indicators, filters, and visualizations  
+- maintain confidentiality and remove any possibility of identifying real individuals  
 
-- run the dashboard immediately  
-- explore the analytic model  
-- understand how data flows into KPIs  
-- upload their own datasets  
-- integrate or extend the dashboard in their own environments  
+This approach allows institutions, researchers, and instructional design teams to explore the dashboard model, test their own data, or adapt the framework for their own environments.
 
-The synthetic dataset also supports orientation, sandbox testing, and onboarding without requiring any connection to restricted institutional systems.
+## Uploading Data for Local Exploration
 
----
+The dashboard includes a Data Management interface that allows users to upload CSV files following the documented format. Uploaded data is:
 
-## Data Upload and Local Exploration
+- validated against the expected schema  
+- held locally during the session  
+- used to recompute all indicators and visualizations  
 
-The dashboard includes a dedicated **Data Management** interface. This interface allows users to upload their own CSV files (following documented column formats) and explore how the dashboard behaves with alternative datasets.
-
-Uploaded data is:
-
-- validated against established schemas  
-- held in the local session only  
-- used to recompute all metrics and visualizations  
-
-The synthetic dataset remains available as the default for immediate use.
-
----
-
-## Filtering and Comparative Analysis
-
-Filters support a wide range of institutional questions. Users can:
-
-- select all departments to see college-wide patterns  
-- choose a single department to examine its trajectory in detail  
-- compare several departments for deeper analysis  
-- view trends for specific roles (faculty, staff, graduate students)  
-- adjust date ranges to focus on recent semesters or annual cycles  
-
-Every visualization adapts to the selected filters, making the dashboard useful for strategic planning meetings and data-driven conversations.
-
----
+The synthetic dataset remains the default option for immediate use.
 
 ## Running the Dashboard Locally
 
@@ -137,26 +79,34 @@ Run the dashboard:
 
     streamlit run app.py
 
-The environment will load using the synthetic dataset so that all views are populated immediately.
-
----
+All views will populate using the synthetic dataset unless users upload their own data through the interface.
 
 ## Testing and Continuous Integration
 
-This repository includes:
+This repository includes a suite of tests that ensure reliability, including:
 
 - schema validation  
-- data integrity tests  
-- KPI validation tests  
+- data integrity checks  
+- KPI validation  
 - import and environment checks  
-- a GitHub Actions-based CI workflow  
 
-All tests may be run via:
+Tests may be run with:
 
     pytest
 
----
+A GitHub Actions workflow is included for continuous integration.
+
+## Relationship to the Other AIRE Components
+
+The Impact Dashboard links the program’s learning, experimentation, and personalization components to institutional planning:
+
+- The AIRE Literacy Hub provides training resources and responsible-use guidance.  
+- The AIRE Researcher Sandbox provides workflows for early-stage experimentation.  
+- The AIRE Personalization Layer generates learner-facing insights and telemetry patterns.  
+- The Impact Dashboard aggregates and summarizes synthetic versions of those signals.  
+
+Together, these components form a full-cycle approach to responsible AI adoption across the college.
 
 ## License
 
-Distributed as an open resource in support of transparent, responsible AI literacy development and collaborative institutional analytics.
+MIT License. All synthetic data and demonstration code in this repository are provided as open resources to support transparent and responsible institutional analytics.

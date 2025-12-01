@@ -59,6 +59,15 @@ def _map_roles_to_audiences(selected_roles):
     return [mapping[r] for r in selected_roles if r in mapping]
 
 
+from src.views import (
+    render_adoption_tab,
+    render_department_focus_tab,
+    render_engagement_tab,
+    render_learning_impact_tab,
+    render_overview_tab,
+    render_reflections_tab,
+)
+
 def main():
     st.set_page_config(page_title="AIRE Impact Dashboard", layout="wide")
     if "active_source" not in st.session_state:
@@ -171,7 +180,7 @@ def main():
 
     avg_completion = completion_df["value"].iloc[0] if not completion_df.empty else 0
     total_attendance = int(timeseries_df["attendances"].sum()) if not timeseries_df.empty else 0
-    last_refreshed = workshops["date"].max()
+    last_refreshed_date = workshops["date"].max()
 
     tabs = st.tabs(
         [
@@ -185,117 +194,34 @@ def main():
     )
 
     with tabs[0]:
-        st.caption(f"Last refreshed: {last_refreshed.strftime('%Y-%m-%d')}")
-        st.markdown("**Executive Summary:** High-level synthesis of adoption velocity, training coverage, and operational readiness.")
-        st.markdown(
-            "Use this view to brief leadership on the overall health of the AI enablement initiative. Indicators track the conversion of 'activity' (attendance) into 'institutional capacity' (readiness)."
-        )
-        render_overview_section(adoption_overall, coverage_rate, avg_completion, total_attendance)
-        top_ready = (
-            readiness_df.sort_values("current_readiness_score", ascending=False).head(1)["department_name"].iloc[0]
-            if not readiness_df.empty
-            else "N/A"
-        )
-        conf_delta = impact_summary_df["delta"].mean() if not impact_summary_df.empty else 0
-        exec_notes = [
-            f"**Readiness Leader:** {top_ready} exhibits highest composite readiness; recommend engaging leadership for peer-mentoring pilot.",
-            f"**Competency Shift:** +{conf_delta:.2f} net gain in confidence metrics post-intervention; validates current curriculum effectiveness.",
-            f"**Capacity Signal:** {total_attendance:,} total engagements recorded; align facilitator staffing to sustain support for high-velocity periods.",
-        ]
-        render_executive_notes(exec_notes)
-        st.download_button(
-            "Download overview metrics (CSV)",
-            data=readiness_df.to_csv(index=False),
-            file_name="overview_readiness.csv",
-            mime="text/csv",
+        render_overview_tab(
+            adoption_overall,
+            coverage_rate,
+            avg_completion,
+            total_attendance,
+            readiness_df,
+            impact_summary_df,
+            last_refreshed_date,
         )
     with tabs[1]:
-        st.markdown(
-            "Comparative analysis of departmental readiness profiles. Identifies units that are well-positioned for advanced AI integration versus those requiring foundational support. Use these metrics to allocate resources and identify peer-mentoring opportunities."
-        )
-        render_adoption_section(adoption_df)
-        st.dataframe(
-            adoption_df.sort_values("adoption_index", ascending=False).rename(
-                columns={"department_name": "Department", "adoption_index": "Adoption Index"}
-            ),
-            use_container_width=True,
-            hide_index=True,
-        )
-        render_department_readiness_section(readiness_df)
-        st.download_button(
-            "Download adoption & readiness data (CSV)",
-            data=adoption_df.merge(readiness_df, on=["department_id", "department_name"], how="left").to_csv(index=False),
-            file_name="adoption_readiness.csv",
-            mime="text/csv",
-        )
+        render_adoption_tab(adoption_df, readiness_df)
     with tabs[2]:
-        st.markdown(
-            "Longitudinal assessment of confidence and competency shifts. Validates whether training interventions are driving measurable improvements in responsible AI understanding across faculty, staff, and graduate student cohorts."
-        )
-        render_learning_impact_section(impact_summary_df)
-        st.download_button(
-            "Download learning impact (CSV)",
-            data=impact_summary_df.to_csv(index=False),
-            file_name="learning_impact.csv",
-            mime="text/csv",
-        )
+        render_learning_impact_tab(impact_summary_df)
     with tabs[3]:
-        st.markdown(
-            "Temporal analysis of participation volume and modality preferences. Supports capacity planning, facilitator staffing, and the optimization of workshop formats to maximize institutional reach."
-        )
-        render_participation_section(timeseries_df, by_format_df, by_audience_df, completion_df)
-        st.download_button(
-            "Download engagement data (CSV)",
-            data=timeseries_df.to_csv(index=False),
-            file_name="engagement_timeseries.csv",
-            mime="text/csv",
-        )
+        render_engagement_tab(timeseries_df, by_format_df, by_audience_df, completion_df)
     with tabs[4]:
-        st.markdown(
-            "Thematic analysis of qualitative feedback. Surfaces emerging risks, ethical concerns, and support needs reported by participants. These signals are critical for guiding policy adjustments and curriculum refinement."
-        )
-        render_reflection_section(sentiment_df, theme_df)
-        st.download_button(
-            "Download reflections summary (CSV)",
-            data=theme_df.to_csv(index=False),
-            file_name="reflections_themes.csv",
-            mime="text/csv",
-        )
+        render_reflections_tab(sentiment_df, theme_df)
     with tabs[5]:
-        st.markdown(
-            "Detailed unit-level reporting for chair briefings and strategic planning. Provides a granular view of adoption, readiness, and engagement for a specific department."
-        )
-        focus_options = selected_depts if selected_depts else list(departments["department_id"])
-        focus_dept = st.selectbox(
-            "Department in focus",
-            options=focus_options,
-            format_func=lambda x: departments.set_index("department_id").loc[x, "department_name"],
-        )
-        focus_name = departments.set_index("department_id").loc[focus_dept, "department_name"]
-        dept_adopt = adoption_df[adoption_df["department_id"] == focus_dept]
-        dept_ready = readiness_df[readiness_df["department_id"] == focus_dept]
-        dept_engagement = compute_workshop_engagement(
-            filter_by_departments(filtered_workshops, "department_id", [focus_dept]),
-            [focus_dept],
-            audience_filter,
-        )
-        dept_timeseries = dept_engagement["timeseries"]
-        reflections_with_dept = reflections.merge(
-            participants[["participant_id", "department_id", "role"]], on="participant_id", how="left"
-        )
-        dept_reflection = compute_reflection_sentiment(
-            filter_by_departments(reflections_with_dept, "department_id", [focus_dept]),
+        render_department_focus_tab(
+            departments,
+            selected_depts,
+            adoption_df,
+            readiness_df,
+            filtered_workshops,
             participants,
-            filtered_department_ids=[focus_dept],
-            filtered_roles=role_filter,
-        )
-        dept_themes = dept_reflection["themes"]
-        render_department_focus(focus_name, dept_adopt, dept_ready, dept_timeseries, dept_themes)
-        st.download_button(
-            "Download department snapshot (CSV)",
-            data=dept_ready.to_csv(index=False),
-            file_name=f"{focus_dept}_snapshot.csv",
-            mime="text/csv",
+            reflections,
+            role_filter,
+            audience_filter,
         )
 
 

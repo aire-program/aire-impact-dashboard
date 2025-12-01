@@ -22,8 +22,9 @@ def _load_and_validate(csv_name: str, schema_name: str, date_cols=None) -> pd.Da
     df = pd.read_csv(csv_path)
     validator = _read_schema(schema_name)
 
-    for idx, record in df.iterrows():
-        errors = sorted(validator.iter_errors(record.to_dict()), key=lambda e: e.path)
+    records = df.to_dict(orient="records")
+    for idx, record in enumerate(records):
+        errors = sorted(validator.iter_errors(record), key=lambda e: e.path)
         if errors:
             messages = "; ".join([f"{'.'.join(map(str, e.path))}: {e.message}" for e in errors])
             raise ValueError(f"Validation failed for {csv_name} at row {idx}: {messages}")
@@ -40,8 +41,9 @@ def validate_dataframe(df: pd.DataFrame, schema_name: str) -> None:
     Raises ValueError with details if validation fails.
     """
     validator = _read_schema(schema_name)
-    for idx, record in df.iterrows():
-        errors = sorted(validator.iter_errors(record.to_dict()), key=lambda e: e.path)
+    records = df.to_dict(orient="records")
+    for idx, record in enumerate(records):
+        errors = sorted(validator.iter_errors(record), key=lambda e: e.path)
         if errors:
             messages = "; ".join([f"{'.'.join(map(str, e.path))}: {e.message}" for e in errors])
             raise ValueError(f"Validation failed for {schema_name} at row {idx}: {messages}")

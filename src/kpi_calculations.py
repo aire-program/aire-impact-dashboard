@@ -54,85 +54,86 @@ def compute_learning_impact(
     pre = filter_by_roles(pre, "role", filtered_roles)
     post = filter_by_roles(post, "role", filtered_roles)
 
-    def _impact_summary(df_pre: pd.DataFrame, df_post: pd.DataFrame) -> pd.DataFrame:
-        if df_pre.empty or df_post.empty:
-            return pd.DataFrame(
-                columns=[
-                    "group",
-                    "metric",
-                    "pre_mean",
-                    "post_mean",
-                    "delta",
-                    "effect_size",
-                ]
-            )
-        merged_local = df_pre.merge(df_post, on=["participant_id", "workshop_id"], suffixes=("_pre", "_post"))
-        if merged_local.empty:
-            return pd.DataFrame(columns=["group", "metric", "pre_mean", "post_mean", "delta", "effect_size"])
-
-        metrics = ["confidence_score", "understanding_responsible_ai"]
-        rows = []
-        for metric in metrics:
-            pre_vals = merged_local[f"{metric}_pre"].astype(float)
-            post_vals = merged_local[f"{metric}_post"].astype(float)
-            pre_mean = pre_vals.mean()
-            post_mean = post_vals.mean()
-            delta = post_mean - pre_mean
-            pooled_std = np.sqrt(((pre_vals.std(ddof=1) ** 2) + (post_vals.std(ddof=1) ** 2)) / 2)
-            effect_size = delta / pooled_std if pooled_std > 0 else 0
-            rows.append(
-                {
-                    "group": "overall",
-                    "metric": metric,
-                    "pre_mean": round(pre_mean, 2),
-                    "post_mean": round(post_mean, 2),
-                    "delta": round(delta, 2),
-                    "effect_size": round(effect_size, 2),
-                }
-            )
-        return pd.DataFrame(rows)
-
     summary_df = _impact_summary(pre, post)
-
-    def _breakdown(group_field: str) -> pd.DataFrame:
-        if pre.empty or post.empty:
-            return pd.DataFrame(columns=[group_field, "metric", "delta"])
-        merged_local = pre.merge(post, on=["participant_id", "workshop_id"], suffixes=("_pre", "_post"))
-        if merged_local.empty:
-            return pd.DataFrame(columns=[group_field, "metric", "delta"])
-        if "department_id_pre" in merged_local.columns:
-            merged_local["department_id"] = merged_local.get("department_id_pre").fillna(
-                merged_local.get("department_id_post")
-            )
-        if "role_pre" in merged_local.columns:
-            merged_local["role"] = merged_local.get("role_pre").fillna(merged_local.get("role_post"))
-        if group_field not in merged_local.columns:
-            return pd.DataFrame(columns=[group_field, "metric", "delta"])
-        records = []
-        for group_value, group_df in merged_local.groupby(group_field):
-            for metric in ["confidence_score", "understanding_responsible_ai"]:
-                pre_vals = group_df[f"{metric}_pre"].astype(float)
-                post_vals = group_df[f"{metric}_post"].astype(float)
-                delta = post_vals.mean() - pre_vals.mean()
-                records.append(
-                    {
-                        group_field: group_value,
-                        "metric": metric,
-                        "delta": round(delta, 2),
-                        "post_mean": round(post_vals.mean(), 2),
-                        "pre_mean": round(pre_vals.mean(), 2),
-                    }
-                )
-        return pd.DataFrame(records)
-
-    by_department = _breakdown("department_id")
-    by_role = _breakdown("role")
+    by_department = _breakdown(pre, post, "department_id")
+    by_role = _breakdown(pre, post, "role")
 
     return {
         "summary": summary_df,
         "by_department": by_department,
         "by_role": by_role,
     }
+
+
+def _impact_summary(df_pre: pd.DataFrame, df_post: pd.DataFrame) -> pd.DataFrame:
+    if df_pre.empty or df_post.empty:
+        return pd.DataFrame(
+            columns=[
+                "group",
+                "metric",
+                "pre_mean",
+                "post_mean",
+                "delta",
+                "effect_size",
+            ]
+        )
+    merged_local = df_pre.merge(df_post, on=["participant_id", "workshop_id"], suffixes=("_pre", "_post"))
+    if merged_local.empty:
+        return pd.DataFrame(columns=["group", "metric", "pre_mean", "post_mean", "delta", "effect_size"])
+
+    metrics = ["confidence_score", "understanding_responsible_ai"]
+    rows = []
+    for metric in metrics:
+        pre_vals = merged_local[f"{metric}_pre"].astype(float)
+        post_vals = merged_local[f"{metric}_post"].astype(float)
+        pre_mean = pre_vals.mean()
+        post_mean = post_vals.mean()
+        delta = post_mean - pre_mean
+        pooled_std = np.sqrt(((pre_vals.std(ddof=1) ** 2) + (post_vals.std(ddof=1) ** 2)) / 2)
+        effect_size = delta / pooled_std if pooled_std > 0 else 0
+        rows.append(
+            {
+                "group": "overall",
+                "metric": metric,
+                "pre_mean": round(pre_mean, 2),
+                "post_mean": round(post_mean, 2),
+                "delta": round(delta, 2),
+                "effect_size": round(effect_size, 2),
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def _breakdown(pre: pd.DataFrame, post: pd.DataFrame, group_field: str) -> pd.DataFrame:
+    if pre.empty or post.empty:
+        return pd.DataFrame(columns=[group_field, "metric", "delta"])
+    merged_local = pre.merge(post, on=["participant_id", "workshop_id"], suffixes=("_pre", "_post"))
+    if merged_local.empty:
+        return pd.DataFrame(columns=[group_field, "metric", "delta"])
+    if "department_id_pre" in merged_local.columns:
+        merged_local["department_id"] = merged_local.get("department_id_pre").fillna(
+            merged_local.get("department_id_post")
+        )
+    if "role_pre" in merged_local.columns:
+        merged_local["role"] = merged_local.get("role_pre").fillna(merged_local.get("role_post"))
+    if group_field not in merged_local.columns:
+        return pd.DataFrame(columns=[group_field, "metric", "delta"])
+    records = []
+    for group_value, group_df in merged_local.groupby(group_field):
+        for metric in ["confidence_score", "understanding_responsible_ai"]:
+            pre_vals = group_df[f"{metric}_pre"].astype(float)
+            post_vals = group_df[f"{metric}_post"].astype(float)
+            delta = post_vals.mean() - pre_vals.mean()
+            records.append(
+                {
+                    group_field: group_value,
+                    "metric": metric,
+                    "delta": round(delta, 2),
+                    "post_mean": round(post_vals.mean(), 2),
+                    "pre_mean": round(pre_vals.mean(), 2),
+                }
+            )
+    return pd.DataFrame(records)
 
 
 def compute_training_coverage(

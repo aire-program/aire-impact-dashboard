@@ -1,5 +1,7 @@
 # AIRE Impact Dashboard  
 
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://aire-impact-dashboard.streamlit.app)
+
 The AIRE Impact Dashboard is the institutional analytics layer of the Applied AI Innovation and Research Enablement (AIRE) Program. It provides leadership and program staff with a clear view of how AI literacy, confidence, participation, and readiness are developing across the college. The dashboard was originally deployed on internal MSU systems and used securely governed datasets. This public version mirrors the structure and analytical logic of the internal deployment while relying entirely on synthetic data.
 
 The Impact Dashboard helps connect the activities of the AIRE Literacy Hub, the AIRE Researcher Sandbox, and the AIRE Personalization Layer to institutional planning. It presents a structured set of indicators that support ongoing conversations about responsible adoption, professional development, and the readiness of units for deeper AI-related work.

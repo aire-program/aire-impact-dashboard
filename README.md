@@ -31,20 +31,32 @@ The dashboard is organized into several views that work together to present a ba
 ### Overall Program Picture  
 A summary showing participation levels, shifts in confidence, readiness patterns, and basic indicators of adoption. This view provides context for the rest of the dashboard.
 
+![Overview Tab](docs/screenshots/01_overview.png)
+
 ### Departmental Adoption and Readiness  
 A comparative view that illustrates how units differ in training coverage, participation, and readiness for deeper AI integration. This helps identify departments that may require additional mentoring or support.
+
+![Adoption and Readiness Tab](docs/screenshots/02_adoption_readiness.png)
 
 ### Learning Outcomes and Confidence Growth  
 Pre- and post-training confidence measures indicating whether participants feel better prepared to use AI tools and understand responsible-use expectations.
 
+![Learning Impact Tab](docs/screenshots/03_learning_impact.png)
+
 ### Participation and Engagement Trends  
 A time-based view that shows how individuals interact with workshops and microcourses across semesters. These patterns help program staff anticipate demand and refine scheduling.
+
+![Engagement Tab](docs/screenshots/04_engagement.png)
 
 ### Reflections and Emerging Themes  
 Synthetic qualitative feedback that models how participants reflect on workshops and training. These themes help inform program improvements and identify areas where new materials or consultations may be helpful.
 
+![Reflections Tab](docs/screenshots/05_reflections.png)
+
 ### Department Readiness Matrix  
 A combined view that compares readiness indicators and training coverage. This model helps units understand their position in the college’s overall AI adoption landscape.
+
+![Department Focus Tab](docs/screenshots/06_department_focus.png)
 
 All views can be filtered by department, role, or timeframe to support detailed examination.
 
@@ -61,15 +73,16 @@ This approach allows institutions, researchers, and instructional design teams t
 
 ## Uploading Data for Local Exploration
 
-The dashboard includes a Data Management interface that allows users to upload CSV files following the documented format. Uploaded data is:
+The dashboard includes a Data Management interface for uploading CSV files. Uploaded data is validated against the expected schema, held locally during the session, and used to recompute all indicators and visualizations.
 
-- validated against the expected schema  
-- held locally during the session  
-- used to recompute all indicators and visualizations  
-
-The synthetic dataset remains the default option for immediate use.
+The synthetic dataset remains the default option for immediate use. Schema definitions for each data file can be found in the `schemas/` directory.
 
 ## Running the Dashboard Locally
+
+Requires Python 3.9 or higher. A virtual environment is recommended:
+
+    python -m venv .venv
+    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
 Install dependencies:
 
@@ -83,14 +96,9 @@ All views will populate using the synthetic dataset unless users upload their ow
 
 ## Testing and Continuous Integration
 
-This repository includes a suite of tests that ensure reliability, including:
+This repository includes a test suite covering schema validation, data integrity, KPI calculations, and import checks.
 
-- schema validation  
-- data integrity checks  
-- KPI validation  
-- import and environment checks  
-
-Tests may be run with:
+Run tests with:
 
     pytest
 
@@ -98,14 +106,14 @@ A GitHub Actions workflow is included for continuous integration.
 
 ## Relationship to the Other AIRE Components
 
-The Impact Dashboard links the program’s learning, experimentation, and personalization components to institutional planning:
+The Impact Dashboard links the program's learning, experimentation, and personalization components to institutional planning.
 
 - The AIRE Literacy Hub provides training resources and responsible-use guidance.  
 - The AIRE Researcher Sandbox provides workflows for early-stage experimentation.  
 - The AIRE Personalization Layer generates learner-facing insights and telemetry patterns.  
 - The Impact Dashboard aggregates and summarizes synthetic versions of those signals.  
 
-Together, these components form a full-cycle approach to responsible AI adoption across the college.
+Together, these components support responsible AI adoption across the college.
 
 ## License
 
